@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход</title>
+  <link rel="stylesheet" href="../CSS/Login.css">
+</head>
+<body>
+    
+    <section class="Background">
+    </section> 
+
+  <div class="form-container">
+    <div class="form-header">
+      <button class="tab active">ВХОД</button>
+      <button class="tab">РЕГИСТРАЦИЯ</button>
+    </div>
+    <form class="form">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <div class="input-wrapper">
+          <input type="email" id="email" placeholder="example@mail.com">
+          <span class="icon">👤</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <div class="input-wrapper">
+          <input type="password" id="password" placeholder="********">
+          <span class="icon">👁️</span>
+        </div>
+      </div>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">Запомнить меня</label>
+      </div>
+      <button type="submit" class="submit-button">ВОЙТИ</button>
+      <a href="#" class="forgot-password">Забыли пароль?</a>
+      <div class="divider"></div>
+      <button type="button" class="google-button">
+        <img src="../Icons/Google.png" alt="Google" class="google-icon">
+        Продолжить с Google
+      </button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.container {
+    text-align: center; 
+}
+
+.inline-text {
+    display: inline;
+    margin: 0 30px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,208 @@
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px; 
+    margin: 40px auto;  
+  }
+
+  .game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .game-card {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-left: 20%;
+    width: 60%; 
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+  
+  .text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #000;
+  }
+
+  .game-card-text {
+    width: 100%;
+    margin-left: -22%;
+  }
+  
+  .Text {
+    border-top-right-radius: 15px; 
+    border-bottom-right-radius: 15px;
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-left: 10px;
+  }
+
+  .separator {
+    width: 5%;
+    height: 100%; 
+    background-color: #ccc;
+  }
+
+  .zoom-img {
+    border-top-left-radius: 15px; 
+    border-bottom-left-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  
+  .Main_Picture {
+    position: absolute;
+  }
+
+
+  nav {
+    background-color: #707BF7;
+    height: 100px;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0 auto;          
+    display: block;
+    width: 700px;          
+  }
+  
+  .inline-text {
+    display: inline-block;   
+    margin: 0 40px;          
+  }
+  
+  .inline-image {
+    display: inline-block;   
+    margin: 0 10px;        
+    vertical-align: left;  
+    transition: transform 0.3s;
+  }
+
+  .inline-image:hover {
+    transform: scale(1.20); 
+  }
+
+  .inline-text a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .Icons {
+    margin-left: -100px;
+  }
+
+  nav[aria-label="Icons"] {
+    display: grid;
+    position: sticky;
+  }
+
+  footer {
+    background-color: #707BF7;
+  }
+
+  .Games {
+    background-color: grey;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 40px;
+    z-index: 1;
+  }
+
+  .Background {
+    position: fixed; 
+    width: 100%; 
+    height: 100vh; 
+    background-image: url('../Images/Wall_For_Site.png'); 
+    background-size: cover; 
+    background-position: center; 
+    z-index: -1; 
+  }
+
+  .auth-links {
+    position: flex;
+    overflow: visible;
+    gap: 10px;
+    margin-left: 90%;
+    margin-top: -128px;
+  }
+
+  .auth-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000; 
+    font-weight: bold;
+  }
+
+  .auth-link:hover {
+    text-decoration: underline; 
+  }
+
+  .Line {
+    display: grid; 
+    align-items: center; 
+  }
+
+  html, body {
+    margin: 0; 
+    padding: 0;
+    height: 100%; 
+  }
+
+  header {
+    background-color: #707BF7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5%;
+  }
+
+  footer {
+    margin-top : 5%;
+  }
+
+  .Menu {
+    display: inline-block;
+    gap: 20px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Information_Year {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .Information_Contact {
+    margin-bottom: 1%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .Information_Follow {
+    text-align: center;
+    font-weight: bold;
+  }
+

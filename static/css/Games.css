@@ -1,0 +1,187 @@
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px; 
+    margin: 20px auto; 
+  }
+
+  .game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .game-card {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #000;
+  }
+  
+
+  .zoom-img {
+    border-radius: 40px;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .zoom-img:hover {
+    transform: scale(1.05); 
+  }
+  
+  .Text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .Main_Picture {
+    position: absolute;
+  }
+
+  nav {
+    background-color: #707BF7;
+    height: 100px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0 auto;          
+    display: block;
+    width: 100%;        
+  }
+
+  .auth-links {
+    position: flex;
+    overflow: visible;
+    gap: 10px;
+    margin-left: 90%;
+    margin-top: -128px;
+  }
+
+  .Line {
+    display: grid; 
+    align-items: center; 
+  }
+
+  .auth-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000; 
+    font-weight: bold;
+  }
+
+  .auth-link:hover {
+    text-decoration: underline; 
+  }
+  
+  .inline-text {
+    display: inline-block;   
+    margin: 0 40px;          
+  }
+  
+  .inline-image {
+    display: inline-block;   
+    margin: 0 10px;        
+    vertical-align: left;  
+  }
+
+  .inline-text a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .Games {
+    background-color: grey;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 40px;
+    z-index: 1;
+  }
+  
+  .Background {
+    position: fixed; 
+    width: 100%; 
+    height: 100vh; 
+    background-image: url('../Images/Wall_For_Site.png'); 
+    background-size: cover; 
+    background-position: center; 
+    z-index: -1; 
+  }
+  
+  html, body {
+    margin: 0; 
+    padding: 0;
+    height: 100%; 
+  }
+
+  footer {
+    margin-top : 5%;
+    background-color: #707BF7;
+  }
+
+  header {
+    background-color: #707BF7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5%;
+  }
+
+  .Menu {
+    display: inline-block;
+    gap: 20px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .Information_Year {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .Information_Contact {
+    margin-bottom: 1%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .Information_Follow {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  nav[aria-label="Icons"] {
+    display: grid;
+    position: sticky;
+  }
+
+  
+
+  

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Last of Us</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Новости игровой индустрии, игры"/>
+  <link rel = "stylesheet" type = "text/css" href = "../CSS/Design_For_Game.css">
+  <script src="../JavaScript/List_Of_Commands.js" defer></script>
+  <script src="../JavaScript/Get_API_From_Metacritic.js" defer></script>
+  <link type="image/x-icon" href="../Logo/Group 2.ico" rel="shortcut icon">
+  <link type="Image/x-icon" href="../Logo/Group 2.ico" rel="icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <section class="Background">
+    </section> 
+
+  <header>
+    <section class = "Line">
+    <nav aria-label="Menu">
+      <ul>
+        <li class="inline-text"><a href="../HTML/News.html">Новости</a></li>
+        <li class="inline-text"><a href="../HTML/First_Page.html">Игры</a></li>
+        <li class="inline-text"><a href="../HTML/Game_Engines.html">Игровые движки</a></li>
+      </ul>
+    </nav>
+    <div class="auth-links">
+      <a href="#login" class="auth-link">Вход</a> /
+      <a href="#register" class="auth-link">Регистрация</a>
+    </div>
+    
+    </section>
+  </header>
+
+  <section class="Games">
+    <div class="container">
+      <div class="grid-container">
+        <div class="grid-item">
+          <img src="../Images/The_Last_Of_Us.png" class="zoom-img">
+        </div>
+      </div>
+    </div>
+
+    <nav aria-label="Menu_1">
+      <ul>
+        <li class="inline-text">Приключения</li>
+        <li class="inline-text">Экшен</li>
+        <li class="inline-text">Стелс</li>
+      </ul>
+    </nav>
+
+  <section class="Description_Of_The_Game">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10 mx-auto"> 
+          <div class="text-center animate__animated">
+            <div class="Text">The Last of Us — компьютерная игра в жанре action-adventure с элементами survival horror и стелс-экшена, разработанная студией Naughty Dog.
+              Действие игры происходит в постапокалиптическом будущем на территории бывших Соединённых Штатов Америки спустя двадцать лет после глобальной пандемии, вызванной опасно мутировавшим грибом кордицепс. Сюжет посвящён путешествию главных героев — контрабандиста Джоэла и девочки-подростка Элли, сыгранных Троем Бейкером и Эшли Джонсон с помощью технологии захвата движения.
+              The Last of Us была высоко оценена критиками за повествование, развитие отношений главных персонажей, а также за визуальный и звуковой дизайн. Игра получила множество наград, в том числе в номинации «Игра года». The Last of Us стала коммерческим успехом: в первую неделю продажи составили более 1,3 миллиона копий игры, а к апрелю 2018 года совокупные продажи всех изданий игры превысили 17 миллионов копий. 
+              Действие основной части происходит спустя 20 лет после глобальной катастрофы — пандемии, вызванной мутировавшим грибом кордицепсом. Согласно сюжету, кордицепс попадает в человеческий организм в виде спор в результате вдыхания, через кровь или слюну заражённого. Затем гриб вызывает необратимые изменения в человеческом организме — жертва теряет разум и превращается в подобие зомби. Пандемия привела к упадку цивилизации и гибели большей части населения США и всей Земли. Часть выживших укрывается в изолированных карантинных зонах, охраняемых военными. Города за пределами карантинных зон превратились в опасные руины, населённые заражёнными, бандитами и каннибалами. Террористическая организация «Цикады» (в оригинале «Светлячки» от англ. Fireflies) пытается поднять население карантинных зон на восстание против военных, а также стремится разработать вакцину против инфекции
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Score">
+    <div class="container grid-container">
+      <div class="grid-item text-center">
+        <div class="Text_1" id="metacritic-score">
+          Оценка метакритики: <span id="score-placeholder">Загрузка...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="Buy_Game">
+    <div class="container grid-container">
+      <div class="grid-item text-center">
+        <div class="Text_1" style="cursor: pointer;" onclick="redirectToTheLastOfUs_1()">
+          Купить игру
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="Comments">
+    <div class="container grid-container">
+      <div class="grid-item text-center">
+        <div class="Text_1">
+          Здесь вы можете почитать комментарии или оставить свой
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="Create_Comment">
+    <div class="container grid-container">
+      <div class="grid-item text-center">
+        <div class="Text_2" id="add-comment-btn" style="cursor: pointer;">
+          Оставить комментарий
+        </div>
+
+        <div id="comment-field" style="display: none; margin-top: 10px;">
+          <textarea id="comment-text" placeholder="Введите ваш комментарий..." 
+                    style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>
+          <button id="submit-comment-btn" style="margin-top: 10px;">Отправить</button>
+        </div>
+        <div id="comments-list" style="margin-top: 20px; text-align: left;">
+          <h3>Комментарии:</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<footer> 
+  <nav aria-label="Pages">
+    <ul>
+      <li class="inline-text"><a href="../HTML/First_Page.html">1</a></li>
+      <li class="inline-text"><a href="../HTML/Second_Page.html">2</a></li>
+      <li class="inline-text"><a href="../HTML/Third_Page.html">3</a></li>
+      <li class="inline-text"><a href="../HTML/Fourth_Page.html">4</a></li>
+      <li class="inline-text"><a href="../HTML/Fifth_Page.html">5</a></li>
+      <li class="inline-text"><a href="../HTML/Sixth_Page.html">6</a></li>
+    </ul>
+  </nav>
+
+  <div class = "Information_Follow">
+    Следите за нами
+  </div>
+
+  <nav aria-label="Icons">
+    <ul>
+      <li class="inline-image"> <a href="https://t.me/Fetyper"> <img src="../Icons/Telegram.png" alt="Telegram"></a></li>
+      <li class="inline-image"> <a href="https://vk.com/coolstudent1"> <img src="../Icons/VK.png" alt="VK"></a></li>
+      <li class="inline-image"> <a href="https://github.com/Sonic11-stack?tab=overview&from=2024-12-01&to=2024-12-08"> <img src="../Icons/GitHub.png" alt="GitHub"></a></li>
+    </ul>
+  </nav>
+
+  <div class = "Information_Contact">
+    Почта для связи: matvejnazarov4@gmail.com
+  </div>
+  <div class = "Information_Year">
+    © 2024. Все права защищены
+  </div>
+</footer>
+
+  </body>
+</html>
