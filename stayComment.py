@@ -1,24 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
-import pages, news, engines, formsRegAndLogin, games, stayComment
 from pydantic import BaseModel, EmailStr
 import sqlite3
 
-
 app = FastAPI()
 
-app.include_router(pages.router)
-app.include_router(news.router)
-app.include_router(engines.router)
-app.include_router(formsRegAndLogin.router)
-app.include_router(games.router)
-
+# Подключение к базе данных SQLite
 def connect_db():
     conn = sqlite3.connect("Comments.db")
     conn.row_factory = sqlite3.Row
     return conn
 
+# Создаем таблицу, если ее нет
 def setup_db():
     conn = connect_db()
     cursor = conn.cursor()
@@ -35,11 +28,13 @@ def setup_db():
 
 setup_db()
 
+# Модель данных
 class Comment(BaseModel):
     name: str
     email: EmailStr
     comment: str
 
+# Маршрут для добавления комментария
 @app.post("/add_comment")
 async def add_comment(comment: Comment):
     conn = connect_db()
@@ -52,6 +47,7 @@ async def add_comment(comment: Comment):
     conn.close()
     return {"message": "Комментарий добавлен"}
 
+# Маршрут для получения комментариев
 @app.get("/get_comments")
 async def get_comments():
     conn = connect_db()
@@ -63,10 +59,3 @@ async def get_comments():
         {"id": row["id"], "name": row["name"], "email": row["email"], "comment": row["comment"]}
         for row in rows
     ])
-
-
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
