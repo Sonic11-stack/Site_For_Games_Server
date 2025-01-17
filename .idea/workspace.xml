@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7679b563-8033-4cef-bed9-4f820b915a48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/Game_Engines.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Game_Engines.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/Games.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Games.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/News.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/News.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/javascript/Get_API_From_Metacritic.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/javascript/Get_API_From_Metacritic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Fifth_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Fifth_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/First_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/First_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Fourth_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Fourth_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Game_Engines.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Game_Engines.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/Design_For_Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/Design_For_Game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/News_Fifth_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/News_Fifth_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/News_First_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/News_First_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/News_Fourth_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/News_Fourth_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/News_Second_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/News_Second_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/News_Sixth_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/News_Sixth_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/News_Third_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/News_Third_Page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Second_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Second_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Sixth_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Sixth_Page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/The Last Of Us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/The Last Of Us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Third_Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Third_Page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Unity.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Unity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,14 +35,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\konno\PycharmProjects\pythonProject1" />
