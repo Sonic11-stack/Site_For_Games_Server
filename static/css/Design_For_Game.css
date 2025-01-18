@@ -409,6 +409,11 @@
     color: inherit; 
   }
 
+  .auth-link:hover {
+    text-decoration: none; 
+    color: inherit; 
+  }
+
   .game-info h2, p {
     font-family: 'Bebas Neue Bold';
   }
