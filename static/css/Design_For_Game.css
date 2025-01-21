@@ -20,6 +20,7 @@
   }
 
   .Score {
+    display: inline-block;
     float: right;
     margin-right: 100px;
   }
@@ -60,7 +61,8 @@
 
   .auth-links{
     position: flex;
-    display : flex;
+    /*display : none;*/
+    display: flex;
     overflow: visible;
     color : black;
     bottom : 10%;
@@ -100,8 +102,10 @@
   }
 
   .container {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -115,14 +119,38 @@
     align-items: center;
   }
   
+  .Buy_Game .grid-item {
+    width: 150px;
+    text-align: center;
+    
+  }
+
+  .Score .grid-item {
+    width: 150px;
+    text-align: center;
+    margin-right: 100px;
+  }
+
   .grid-item {
     text-align: center;
   }
   
-  .Text, .Text_1 {
+  .Text {
     font-size: 18px;
     line-height: 1.6;
     color: #333;
+  }
+
+  .Text_1 {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    white-space: nowrap;
+    margin-top: 8px;
+    margin-left: 60px;
+    font-family: 'Bebas Neue Bold';
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .Text_2 {
@@ -136,7 +164,10 @@
     line-height: 1.6;
     color: #333;
     margin-top: 8px;
-    margin-left: 60px;
+    font-family: 'Bebas Neue Bold';
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
   }
   
   textarea {
@@ -153,14 +184,14 @@
     font-size: 16px;
     cursor: pointer;
     border: none;
-    background-color: #007bff;
+    background-color: #707BF7;
     color: #fff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #3E4486;
   }
   
   .zoom-img {
@@ -201,6 +232,7 @@
     color: #000 !important; 
     font-weight: bold;
   }
+  
 
   .Background {
     position: fixed; 
@@ -304,12 +336,16 @@
   }
 
   .meta-icon {
+    width: 50px;
+    height: auto;
     display: block;
     float: left;
     max-width: 50px;    
   }
 
   .meta-steam {
+    width: 50px;
+    height: auto;
     display: block;
     float: left;
     max-width: 50px;    
@@ -421,3 +457,39 @@
   .tag {
     font-family: 'Bebas Neue Bold';
   }
+
+  .btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+    margin-top: -10px;
+    margin-left: 10px;
+}

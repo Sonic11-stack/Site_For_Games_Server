@@ -1,5 +1,5 @@
-/* const API_KEY = '82e701bc8b704d03be3d42a8183eb6ae'; // Вставьте ваш API-ключ RAWG
-const GAME_NAME = 'The Last of Us'; // Название игры
+/*const API_KEY = '41fdca3dce1b4153af488de676486592'; 
+const GAME_NAME = 'The Last of Us'; 
 
 async function fetchMetacriticScore(gameName) {
   try {
@@ -18,8 +18,8 @@ async function fetchMetacriticScore(gameName) {
   }
 }
 
-fetchMetacriticScore(GAME_NAME);
-*/
+fetchMetacriticScore(GAME_NAME); */
+
 
 const addCommentBtn = document.getElementById('add-comment-btn');
 const commentField = document.getElementById('comment-field');

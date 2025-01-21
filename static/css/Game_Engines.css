@@ -92,7 +92,7 @@
   .auth-link {
     font-size: 18px;
     text-decoration: none;
-    color: #000; 
+    color: #000 !important;
     font-weight: bold;
   }
 
@@ -146,6 +146,7 @@
   footer {
     margin-top : 15%;
     background-color: #707BF7;
+    font-family: 'Bebas Neue Bold';
   }
 
   header {
@@ -186,6 +187,103 @@
     position: sticky;
   }
 
+  .logo-container {
+    margin-right: auto;
+    margin-top: -130px;
+    margin-left: 30px;
+  }
   
+  .logo {
+    max-height: 55px; 
+    transition: transform 0.5s ease, opacity 0.3s ease;
+  }
+
+  .logo:hover{
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+    white-space: nowrap; 
+    margin-left: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .c-btn {
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    height: 100%;
+  }
+  .c-btn:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  
+  .c-btn--big-line:after {
+    content: attr(data-hover-name);
+    color: white;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .c-btn--big-line:before {
+    content: '';
+    display: block;
+    position: absolute;
+    transform-origin: right;
+    transform: scaleX(0);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: #333333;
+    transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .c-btn--big-line:hover:after {
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    transition-delay: .3s;
+  }
+  .c-btn--big-line:hover:before {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  
+  nav a {
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+  }
+
+  nav a:focus, 
+  nav a:active {
+    outline: none; 
+    box-shadow: none; 
+  }
+
+  nav a:hover {
+    text-decoration: none; 
+    color: inherit; 
+  }
+
+  .auth-link:hover {
+    text-decoration: none; 
+    color: inherit; 
+  }
+
+  .game-info h2, p {
+    font-family: 'Bebas Neue Bold';
+  }
+
+  .tag {
+    font-family: 'Bebas Neue Bold';
+  }
 
   
