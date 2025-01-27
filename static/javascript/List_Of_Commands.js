@@ -210,11 +210,11 @@
             window.location.href='https://store.steampowered.com/app/2124490/SILENT_HILL_2/?curator_clanid=43125015';
         }
 
-        function redirectToMiddleEarth(){
+        function redirectToMiddleEarth() {
             window.location.href='https://store.steampowered.com/app/241930/Middleearth_Shadow_of_Mordor/';
         }
 
-        function redirectToMiddleEarth2(){
+        function redirectToMiddleEarth2() {
             window.location.href='https://store.steampowered.com/app/356190/Middleearth_Shadow_of_War/';
         }
 
