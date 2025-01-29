@@ -180,7 +180,7 @@
 
         function redirectToSackboy() {
             window.location.href='https://store.steampowered.com/app/1599660/Sekboj_Bolshoe_priklyuchenie/';
-        }
+        } 
 
         function redirectToHonor() {
             window.location.href='https://store.epicgames.com/ru/p/for-honor--gold-edition';
