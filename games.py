@@ -441,3 +441,291 @@ async def the_last_of_us(request: Request):
 async def the_last_of_us(request: Request):
     return templates.TemplateResponse("Mirror’s_Edge.html", {"request": request})
 
+@router.get("/left_4_dead")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Left_4_Dead.html", {"request": request})
+
+@router.get("/left_4_dead_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Left_4_Dead_2.html", {"request": request})
+
+@router.get("/dead_space")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Dead_Space.html", {"request": request})
+
+@router.get("/dead_space_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Dead_Space_2.html", {"request": request})
+
+@router.get("/watch_dogs")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Watch_Dogs.html", {"request": request})
+
+@router.get("/watch_dogs_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Watch_Dogs_2.html", {"request": request})
+
+@router.get("/watch_dogs_legion")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Watch_Dogs_Legion.html", {"request": request})
+
+@router.get("/world_of_tanks")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("World_of_Tanks.html", {"request": request})
+
+@router.get("/limbo")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Limbo.html", {"request": request})
+
+@router.get("/borderlands")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Borderlands.html", {"request": request})
+
+@router.get("/borderlands_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Borderlands_2.html", {"request": request})
+
+@router.get("/borderlands_3")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Borderlands_3.html", {"request": request})
+
+@router.get("/titan_quest")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Titan_Quest.html", {"request": request})
+
+@router.get("/heavy_rain")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Heavy_Rain.html", {"request": request})
+
+@router.get("/zombies")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Zombies.html", {"request": request})
+
+@router.get("/cs_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("CS_2.html", {"request": request})
+
+@router.get("/lineage_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Lineage_2.html", {"request": request})
+
+@router.get("/ori")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Ori.html", {"request": request})
+
+@router.get("/bully")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Bully.html", {"request": request})
+
+@router.get("/life_is_strange")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Life_Is_Strange.html", {"request": request})
+
+@router.get("/quake")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Quake.html", {"request": request})
+
+@router.get("/quake_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Quake_2.html", {"request": request})
+
+@router.get("/quake_3")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Quake_3.html", {"request": request})
+
+@router.get("/quake_4")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Quake_4.html", {"request": request})
+
+@router.get("/south_park")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("South_Park.html", {"request": request})
+
+@router.get("/among_us")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Among_Us.html", {"request": request})
+
+@router.get("/payday")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("PayDay.html", {"request": request})
+
+@router.get("/payday_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("PayDay_2.html", {"request": request})
+
+@router.get("/payday_3")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("PayDay_3.html", {"request": request})
+
+@router.get("/worms")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Worms.html", {"request": request})
+
+@router.get("/beyond")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Beyond.html", {"request": request})
+
+@router.get("/dayz")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("DayZ.html", {"request": request})
+
+@router.get("/no_man's_sky")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("No_Man's_Sky.html", {"request": request})
+
+@router.get("/rainbow_six")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Rainbow_Six.html", {"request": request})
+
+@router.get("/mafia")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Mafia.html", {"request": request})
+
+@router.get("/mafia_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Mafia_2.html", {"request": request})
+
+@router.get("/mafia_3")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Mafia_3.html", {"request": request})
+
+@router.get("/mafia_def")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Mafia_Definitive_Edition.html", {"request": request})
+
+@router.get("/plague_tale")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Plague_Tale.html", {"request": request})
+
+@router.get("/plague_tale_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Plague_Tale_2.html", {"request": request})
+
+@router.get("/escapists")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Escapists.html", {"request": request})
+
+@router.get("/halo")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Halo.html", {"request": request})
+
+@router.get("/halo_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Halo_2.html", {"request": request})
+
+@router.get("/halo_3")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Halo_3.html", {"request": request})
+
+@router.get("/halo_4")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Halo_4.html", {"request": request})
+
+@router.get("/halo_infinite")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Halo_Infinite.html", {"request": request})
+
+@router.get("/rocket_league")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Rocket_League.html", {"request": request})
+
+@router.get("/crossout")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Crossout.html", {"request": request})
+
+@router.get("/hello_neighbor")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Hello_Neighbor.html", {"request": request})
+
+@router.get("/hello_neighbor_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Hello_Neighbor_2.html", {"request": request})
+
+@router.get("/path_of_exile")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Path_of_Exile.html", {"request": request})
+
+@router.get("/unravel")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Unravel.html", {"request": request})
+
+@router.get("/unravel_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Unravel_2.html", {"request": request})
+
+@router.get("/leos_fortune")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Leos_Fortune.html", {"request": request})
+
+@router.get("/lucky_tower")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Lucky_Tower.html", {"request": request})
+
+@router.get("/everlasting_summer")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Everlasting_Summer.html", {"request": request})
+
+@router.get("/cult")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Cult_of_the_Lamb.html", {"request": request})
+
+@router.get("/plague_inc")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Plague_Inc.html", {"request": request})
+
+@router.get("/doki_doki")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Doki_Doki.html", {"request": request})
+
+@router.get("/hotline")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Hotline_Miami.html", {"request": request})
+
+@router.get("/outlast")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Outlast.html", {"request": request})
+
+@router.get("/outlast_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Outlast_2.html", {"request": request})
+
+@router.get("/hades")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Hades.html", {"request": request})
+
+@router.get("/hades_2")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Hades_2.html", {"request": request})
+
+@router.get("/rayman")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Rayman.html", {"request": request})
+
+@router.get("/uncharted")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Uncharted.html", {"request": request})
+
+@router.get("/goat")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Goat.html", {"request": request})
+
+@router.get("/disco")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Disco.html", {"request": request})
+
+@router.get("/superhot")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("Superhot.html", {"request": request})
+
+@router.get("/abzu")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("ABZU.html", {"request": request})
+
+@router.get("/it_takes_two")
+async def the_last_of_us(request: Request):
+    return templates.TemplateResponse("it_takes_two.html", {"request": request})
+
+
+
+
+
