@@ -2,10 +2,6 @@
             window.location.href='../HTML/News.html';
         }
 
-        function redirectToTheLastOfUs() {
-            window.location.href='../HTML/The Last Of Us.html';
-        }
-
         function redirectToTheLastOfUs_1() {
             window.location.href='https://store.steampowered.com/app/1888930/Odni_iz_nas_CHast_I/';
         }
@@ -721,6 +717,7 @@
         function redirectToABZU() {
             window.location.href='https://store.steampowered.com/app/384190/ABZU/?l=russian';
         }
+        
 
         function redirectToItTakesTwo() {
             window.location.href='https://store.steampowered.com/app/1426210/It_Takes_Two/';

@@ -1,9 +1,12 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, Request, Response, Depends, Cookie
+from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 import pages, news, engines, formsRegAndLogin, games, stayComment
 from pydantic import BaseModel, EmailStr
 import sqlite3
+from fastapi.templating import Jinja2Templates
+from starlette.middleware.base import BaseHTTPMiddleware
+
 
 from fastapi.responses import RedirectResponse
 from fastapi import FastAPI
@@ -13,8 +16,45 @@ from google_auth_oauthlib.flow import Flow
 import os
 
 app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  
+
+class AuthMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        auth_cookie = request.cookies.get("auth", "false")
+        request.state.is_authenticated = auth_cookie == "true"
+        response = await call_next(request)
+        return response
+
+app.add_middleware(AuthMiddleware)
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.post("/log")
+async def log(response: Response):
+    response.set_cookie(key="auth", value="true", httponly=True, path="/")
+    return JSONResponse(content={"success": True, "message": "Вход выполнен"}, status_code=200)
+
+@app.post("/logout")
+async def logout(response: Response):
+    response.delete_cookie("auth", path="/") 
+    return JSONResponse(content={"success": True, "message": "Выход выполнен"}, status_code=200)
+
+@app.get("/{path:path}")
+async def universal_page(request: Request, path: str):
+    if "." in path:  
+        return JSONResponse({"error": "Not found"}, status_code=404)
+    template_path = f"{path}.html"  
+    return templates.TemplateResponse(template_path, {"request": request, "is_authenticated": request.state.is_authenticated})
+
+@app.get("/reg")
+async def registration_page():
+    return {"message": "Страница регистрации"}
+
+@app.get("/news_first_page")
+async def news_page():
+    return {"message": "Страница новостей"}
 
 GOOGLE_CLIENT_SECRET_FILE = "EnterGoogle.json"
 GOOGLE_SCOPES = [
@@ -119,8 +159,6 @@ async def get_comments():
         for row in rows
     ])
 
-
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 if __name__ == "__main__":

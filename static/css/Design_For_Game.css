@@ -71,6 +71,22 @@
     margin-top: -128px;
   }
 
+  .auth-links-1 {
+    position: flex;
+    display : flex;
+    overflow: visible;
+    color : black;
+    bottom : 10%;
+    gap: 10px;
+    margin-left: 90%;
+    margin-top: -128px;
+    
+  }
+
+  .auth-links-1.hidden {
+    display: none;
+}
+
   .inline-text {
     display: inline-block;   
     margin: 0 40px;  
@@ -196,13 +212,17 @@
   
   .zoom-img {
     border-radius: 40px;
-    width: 40%; 
-    background-size: cover;
-    transition: transform 0.3s ease-in-out;
-    float: left; 
-    margin-right: 30px; 
-    margin-left: 10px;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr; 
+    gap: 20px; 
+    align-items: center;
   }
   
   .Menu {
@@ -231,6 +251,18 @@
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
+  }
+
+  .auth-link-1 {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000 !important; 
+    font-weight: bold;
+    top:  15px;
+  }
+
+  .auth-link-1:hover {
+    text-decoration: underline; 
   }
   
 
