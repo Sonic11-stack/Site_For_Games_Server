@@ -718,7 +718,6 @@
             window.location.href='https://store.steampowered.com/app/384190/ABZU/?l=russian';
         }
         
-
         function redirectToItTakesTwo() {
             window.location.href='https://store.steampowered.com/app/1426210/It_Takes_Two/';
         }

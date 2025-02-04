@@ -14,10 +14,10 @@ async def unity(request: Request):
 
 @router.get("/unreal_engine")
 async def unreal_engine(request: Request):
-    return templates.TemplateResponse("Unity.html", {"request": request})
+    return templates.TemplateResponse("Unreal_Engine.html", {"request": request})
 
 @router.get("/godot")
 async def godot(request: Request):
-    return templates.TemplateResponse("Unity.html", {"request": request})
+    return templates.TemplateResponse("Godot.html", {"request": request})
 
 

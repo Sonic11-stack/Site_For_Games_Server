@@ -35,7 +35,6 @@ submitCommentBtn.addEventListener('click', () => {
     const text = commentText.value.trim();
 
     if (text) {
-        // Отправляем комментарий на сервер
         fetch('/add_comment', {
             method: 'POST',
             headers: {
@@ -46,7 +45,6 @@ submitCommentBtn.addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Добавляем комментарий в список на странице
                 const newComment = document.createElement('p');
                 newComment.textContent = text;
                 newComment.style.borderBottom = '1px solid #ccc';
