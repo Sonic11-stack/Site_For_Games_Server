@@ -6,6 +6,7 @@ from pydantic import BaseModel, EmailStr
 import sqlite3
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.base import BaseHTTPMiddleware
+from games import router as games_router
 
 
 from fastapi.responses import RedirectResponse
@@ -16,6 +17,7 @@ from google_auth_oauthlib.flow import Flow
 import os
 
 app = FastAPI()
+app.include_router(games_router)
 templates = Jinja2Templates(directory="templates")
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  
@@ -30,6 +32,10 @@ class AuthMiddleware(BaseHTTPMiddleware):
 app.add_middleware(AuthMiddleware)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/profile")
+async def profile(request: Request):
+    return templates.TemplateResponse("Profile.html", {"request": request})
 
 @app.post("/log")
 async def log(response: Response):

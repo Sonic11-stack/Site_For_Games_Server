@@ -6,6 +6,10 @@
             window.location.href='https://store.steampowered.com/app/1888930/Odni_iz_nas_CHast_I/';
         }
 
+        function redirectToTheLastOfUs_2() {
+            window.location.href='https://store.steampowered.com/app/2531310/Odni_iz_nas_CHast_II_Obnovlennaya_versiya/';
+        }
+
         function redirectToHorizon() {
             window.location.href='https://store.steampowered.com/app/1151640/Horizon_Zero_Dawn_Complete_Edition/';
         }
@@ -725,4 +729,18 @@
         function redirectToPageTelegram() {
             window.location.href='https://t.me/Fetyper';
         }
+
+        function redirectToUnity() {
+            window.location.href='https://docs.unity3d.com/ru/530/Manual/index.html';
+        }
+
+        function redirectToUnrealEngine() {
+            window.location.href='https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-5-documentation';
+        }
+
+        function redirectToGodot() {
+            window.location.href='https://docs.godotengine.org/ru/4.x/index.html';
+        }
+
+
        

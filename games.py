@@ -125,11 +125,11 @@ async def the_last_of_us(request: Request):
     return templates.TemplateResponse("Sims_4.html", {"request": request})
 
 @router.get("/doom")
-async def the_last_of_us(request: Request):
+async def doom(request: Request):
     return templates.TemplateResponse("Doom_Eternal.html", {"request": request})
 
 @router.get("/mgr")
-async def the_last_of_us(request: Request):
+async def mgr(request: Request):
     return templates.TemplateResponse("MGR.html", {"request": request})
 
 @router.get("/death_stranding")

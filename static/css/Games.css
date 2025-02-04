@@ -127,7 +127,7 @@
   }
 
   .auth-link-1:hover {
-    text-decoration: underline; 
+    text-decoration: none; 
   }
   
   .inline-text {
@@ -232,6 +232,7 @@
   .logo {
     max-height: 55px; 
     transition: transform 0.5s ease, opacity 0.3s ease;
+    cursor: pointer;
   }
 
   .logo-1 {
