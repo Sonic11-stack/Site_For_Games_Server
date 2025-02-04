@@ -722,27 +722,7 @@
         function redirectToItTakesTwo() {
             window.location.href='https://store.steampowered.com/app/1426210/It_Takes_Two/';
         }
-
-        function redirectToGames() {
-            window.location.href='../HTML/Games.html';
-        }
-
-        function redirectToUnity() {
-            window.location.href='../HTML/Unity.html';
-        }
-
-        function redirectToUnrealEngine() {
-            window.location.href='../HTML/Games.html';
-        }
-
-        function redirectToGodot() {
-            window.location.href='../HTML/Games.html';
-        }
-
-        function redirectToGameEngines() {
-            window.location.href='../HTML/Game_Engines.html';
-        }
-        
+ 
         function redirectToPageTelegram() {
             window.location.href='https://t.me/Fetyper';
         }

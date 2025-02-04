@@ -40,7 +40,7 @@
             </li>
           </ul>
         </nav>
-        
+
         {% if not is_authenticated %}
             <div class="auth-links">
               <a href="/log" id="loginBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
@@ -126,9 +126,11 @@
   <section class="Create_Comment">
     <div class="container grid-container">
       <div class="grid-item text-center">
+        {% if is_authenticated %}
         <div class="Text_2" id="add-comment-btn" style="cursor: pointer; font-family: 'Bebas Neue Bold';">
           Оставить комментарий
         </div>
+        {% endif %}
 
         <div id="comment-field" style="display: none; margin-top: 10px;">
           <textarea id="comment-text" placeholder="Введите ваш комментарий..." 
