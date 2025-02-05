@@ -40,14 +40,17 @@
           </ul>
         </nav>
 
-        <div class="auth-links">
-          <a href="/login" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
-          <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
-        </div>
-        <div class="logo-container">
-          <a href="/news_first_page"><img src="/static/icons/Meta.png" alt="Логотип" class="logo"></a>
-          <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
-        </div>
+        {% if not is_authenticated %}
+            <div class="auth-links">
+              <a href="/log" id="loginBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
+              <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
+            </div>
+        {% else %}
+            <div class="auth-links-1">
+              <a href="/news_first_page"><img src="/static/icons/Test Account.png" alt="Логотип" class="logo"></a>
+              <a href="/logout" id="logoutBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
+            </div>
+        {% endif %}
       </section>
     </header>
     

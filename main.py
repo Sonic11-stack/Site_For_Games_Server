@@ -17,7 +17,6 @@ from google_auth_oauthlib.flow import Flow
 import os
 
 app = FastAPI()
-app.include_router(games_router)
 templates = Jinja2Templates(directory="templates")
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  
@@ -33,6 +32,8 @@ app.add_middleware(AuthMiddleware)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+app.include_router(formsRegAndLogin.router)
+
 @app.get("/profile")
 async def profile(request: Request):
     return templates.TemplateResponse("Profile.html", {"request": request})
@@ -47,6 +48,13 @@ async def logout(response: Response):
     response.delete_cookie("auth", path="/") 
     return JSONResponse(content={"success": True, "message": "Выход выполнен"}, status_code=200)
 
+@app.middleware("http")
+async def add_no_cache_header(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    return response
+
 @app.get("/{path:path}")
 async def universal_page(request: Request, path: str):
     if "." in path:  
@@ -54,13 +62,15 @@ async def universal_page(request: Request, path: str):
     template_path = f"{path}.html"  
     return templates.TemplateResponse(template_path, {"request": request, "is_authenticated": request.state.is_authenticated})
 
-@app.get("/reg")
-async def registration_page():
-    return {"message": "Страница регистрации"}
-
 @app.get("/news_first_page")
 async def news_page():
     return {"message": "Страница новостей"}
+
+app.include_router(games.router)
+app.include_router(pages.router)
+app.include_router(news.router)
+app.include_router(engines.router)
+
 
 GOOGLE_CLIENT_SECRET_FILE = "EnterGoogle.json"
 GOOGLE_SCOPES = [
@@ -109,11 +119,6 @@ async def auth_google_callback(request: Request):
     except Exception as e:
         return {"error": f"Internal server error: {str(e)}"}
 
-app.include_router(pages.router)
-app.include_router(news.router)
-app.include_router(engines.router)
-app.include_router(formsRegAndLogin.router)
-app.include_router(games.router)
 
 def connect_db():
     conn = sqlite3.connect("Comments.db")

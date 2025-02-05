@@ -11,3 +11,4 @@ async def reg(request: Request):
 @router.get("/login")
 async def login(request: Request):
     return templates.TemplateResponse("Login.html", {"request": request})
+

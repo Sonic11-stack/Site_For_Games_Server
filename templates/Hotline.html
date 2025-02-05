@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Apex Legends</title>
+  <title>Hotline Miami</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,23 +40,14 @@
           </ul>
         </nav>
 
-        {% if not is_authenticated %}
-            <div class="auth-links">
-              <a href="/log" id="loginBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
-              <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
-            </div>
-        {% else %}
-            <div class="auth-links-1">
-              <a href="/news_first_page"><img src="/static/icons/Test Account.png" alt="Логотип" class="logo"></a>
-              <a href="/logout" id="logoutBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
-            </div>
-        {% endif %}
-
-    <div class="logo-container">
-        <a href="/news_first_page"><img src="/static/icons/Meta.png" alt="Логотип" class="logo"></a>
-        <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
-    </div>
-        
+        <div class="auth-links">
+          <a href="/login" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
+          <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
+        </div>
+        <div class="logo-container">
+          <a href="/news_first_page"><img src="/static/icons/Meta.png" alt="Логотип" class="logo"></a>
+          <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
+        </div>
       </section>
     </header>
     
@@ -67,21 +58,20 @@
       <div class="content">
         
         <div class="image-container">
-          <img src="/static/images/Apex_Legends.jpg" class="zoom-img">
+          <img src="/static/images/Hotline.png" class="zoom-img">
         </div>
     
-       
         <section class="game-info">
-          <h2>Apex Legends</h2>
-          <p>Дата выхода: 4 февраля 2019 года</p>
-          <p>Разработчик: Respawn Entertainment</p>
-          <p>Издатели: Electronic Arts</p>
-          <p>Платформы: PC, Playstation, Xbox, Android, Android, IOS, Nintendo Switch</p>
+          <h2>Hotline Miami</h2>
+          <p>Дата выхода: 23 октября 2012 года</p>
+          <p>Разработчики: Dennaton Games</p>
+          <p>Издатели: Devolver Digital</p>
+          <p>Платформы: PC, Playstation, Xbox, Nintendo Switch</p>
     
           <div class="tags">
-            <span class="tag">Королевская битва</span>
-            <span class="tag">Шутер</span>
-            <span class="tag">Мультиплееер</span>
+            <span class="tag">Экшен</span>
+            <span class="tag">Приключения</span>
+            <span class="tag">Одиночная игра</span>
           </div>
         </section>
       </div>
@@ -92,9 +82,8 @@
       <div class="container grid-container">
         <div class="grid-item">
           <div class="Text">
-            <p>Apex Legends — это бесплатная королевская битва с элементами героического шутера, разработанная Respawn Entertainment и выпущенная в 2019 году. Игроки выбирают уникальных персонажей с особыми способностями, объединяются в команды и сражаются на больших картах, пока не останется только одна победившая группа.
+            <p>Hotline Miami — это хардкорный экшен с видом сверху, разработанный Dennaton Games и выпущенный в 2012 году. Игрок берет на себя роль таинственного убийцы в маске, выполняющего кровавые задания от неизвестных заказчиков. Геймплей сочетает молниеносные сражения, стелс и стратегическое планирование, так как враги смертельно опасны, а любая ошибка может стоить жизни. Игра выделяется неоновым ретро-стилем, динамичным саундтреком в духе 80-х и сюрреалистичным, мрачным сюжетом.
 
-                Игра выделяется быстрым геймплеем, разнообразием тактик, уникальными персонажами и динамичной системой перемещения. Apex Legends получила признание за новаторский подход к жанру battle royale и активное сообщество.
                 </p>
           </div>
         </div>
@@ -116,7 +105,7 @@
       <div class="container grid-container">
         <div class="grid-item text-center">
           <img src="/static/icons/Steam.png" alt="Steam" class="meta-steam">
-          <div class="Text_3" onclick="redirectToApex()">
+          <div class="Text_3" onclick="redirectToHotlineMiami()">
             <button class="btn-hover color-3">Купить игру</button>
           </div>
         </div>
@@ -132,7 +121,7 @@
 
         <div id="comment-field" style="display: none; margin-top: 10px;">
           <textarea id="comment-text" placeholder="Введите ваш комментарий..." 
-                    style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>
+                    style="width: 90%; height: 100px; padding: 10px; font-size: 16px;"></textarea>
           <button id="submit-comment-btn" style="margin-top: 10px;">Отправить</button>
         </div>
         <div id="comments-list" style="float: left; margin-left: 5px; margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">

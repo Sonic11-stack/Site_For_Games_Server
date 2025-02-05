@@ -126,7 +126,7 @@ async def the_last_of_us(request: Request):
 
 @router.get("/doom")
 async def doom(request: Request):
-    return templates.TemplateResponse("Doom_Eternal.html", {"request": request})
+    return templates.TemplateResponse("Doom.html", {"request": request})
 
 @router.get("/mgr")
 async def mgr(request: Request):
@@ -166,7 +166,7 @@ async def the_last_of_us(request: Request):
 
 @router.get("/apex")
 async def the_last_of_us(request: Request):
-    return templates.TemplateResponse("Apex_Legends.html", {"request": request})
+    return templates.TemplateResponse("Apex.html", {"request": request})
 
 @router.get("/fortnite")
 async def the_last_of_us(request: Request):
@@ -319,7 +319,7 @@ async def the_last_of_us(request: Request):
 
 @router.get("/papers")
 async def the_last_of_us(request: Request):
-    return templates.TemplateResponse("Papers_Please.html", {"request": request})
+    return templates.TemplateResponse("Papers.html", {"request": request})
 
 @router.get("/spyro")
 async def the_last_of_us(request: Request):
@@ -679,7 +679,7 @@ async def the_last_of_us(request: Request):
 
 @router.get("/hotline")
 async def the_last_of_us(request: Request):
-    return templates.TemplateResponse("Hotline_Miami.html", {"request": request})
+    return templates.TemplateResponse("Hotline.html", {"request": request})
 
 @router.get("/outlast")
 async def the_last_of_us(request: Request):
