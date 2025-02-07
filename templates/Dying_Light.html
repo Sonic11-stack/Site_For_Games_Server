@@ -10,6 +10,7 @@
   <link rel = "stylesheet" type = "text/css" href = "/static/css/bebas_neue_bold.css">
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Get_API_From_Metacritic.js" defer></script>
+  <script src="/static/javascript/Log_And_Logout.js" defer></script>
   <link type="image/x-icon" href="../Logo/Group 2.ico" rel="shortcut icon">
   <link type="Image/x-icon" href="../Logo/Group 2.ico" rel="icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -40,10 +41,17 @@
           </ul>
         </nav>
 
-        <div class="auth-links">
-          <a href="/login" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
-          <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
-        </div>
+        {% if not is_authenticated %}
+            <div class="auth-links">
+              <a href="/log" id="loginBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
+              <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
+            </div>
+        {% else %}
+            <div class="auth-links-1">
+              <a href="/news_first_page"><img src="/static/icons/Test Account.png" alt="Логотип" class="logo"></a>
+              <a href="/logout" id="logoutBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
+            </div>
+        {% endif %}
         <div class="logo-container">
           <a href="/news_first_page"><img src="/static/icons/Meta.png" alt="Логотип" class="logo"></a>
           <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
@@ -85,7 +93,6 @@
             <p>Dying Light — это экшен с элементами выживания и открытым миром, разработанный Techland и выпущенный в 2015 году. Игрок управляет Кайл Хайдсом, разведчиком, который оказывается в заражённом вирусом городе, полном зомби и других опасностей.
 
                 Основной особенностью игры является динамичная система передвижения по городу, включая паркур, который помогает избегать врагов и исследовать мир. Dying Light сочетает элементы хоррора, экшена и выживания, где важно собирать ресурсы, сражаться с зомби и выживать в условиях, когда ночь приносит ещё более страшных противников.
-                
                 </p>
           </div>
         </div>
@@ -117,9 +124,11 @@
   <section class="Create_Comment">
     <div class="container grid-container">
       <div class="grid-item text-center">
+        {% if is_authenticated %}
         <div class="Text_2" id="add-comment-btn" style="cursor: pointer; font-family: 'Bebas Neue Bold';">
           Оставить комментарий
         </div>
+        {% endif %}
 
         <div id="comment-field" style="display: none; margin-top: 10px;">
           <textarea id="comment-text" placeholder="Введите ваш комментарий..." 
