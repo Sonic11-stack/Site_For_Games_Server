@@ -1,13 +1,18 @@
 from fastapi import FastAPI, Request, Response, Depends, Cookie
-from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi.responses import JSONResponse, RedirectResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
-import pages, news, engines, formsRegAndLogin, games, stayComment
+import pages, news, engines, formsRegAndLogin, games, stayComment, sendEmail
 from pydantic import BaseModel, EmailStr
 import sqlite3
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.base import BaseHTTPMiddleware
 from games import router as games_router
-
+import smtplib
+import random
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import asyncpg
+import psycopg2
 
 from fastapi.responses import RedirectResponse
 from fastapi import FastAPI
@@ -33,6 +38,27 @@ app.add_middleware(AuthMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(formsRegAndLogin.router)
+
+async def get_db():
+    conn = await asyncpg.connect(
+        user="postgres",
+        password="Beripal826har",
+        database="InfoPages",
+        host="127.0.0.1"
+    )
+    try:
+        yield conn
+    finally:
+        await conn.close()
+
+@app.get("/user/{user_id}", response_class=HTMLResponse)
+async def user_page(user_id: int, request: Request, db=Depends(get_db)):
+    query = 'SELECT namePage FROM "InfoPages" WHERE id = 1'
+    user = await db.fetchrow(query, user_id)
+    if user:
+        return templates.TemplateResponse("Elden_Ring.html", {"request": request, "namePage": user["namePage"]})
+    else:
+        return HTMLResponse(content="Пользователь не найден", status_code=404)
 
 @app.get("/profile")
 async def profile(request: Request):
@@ -119,59 +145,7 @@ async def auth_google_callback(request: Request):
     except Exception as e:
         return {"error": f"Internal server error: {str(e)}"}
 
-
-def connect_db():
-    conn = sqlite3.connect("Comments.db")
-    conn.row_factory = sqlite3.Row
-    return conn
-
-def setup_db():
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Comments (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            comment TEXT NOT NULL
-        )
-    """)
-    conn.commit()
-    conn.close()
-
-setup_db()
-
-class Comment(BaseModel):
-    name: str
-    email: EmailStr
-    comment: str
-
-@app.post("/add_comment")
-async def add_comment(comment: Comment):
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute(
-        "INSERT INTO Comments (name, email, comment) VALUES (?, ?, ?)",
-        (comment.name, comment.email, comment.comment)
-    )
-    conn.commit()
-    conn.close()
-    return {"message": "Комментарий добавлен"}
-
-@app.get("/get_comments")
-async def get_comments():
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, name, email, comment FROM Comments")
-    rows = cursor.fetchall()
-    conn.close()
-    return JSONResponse(content=[
-        {"id": row["id"], "name": row["name"], "email": row["email"], "comment": row["comment"]}
-        for row in rows
-    ])
-
-
-
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    
