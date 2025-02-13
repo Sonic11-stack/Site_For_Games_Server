@@ -39,27 +39,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(formsRegAndLogin.router)
 
-async def get_db():
-    conn = await asyncpg.connect(
-        user="postgres",
-        password="Beripal826har",
-        database="InfoPages",
-        host="127.0.0.1"
-    )
-    try:
-        yield conn
-    finally:
-        await conn.close()
-
-@app.get("/user/{user_id}", response_class=HTMLResponse)
-async def user_page(user_id: int, request: Request, db=Depends(get_db)):
-    query = 'SELECT namePage FROM "InfoPages" WHERE id = 1'
-    user = await db.fetchrow(query, user_id)
-    if user:
-        return templates.TemplateResponse("Elden_Ring.html", {"request": request, "namePage": user["namePage"]})
-    else:
-        return HTMLResponse(content="Пользователь не найден", status_code=404)
-
 @app.get("/profile")
 async def profile(request: Request):
     return templates.TemplateResponse("Profile.html", {"request": request})
