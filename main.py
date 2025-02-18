@@ -3,7 +3,6 @@ from fastapi.responses import JSONResponse, RedirectResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import pages, news, engines, formsRegAndLogin, games, stayComment, sendEmail
 from pydantic import BaseModel, EmailStr
-import sqlite3
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.base import BaseHTTPMiddleware
 from games import router as games_router
@@ -11,8 +10,6 @@ import smtplib
 import random
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import asyncpg
-import psycopg2
 
 from fastapi.responses import RedirectResponse
 from fastapi import FastAPI
@@ -20,6 +17,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import Flow
 import os
+
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -38,6 +38,39 @@ app.add_middleware(AuthMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(formsRegAndLogin.router)
+
+def get_db_connection():
+    return psycopg2.connect(
+        dbname="selecteldb",
+        user="postgres",
+        password="password",
+        host="localhost",
+        port="5432",
+        cursor_factory=RealDictCursor
+    )
+    
+def get_db():
+    conn = get_db_connection()
+    try:
+        yield conn  
+    finally:
+        conn.close()
+
+@app.get("/game/{game_id}")
+async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
+    cur = db.cursor()
+    
+    cur.execute("SELECT name FROM InfoPage WHERE id = %s", (game_id,))
+    game = cur.fetchone()
+    cur.close()
+
+    if not game:
+        return JSONResponse({"error": "Игра не найдена"}, status_code=404)
+
+    return templates.TemplateResponse(
+        "game_page.html",
+        {"request": request, "namePage": game[0]}
+    )
 
 @app.get("/profile")
 async def profile(request: Request):
@@ -127,4 +160,3 @@ async def auth_google_callback(request: Request):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
-    
