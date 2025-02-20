@@ -41,10 +41,10 @@ app.include_router(formsRegAndLogin.router)
 
 def get_db_connection():
     return psycopg2.connect(
-        dbname="selecteldb",
+        dbname="Info",
         user="postgres",
-        password="password",
-        host="localhost",
+        password="Beripal826har",
+        host="127.0.0.1",
         port="5432",
         cursor_factory=RealDictCursor
     )
@@ -60,16 +60,28 @@ def get_db():
 async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     cur = db.cursor()
     
-    cur.execute("SELECT name FROM InfoPage WHERE id = %s", (game_id,))
+    cur.execute('SELECT name, date, description, developer, publishers, platforms, sources_to_game, tags FROM "InfoPage" WHERE id = %s', (game_id,))
     game = cur.fetchone()
     cur.close()
+    
+    tags = game['tags']
+    if isinstance(tags, str):
+        tags_list = tags.split(", ")[:3]
+    
+    tag1 = tags_list[0]
+    tag2 = tags_list[1]
+    tag3 = tags_list[2]
+
+    print("DEBUG:", game)
 
     if not game:
         return JSONResponse({"error": "Игра не найдена"}, status_code=404)
-
+    
+    
     return templates.TemplateResponse(
-        "game_page.html",
-        {"request": request, "namePage": game[0]}
+        "Game_Page.html",
+        {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], "date": game["date"], "description": game["description"], "developer": game["developer"],
+        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], "tag1": tag1, "tag2": tag2, "tag3": tag3}
     )
 
 @app.get("/profile")

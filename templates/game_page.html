@@ -73,15 +73,15 @@
        
         <section class="game-info">
           <h2>{{name}}</h2>
-          <p>Дата выхода: 25 февраля 2022 года</p>
-          <p>Разработчик: FromSoftware</p>
-          <p>Издатели: Bandai Namco Entertainment, FromSoftware</p>
-          <p>Платформы: PC, Playstation, Xbox</p>
+          <p>Дата выхода: {{date}}</p>
+          <p>Разработчик: {{developer}}</p>
+          <p>Издатели: {{publishers}}</p>
+          <p>Платформы: {{platforms}}</p>
     
           <div class="tags">
-            <span class="tag">Экшн</span>
-            <span class="tag">SoulsLike</span>
-            <span class="tag">Одиночная игра</span>
+            <span class="tag">{{tag1}}</span>
+            <span class="tag">{{tag2}}</span>
+            <span class="tag">{{tag3}}</span>
           </div>
         </section>
       </div>
@@ -92,10 +92,7 @@
       <div class="container grid-container">
         <div class="grid-item">
           <div class="Text">
-            <p>Elden Ring — это action-RPG от FromSoftware, выпущенная в 2022 году, созданная в сотрудничестве с писателем Джорджем Р. Р. Мартином. Игра разворачивается в огромном открытом мире под названием Руинованные Земли, где игрок берет на себя роль Обманутого, героя, который ищет разбитые части могущественного объекта — Эльденного Кольца, чтобы восстановить баланс в мире.
-
-                Elden Ring сочетает элементы предыдущих игр FromSoftware, предлагая сложные сражения, обширные исследования, свободу выбора пути и глубокий лор, который раскрывается через окружение и NPC. Игра получила признание за свою атмосферу, проработанный мир и высокую сложность, а также за инновации в открытом мире.
-                </p>
+            <p>{{description}} </p>
           </div>
         </div>
       </div>
@@ -116,7 +113,7 @@
       <div class="container grid-container">
         <div class="grid-item text-center">
           <img src="/static/icons/Steam.png" alt="Steam" class="meta-steam">
-          <div class="Text_3" onclick="redirectToEldenRing()">
+          <div class="Text_3" data-url="{{sources_to_game}}" onclick="redirectToGame(this)">
             <button class="btn-hover color-3">Купить игру</button>
           </div>
         </div>
