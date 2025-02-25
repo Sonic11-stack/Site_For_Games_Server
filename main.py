@@ -72,6 +72,8 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     tag2 = tags_list[1]
     tag3 = tags_list[2]
 
+    image_url = f"/static/images/Game_{game_id}.jpg"
+
     print("DEBUG:", game)
 
     if not game:
@@ -81,7 +83,7 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     return templates.TemplateResponse(
         "Game_Page.html",
         {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], "date": game["date"], "description": game["description"], "developer": game["developer"],
-        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], "tag1": tag1, "tag2": tag2, "tag3": tag3}
+        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url}
     )
 
 @app.get("/profile")

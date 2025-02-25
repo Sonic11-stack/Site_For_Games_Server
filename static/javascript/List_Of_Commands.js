@@ -712,7 +712,7 @@
         }
 
         function redirectToRayman() {
-            window.location.href='https://store.steampowered.com/app/242550/Rayman_Legends/?l=russian ';
+            window.location.href='https://store.steampowered.com/app/242550/Rayman_Legends/?l=russian';
         }
 
         function redirectToGoatSimulator() {
