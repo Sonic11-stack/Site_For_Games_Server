@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Response, Depends, Cookie
+from fastapi import FastAPI, Request, Response, Depends, Cookie, Form
 from fastapi.responses import JSONResponse, RedirectResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import pages, news, engines, formsRegAndLogin, games, stayComment, sendEmail
@@ -79,12 +79,45 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     if not game:
         return JSONResponse({"error": "Игра не найдена"}, status_code=404)
     
-    
+    is_authenticated = request.cookies.get("auth") == "true"
+
     return templates.TemplateResponse(
         "Game_Page.html",
         {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], "date": game["date"], "description": game["description"], "developer": game["developer"],
-        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url}
+        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated}
     )
+
+@app.post("/click_button")
+async def get_game_page(request: Request, name: str = Form(...), surname: str = Form(...), email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
+    cur = db.cursor()
+    
+    cur.execute('INSERT INTO "Users" (id, name, surname, email, password) VALUES (DEFAULT, %s, %s, %s, %s)', (name, surname, email, password))
+    db.commit()
+    cur.close()
+    
+    return templates.TemplateResponse("First_Page.html", {"request": request, "name": name, "surname": surname, "email": email, "password": password})
+
+@app.post("/click_button_1")
+async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
+    cur = db.cursor()
+    
+    cur.execute('SELECT email, password FROM "Users" WHERE email = %s AND password = %s', (email, password))
+    user = cur.fetchone()
+
+    if not user:
+        cur.close()
+        db.close()
+        return {"error": "Пользователь не найден"}
+
+    db.commit()
+    cur.close()
+    
+    response = templates.TemplateResponse(
+        "First_Page.html", 
+        {"request": request, "email": email, "password": password, "is_authenticated": True}
+    )
+    response.set_cookie(key="auth", value="true", httponly=True, path="/")
+    return response
 
 @app.get("/profile")
 async def profile(request: Request):
@@ -96,9 +129,18 @@ async def log(response: Response):
     return JSONResponse(content={"success": True, "message": "Вход выполнен"}, status_code=200)
 
 @app.post("/logout")
-async def logout(response: Response):
-    response.delete_cookie("auth", path="/") 
+async def logout(request: Request, response: Response):
+    # Проверяем, есть ли кука перед удалением
+    print(f"Кука перед удалением: {request.cookies.get('auth')}")
+    
+    # Удаляем куку
+    response.delete_cookie("auth", path="/")
+    
+    # Проверяем, была ли удалена кука
+    print(f"Кука после удаления: {request.cookies.get('auth')}")
+    
     return JSONResponse(content={"success": True, "message": "Выход выполнен"}, status_code=200)
+
 
 @app.middleware("http")
 async def add_no_cache_header(request: Request, call_next):

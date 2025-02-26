@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loginBtn.addEventListener("click", async function(event) {
             event.preventDefault();
             
-            const response = await fetch("/log", {
+            const response = await fetch("/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" }
             });

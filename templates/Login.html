@@ -16,18 +16,18 @@
       <a href="/login"><button class="tab active">ВХОД</button></a>
       <a href="/reg"><button class="tab">РЕГИСТРАЦИЯ</button></a>
     </div>
-    <form class="form">
+    <form class="form" action="/click_button_1" method="post" enctype="application/x-www-form-urlencoded">
       <div class="form-group">
         <label for="email">E-mail</label>
         <div class="input-wrapper">
-          <input type="email" id="email" placeholder="example@mail.com">
+          <input type="email" id="email" name="email" placeholder="example@mail.com">
           <span class="icon">👤</span>
         </div>
       </div>
       <div class="form-group">
         <label for="password">Пароль</label>
         <div class="input-wrapper">
-          <input type="password" id="password" placeholder="********">
+          <input type="password" id="password" name="password" placeholder="********">
           <span class="icon">👁️</span>
         </div>
       </div>
