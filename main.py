@@ -112,16 +112,36 @@ async def get_game_page(request: Request, email: str = Form(...), password: str 
     db.commit()
     cur.close()
     
-    response = templates.TemplateResponse(
-        "First_Page.html", 
-        {"request": request, "email": email, "password": password, "is_authenticated": True}
-    )
+    response = RedirectResponse(url="/first_page", status_code=303)
     response.set_cookie(key="auth", value="true", httponly=True, path="/")
+    response.set_cookie(key="email", value=email, httponly=True, path="/")
     return response
 
 @app.get("/profile")
-async def profile(request: Request):
-    return templates.TemplateResponse("Profile.html", {"request": request})
+async def profile(request: Request, db=Depends(get_db)):
+    email = request.cookies.get("email")
+    cur = db.cursor()
+    cur.execute('SELECT name, email FROM "Users" WHERE email = %s', (email,))
+    user = cur.fetchone()
+    cur.close()
+
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "is_authenticated": is_authenticated})
+
+@app.post("/save_profile")
+async def profile(request: Request, name: str = Form(...), db=Depends(get_db)):
+    email = request.cookies.get("email")
+    cur = db.cursor()
+    cur.execute('UPDATE "Users" SET name = %s WHERE email = %s', (name,email,))
+    db.commit()
+    user = cur.fetchone()
+    cur.close()
+
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "is_authenticated": is_authenticated, "name": name})
+
 
 @app.post("/log")
 async def log(response: Response):
@@ -129,17 +149,12 @@ async def log(response: Response):
     return JSONResponse(content={"success": True, "message": "Вход выполнен"}, status_code=200)
 
 @app.post("/logout")
-async def logout(request: Request, response: Response):
-    # Проверяем, есть ли кука перед удалением
-    print(f"Кука перед удалением: {request.cookies.get('auth')}")
-    
-    # Удаляем куку
-    response.delete_cookie("auth", path="/")
-    
-    # Проверяем, была ли удалена кука
-    print(f"Кука после удаления: {request.cookies.get('auth')}")
-    
-    return JSONResponse(content={"success": True, "message": "Выход выполнен"}, status_code=200)
+async def logout(response: Response):
+    response = JSONResponse(content={"success": True, "message": "Выход выполнен"}, status_code=200)
+    response.delete_cookie(key="auth", path="/")
+    response.delete_cookie(key="email", path="/")
+    response.set_cookie(key="auth", value="false", httponly=True, path="/")
+    return response
 
 
 @app.middleware("http")
