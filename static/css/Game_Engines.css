@@ -210,6 +210,34 @@
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
+
+  .auth-links-1 {
+    position: flex;
+    display : flex;
+    overflow: visible;
+    color : black;
+    bottom : 10%;
+    gap: 10px;
+    margin-left: 90%;
+    margin-top: -128px;
+    
+  }
+
+  .auth-links-1.hidden {
+    display: none;
+}
+
+.auth-link-1 {
+  font-size: 18px;
+  text-decoration: none;
+  color: #000 !important; 
+  font-weight: bold;
+  top:  15px;
+}
+
+.auth-link-1:hover {
+  text-decoration: none; 
+}
   
   .c-btn {
     color: #FFF;

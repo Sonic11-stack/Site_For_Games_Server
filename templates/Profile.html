@@ -65,7 +65,9 @@
       <div class="profile-header">
           <div class="profile-avatar">
               <img src="/static/images/default-avatar.png" alt="Аватар пользователя">
+              <form action="/open_explorer" method="get">
               <button class="change-avatar-btn">Изменить аватар</button>
+              </form>
           </div>
           <div class="profile-info">
               {% if not user %}
@@ -83,10 +85,10 @@
       <div class="profile-content">
           <div class="profile-section">
               <h2>Личная информация</h2>
-              <form class="profile-form" action="/save_profile" method="post">
+              <form class="profile-form" action="/save_profile" method="post" enctype="application/x-www-form-urlencoded">
                   <div class="form-group">
                       <label for="fullname">Полное имя:</label>
-                      <input type="text" id="fullname" name="fullname">
+                      <input type="text" id="fullname" name="name">
                   </div>
                   <div class="form-group">
                       <label for="bio">О себе:</label>
@@ -101,11 +103,18 @@
           </div>
 
           <div class="profile-section">
-              <h2>Избранные игры</h2>
-              <div class="favorite-games">
-                  <p class="no-games">Список избранных игр пуст</p>
-              </div>
-          </div>
+            <h2>Избранные игры</h2>
+            <div class="favorite-games">
+                {% if save_games %}
+                {% for i in range(save_games|length) %}
+                <a href="/game/{{save_games[i]}}">
+                    <img src="{{image_urls[i]}}" class="zoom-img">
+                    <p>{{name_game}}</p>
+                </a>
+                {% endfor %}
+                {% else %}<p class="no-games">Список избранных игр пуст</p>{% endif %}
+            </div>
+        </div>
       </div>
   </section>
 

@@ -11,6 +11,7 @@
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Get_API_From_Metacritic.js" defer></script>
   <script src="/static/javascript/Log_And_Logout.js" defer></script>
+  <script src="/static/javascript/Game.js" defer></script>
   <link type="image/x-icon" href="../Logo/Group 2.ico" rel="shortcut icon">
   <link type="Image/x-icon" href="../Logo/Group 2.ico" rel="icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,18 +26,15 @@
         <nav aria-label="Menu">
           <ul>
             <li class="inline-text">
-                <a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости" style="font-family: 'Bebas Neue Bold';">
-                  Новости</a>
+              <a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости" style="font-family: 'Bebas Neue Bold';">Новости</a>
             </li>
 
             <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">
-                Игры</a>
-          </li>
+              <a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">Игры</a>
+            </li>
 
              <li class="inline-text">
-                <a class="c-btn c-btn--big-line" href="/game_engine" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">
-                  Игровые движки</a>
+                <a class="c-btn c-btn--big-line" href="/game_engine" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">Игровые движки</a>
             </li>
           </ul>
         </nav>
@@ -66,9 +64,7 @@
     <div class="container">
       <div class="content">
         
-        <div class="image-container">
-          <img src="{{image_url}}" class="zoom-img">
-        </div>
+        <div class="image-container"><img src="{{image_url}}" class="zoom-img"></div>
     
         <section class="game-info">
           <h2>{{name}}</h2>
@@ -76,7 +72,7 @@
           <p>Разработчик: {{developer}}</p>
           <p>Издатели: {{publishers}}</p>
           <p>Платформы: {{platforms}}</p>
-    
+
           <div class="tags">
             <span class="tag">{{tag1}}</span>
             <span class="tag">{{tag2}}</span>
@@ -90,20 +86,27 @@
     <section class="Description_Of_The_Game">
       <div class="container grid-container">
         <div class="grid-item">
-          <div class="Text">
-            <p>{{description}} </p>
-          </div>
+          <div class="Text"><p>{{description}}</p></div>
         </div>
       </div>
     </section>
+
+    {% if is_authenticated %}
+    <section class="Score">
+    <div class="container grid-container">
+        <div class="grid-item text-center">
+            <img id="star-icon" src="/static/icons/{% if is_clicked %}Full_Star.jpg{% else %}Star.jpg{% endif %}" alt="Meta Icon" class="meta-icon" style="cursor: pointer;">
+            <div class="Text_1">{% if is_clicked %}Сохранено{% else %}Сохранить в профиль{% endif %}</div>
+        </div>
+    </div>
+    </section>
+    {% endif %}
 
     <section class="Score">
       <div class="container grid-container">
         <div class="grid-item text-center">
           <img src="/static/icons/Meta.png" alt="Meta Icon" class="meta-icon">
-          <div class="Text_1">
-            Оценка метакритики: <span id="score-placeholder">Загрузка...</span>
-          </div>
+          <div class="Text_1">Оценка метакритики: <span id="score-placeholder">Загрузка...</span></div>
         </div>
       </div>
     </section>
@@ -127,11 +130,11 @@
           Оставить комментарий
         </div>
         {% endif %}
-
+        
         <div id="comment-field" style="display: none; margin-top: 10px;">
           <textarea id="comment-text" placeholder="Введите ваш комментарий..." 
-                    style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>
-          <button id="submit-comment-btn" style="margin-top: 10px;">Отправить</button>
+          style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>       
+          <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>       
         </div>
         <div id="comments-list" style="float: left; margin-left: 5px; margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">
           <h3>Комментарии:</h3>
@@ -143,9 +146,7 @@
   
 
 <footer> 
-  <div class = "Information_Follow" style="font-family: 'Bebas Neue Bold';">
-    Следите за нами
-  </div>
+  <div class = "Information_Follow" style="font-family: 'Bebas Neue Bold';">Следите за нами</div>
 
   <nav aria-label="Icons">
     <ul>
@@ -155,12 +156,8 @@
     </ul>
   </nav>
 
-  <div class = "Information_Contact" style="font-family: 'Bebas Neue Bold';">
-    Почта для связи: matvejnazarov4@gmail.com
-  </div>
-  <div class = "Information_Year" style="font-family: 'Bebas Neue Bold';">
-    © 2025. Все права защищены
-  </div>
+  <div class = "Information_Contact" style="font-family: 'Bebas Neue Bold';">Почта для связи: matvejnazarov4@gmail.com</div>
+  <div class = "Information_Year" style="font-family: 'Bebas Neue Bold';">© 2025. Все права защищены</div>
 </footer>
 
   </body>

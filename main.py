@@ -1,23 +1,17 @@
-from fastapi import FastAPI, Request, Response, Depends, Cookie, Form
-from fastapi.responses import JSONResponse, RedirectResponse, HTMLResponse
+from fastapi import FastAPI, Request, Response, Depends, Form
+from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
-import pages, news, engines, formsRegAndLogin, games, stayComment, sendEmail
-from pydantic import BaseModel, EmailStr
+import pages, news, engines, formsRegAndLogin, games
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.base import BaseHTTPMiddleware
 from games import router as games_router
-import smtplib
-import random
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
 from fastapi.responses import RedirectResponse
 from fastapi import FastAPI
-from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import Flow
 import os
-
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
@@ -34,14 +28,12 @@ class AuthMiddleware(BaseHTTPMiddleware):
         return response
 
 app.add_middleware(AuthMiddleware)
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 app.include_router(formsRegAndLogin.router)
 
 def get_db_connection():
     return psycopg2.connect(
-        dbname="Info",
+        dbname="InfoPages",
         user="postgres",
         password="Beripal826har",
         host="127.0.0.1",
@@ -59,7 +51,6 @@ def get_db():
 @app.get("/game/{game_id}")
 async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     cur = db.cursor()
-    
     cur.execute('SELECT name, date, description, developer, publishers, platforms, sources_to_game, tags FROM "InfoPage" WHERE id = %s', (game_id,))
     game = cur.fetchone()
     cur.close()
@@ -73,34 +64,53 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     tag3 = tags_list[2]
 
     image_url = f"/static/images/Game_{game_id}.jpg"
-
     print("DEBUG:", game)
 
     if not game:
         return JSONResponse({"error": "Игра не найдена"}, status_code=404)
     
     is_authenticated = request.cookies.get("auth") == "true"
-
     return templates.TemplateResponse(
         "Game_Page.html",
-        {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], "date": game["date"], "description": game["description"], "developer": game["developer"],
-        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated}
+        {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], 
+        "date": game["date"], "description": game["description"], "developer": game["developer"],
+        "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], 
+        "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated})
+    
+@app.get("/game_engine/{engine_id}")
+async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT name, date, description, developer, development, platforms, sources_to_game_engine FROM "GameEngines" WHERE id = %s', (engine_id,))
+    engine = cur.fetchone()
+    cur.close()
+
+    image_url = f"/static/images/Game_Engine_{engine_id}.jpg"
+    print("DEBUG:", engine)
+
+    if not engine:
+        return JSONResponse({"error": "Игровой движок не найдена"}, status_code=404)
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "Game_Engine_Page.html",
+        {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], 
+         "date": engine["date"], "description": engine["description"], "developer": engine["developer"],
+        "development": engine["development"], "platforms": engine["platforms"], "sources_to_game_engine": engine["sources_to_game_engine"],
+        "image_url": image_url, "is_authenticated": is_authenticated}
     )
 
 @app.post("/click_button")
 async def get_game_page(request: Request, name: str = Form(...), surname: str = Form(...), email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
     cur = db.cursor()
-    
     cur.execute('INSERT INTO "Users" (id, name, surname, email, password) VALUES (DEFAULT, %s, %s, %s, %s)', (name, surname, email, password))
     db.commit()
     cur.close()
-    
     return templates.TemplateResponse("First_Page.html", {"request": request, "name": name, "surname": surname, "email": email, "password": password})
 
 @app.post("/click_button_1")
 async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
     cur = db.cursor()
-    
     cur.execute('SELECT email, password FROM "Users" WHERE email = %s AND password = %s', (email, password))
     user = cur.fetchone()
 
@@ -121,27 +131,41 @@ async def get_game_page(request: Request, email: str = Form(...), password: str 
 async def profile(request: Request, db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
-    cur.execute('SELECT name, email FROM "Users" WHERE email = %s', (email,))
+    cur.execute('SELECT name, email, save_game FROM "Users" WHERE email = %s', (email,))
     user = cur.fetchone()
     cur.close()
-
+    name_game = user["name"]
+    save_game_str = user["save_game"] if user["save_game"] else ""
+    save_games = [int(game_id) for game_id in save_game_str.split(",") if game_id.isdigit()]
     is_authenticated = request.cookies.get("auth") == "true"
-
-    return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "is_authenticated": is_authenticated})
+    image_urls = [f"/static/images/Game_{game_id}.jpg" for game_id in save_games]
+    return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "name_game": name_game, "is_authenticated": is_authenticated, "save_games": save_games, "image_urls": image_urls})
 
 @app.post("/save_profile")
 async def profile(request: Request, name: str = Form(...), db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
-    cur.execute('UPDATE "Users" SET name = %s WHERE email = %s', (name,email,))
+    cur.execute('UPDATE "Users" SET name = %s WHERE email = %s RETURNING *', (name,email))
     db.commit()
     user = cur.fetchone()
     cur.close()
-
     is_authenticated = request.cookies.get("auth") == "true"
-
     return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "is_authenticated": is_authenticated, "name": name})
 
+@app.post("/click_star")
+async def profile(request: Request,response: Response, db=Depends(get_db)):
+    is_authenticated = request.cookies.get("auth") == "true"
+    is_clicked = True
+    return JSONResponse(content={"status": "success", "is_clicked": is_clicked})
+
+@app.post("/stay_comment")
+async def stay_comment(request: Request, comment: str = Form(...), db=Depends(get_db)):
+    email = request.cookies.get("email")
+    cur = db.cursor()
+    cur.execute('INSERT INTO "Comments" (email, comment) VALUES (%s, %s)', (email, comment))
+    db.commit()
+    cur.close()
+    return JSONResponse(content={"status": "success", "comment": comment})
 
 @app.post("/log")
 async def log(response: Response):
@@ -156,13 +180,17 @@ async def logout(response: Response):
     response.set_cookie(key="auth", value="false", httponly=True, path="/")
     return response
 
-
 @app.middleware("http")
 async def add_no_cache_header(request: Request, call_next):
     response = await call_next(request)
     response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
     response.headers["Pragma"] = "no-cache"
     return response
+
+@app.get("/open_explorer")
+async def open_explorer(request: Request):
+    os.startfile("C:\\Users")
+    return RedirectResponse(url=request.url_for('profile'))
 
 @app.get("/{path:path}")
 async def universal_page(request: Request, path: str):
@@ -207,7 +235,6 @@ async def auth_google_callback(request: Request):
         if error == "access_denied":
             return RedirectResponse(url="/login")
         return {"error": "Missing authorization code"}
-
     try:
         flow = Flow.from_client_secrets_file(
             GOOGLE_CLIENT_SECRET_FILE,

@@ -11,6 +11,15 @@
             }
         }
 
+        function redirectToGameEngines(element) {
+            let url = element.getAttribute("data-url");
+            if (url) {
+                window.location.href = url;
+            } else {
+                alert("Ссылка не найдена!");
+            }
+        }
+
         function redirectToTheLastOfUs_1() {
             window.location.href='https://store.steampowered.com/app/1888930/Odni_iz_nas_CHast_I/';
         }

@@ -218,6 +218,13 @@
     object-fit: cover;
   }
 
+  .zoom-img-1 {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    object-fit: cover;
+  }
+
   .content {
     display: grid;
     grid-template-columns: 1.5fr 2fr; 

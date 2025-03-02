@@ -35,7 +35,7 @@ submitCommentBtn.addEventListener('click', () => {
     const text = commentText.value.trim();
 
     if (text) {
-        fetch('/add_comment', {
+        fetch('/stay_comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -66,3 +66,17 @@ submitCommentBtn.addEventListener('click', () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const starIcon = document.getElementById("star-icon");
+
+  starIcon.addEventListener("click", () => {
+      fetch('/click_star', { method: 'POST' })
+      .then(response => response.json())
+      .then(data => {
+          if (data.status === "success") {
+              starIcon.src = data.is_clicked ? "/static/icons/Full_Star.jpg" : "/static/icons/Star.jpg";
+          }
+      })
+      .catch(error => console.error("Ошибка:", error));
+  });
+});
