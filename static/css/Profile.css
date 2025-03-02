@@ -8,7 +8,6 @@
     z-index: 1;
   }
   
-  
   .Main_Picture {
     position: absolute;
   }
@@ -61,7 +60,6 @@
 
   .auth-links{
     position: flex;
-    /*display : none;*/
     display: flex;
     overflow: visible;
     color : black;
@@ -85,14 +83,13 @@
 
   .auth-links-1.hidden {
     display: none;
-}
+  }
 
   .inline-text {
     display: inline-block;   
     margin: 0 40px;  
     margin-right: 15px;      
   }
-  
   
   .inline-text a {
     text-decoration: none;
@@ -138,7 +135,6 @@
   .Buy_Game .grid-item {
     width: 150px;
     text-align: center;
-    
   }
 
   .Score .grid-item {
@@ -265,7 +261,6 @@
     text-decoration: none; 
   }
   
-
   .Background {
     position: fixed; 
     width: 100%; 
@@ -505,23 +500,126 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-}
+  }
 
-.btn-hover:hover {
+  .btn-hover:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-}
+  }
 
-.btn-hover:focus {
+  .btn-hover:focus {
     outline: none;
-}
+  }
 
-.btn-hover.color-3 {
+  .btn-hover.color-3 {
     background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
     margin-top: -10px;
     margin-left: 10px;
-}
+  }
+
+  .profile-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .profile-avatar {
+    text-align: center;
+    margin-right: 30px;
+  }
+
+  .profile-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .change-avatar-btn {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .profile-info h1 {
+    margin: 0;
+    color: white;
+    font-size: 2em;
+  }
+
+  .profile-info p {
+    margin: 5px 0;
+    color: white;
+  }
+
+  .profile-section {
+    background-color: grey;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .profile-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .profile-form input,
+  .profile-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .profile-form textarea {
+    height: 100px;
+    resize: vertical;
+  }
+
+  .save-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .save-btn:hover {
+    background-color: #218838;
+  }
+
+  .favorite-games {
+    min-height: 100px;
+  }
+
+  .no-games {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+  }

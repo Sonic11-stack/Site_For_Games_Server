@@ -8,7 +8,6 @@
     z-index: 1;
   }
   
-  
   .Main_Picture {
     position: absolute;
   }
@@ -41,7 +40,6 @@
     justify-content: center;
   }
   
-  
   nav[aria-label="Menu_1"] {
     height: 50px;
     display: flex;
@@ -61,7 +59,6 @@
 
   .auth-links{
     position: flex;
-    /*display : none;*/
     display: flex;
     overflow: visible;
     color : black;
@@ -80,19 +77,17 @@
     gap: 10px;
     margin-left: 90%;
     margin-top: -128px;
-    
   }
 
   .auth-links-1.hidden {
     display: none;
-}
+  }
 
   .inline-text {
     display: inline-block;   
     margin: 0 40px;  
     margin-right: 15px;      
   }
-  
   
   .inline-text a {
     text-decoration: none;
@@ -138,7 +133,6 @@
   .Buy_Game .grid-item {
     width: 150px;
     text-align: center;
-    
   }
 
   .Score .grid-item {
@@ -272,7 +266,6 @@
     text-decoration: none; 
   }
   
-
   .Background {
     position: fixed; 
     width: 100%; 
@@ -429,6 +422,7 @@
     display: inline-block;
     height: 100%;
   }
+
   .c-btn:after {
     content: '';
     display: block;
@@ -444,6 +438,7 @@
     opacity: 0;
     transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:before {
     content: '';
     display: block;
@@ -456,11 +451,13 @@
     background-color: #333333;
     transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:hover:after {
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     transition-delay: .3s;
   }
+
   .c-btn--big-line:hover:before {
     transform: scaleX(1);
     transform-origin: left;
@@ -512,23 +509,23 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-}
+  }
 
-.btn-hover:hover {
+  .btn-hover:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-}
+  }
 
-.btn-hover:focus {
+  .btn-hover:focus {
     outline: none;
-}
+  }
 
-.btn-hover.color-3 {
+  .btn-hover.color-3 {
     background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
     margin-top: -10px;
     margin-left: 10px;
-}
+  }

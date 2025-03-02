@@ -83,7 +83,6 @@
     gap: 10px;
     margin-left: 90%;
     margin-top: -128px;
-    
   }
 
   .auth-links-1 {
@@ -95,12 +94,11 @@
     gap: 10px;
     margin-left: 90%;
     margin-top: -128px;
-    
   }
 
   .auth-links-1.hidden {
     display: none;
-}
+  }
 
   .Line {
     display: grid; 
@@ -275,6 +273,7 @@
     opacity: 0;
     transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:before {
     content: '';
     display: block;
@@ -287,11 +286,13 @@
     background-color: #333333;
     transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:hover:after {
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     transition-delay: .3s;
   }
+
   .c-btn--big-line:hover:before {
     transform: scaleX(1);
     transform-origin: left;
@@ -327,6 +328,3 @@
   .tag {
     font-family: 'Bebas Neue Bold';
   }
-  
-
-  
