@@ -33,7 +33,7 @@ app.include_router(formsRegAndLogin.router)
 
 def get_db_connection():
     return psycopg2.connect(
-        dbname="InfoPages",
+        dbname="Info",
         user="postgres",
         password="Beripal826har",
         host="127.0.0.1",
@@ -64,6 +64,7 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     tag3 = tags_list[2]
 
     image_url = f"/static/images/Game_{game_id}.jpg"
+    text = game["name"]
     print("DEBUG:", game)
 
     if not game:
@@ -75,7 +76,7 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
         {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], 
         "date": game["date"], "description": game["description"], "developer": game["developer"],
         "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], 
-        "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated})
+        "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated, "text": text})
     
 @app.get("/game_engine/{engine_id}")
 async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):

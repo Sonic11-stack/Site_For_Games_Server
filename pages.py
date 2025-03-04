@@ -9,7 +9,7 @@ templates = Jinja2Templates(directory="templates")
 
 def get_db_connection():
     return psycopg2.connect(
-        dbname="InfoPages",
+        dbname="Info",
         user="postgres",
         password="Beripal826har",
         host="127.0.0.1",
@@ -25,13 +25,14 @@ def get_db():
         conn.close()
 
 @router.get("/first_page")
-async def first_page(request: Request, game_id: int = Query(...), db=Depends(get_db)):
+async def first_page(request: Request, game_id: int, db=Depends(get_db)):
     cur = db.cursor()
-    cur.execute('SELECT id, name FROM "InfoPage"')
-    games = cur.fetchone()
+    cur.execute('SELECT name, date, description, developer, publishers, platforms, sources_to_game, tags FROM "InfoPage" WHERE id = %s', (game_id,))
+    game = cur.fetchone()
+    text = game["name"]
+    text_dop = game_id
     cur.close()
-    game_list = [{"id": game[0], "name": game[1]} for game in games]
-    return templates.TemplateResponse("First_Page.html", {"request": request, "games": game_list})
+    return templates.TemplateResponse("First_Page.html", {"request": request, "name": game["name"], "text": text_dop})
 
 @router.get("/second_page")
 async def second_page(request: Request):
