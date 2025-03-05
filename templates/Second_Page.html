@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Новости игровой индустрии, игры"/>
-  <link rel = "stylesheet" type = "text/css" href = "/static/css/Games.css">
-  <link rel = "stylesheet" type = "text/css" href = "/static/css/bebas_neue_bold.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/Games.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/bebas_neue_bold.css">
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Log_And_Logout.js" defer></script>
   <link type="image/x-icon" href="../Logo/Group 2.ico" rel="shortcut icon">
@@ -16,31 +16,21 @@
 </head>
 <body>
 
-  <section class="Background"> 
-  </section>
+  <section class="Background"></section>
 
   <header>
     <section class="Line">
       <nav aria-label="Menu">
         <ul>
-          <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости" style="font-family: 'Bebas Neue Bold';">
-                Новости</a>
-          </li>
+          <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости" style="font-family: 'Bebas Neue Bold';">Новости</a></li>
 
-          <li class="inline-text">
-            <a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">
-              Игры</a>
-        </li>
+          <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">Игры</a></li>
 
-           <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/game_engine" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">
-                Игровые движки</a>
-          </li>
+           <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engine" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">Игровые движки</a></li>
         </ul>
       </nav>
 
-      {% if not is_authenticated %}
+        {% if not is_authenticated %}
             <div class="auth-links">
               <a href="/login" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
               <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
@@ -58,171 +48,171 @@
     <div class="container">
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/31"> <img src="/static/images/Game_31.jpg" class="zoom-img" alt="Doom Eternal"> </a> </div>
-        <div class = "Text">Doom Eternal</div>
+        <div class="game-card"><a href="/game/31"><img src="/static/images/Game_31.jpg" class="zoom-img" alt="Doom Eternal"></a></div>
+        <div class="Text">Doom Eternal</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/32"> <img src="/static/images/Game_32.jpg" class="zoom-img" alt="Metal Gear Rising : Revengeance"> </a> </div>
-        <div class = "Text">Metal Gear Rising : Revengeance</div>
+        <div class="game-card"><a href="/game/32"><img src="/static/images/Game_32.jpg" class="zoom-img" alt="Metal Gear Rising : Revengeance"></a></div>
+        <div class="Text">Metal Gear Rising : Revengeance</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/33"> <img src="/static/images/Game_33.jpg" class="zoom-img" alt="Death Stranding"> </a> </div>
-        <div class = "Text">Death Stranding</div>
+        <div class="game-card"><a href="/game/33"><img src="/static/images/Game_33.jpg" class="zoom-img" alt="Death Stranding"></a></div>
+        <div class="Text">Death Stranding</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/34"> <img src="/static/images/Game_34.jpg" class="zoom-img" alt="Garry’s Mod"> </a> </div>
-        <div class = "Text">Garry’s Mod</div>
+        <div class="game-card"><a href="/game/34"><img src="/static/images/Game_34.jpg" class="zoom-img" alt="Garry’s Mod"></a></div>
+        <div class="Text">Garry’s Mod</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/35"> <img src="/static/images/Game_35.jpg" class="zoom-img" alt="Don’t Starve"> </a> </div>
-        <div class = "Text">Don’t Starve</div>
+        <div class="game-card"><a href="/game/35"><img src="/static/images/Game_35.jpg" class="zoom-img" alt="Don’t Starve"></a></div>
+        <div class="Text">Don’t Starve</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/36"> <img src="/static/images/Game_36.jpg" class="zoom-img" alt="Hearthstone"> </a> </div>
-        <div class = "Text">Hearthstone</div>
+        <div class="game-card"><a href="/game/36"><img src="/static/images/Game_36.jpg" class="zoom-img" alt="Hearthstone"></a></div>
+        <div class="Text">Hearthstone</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/37"> <img src="/static/images/Game_37.jpg" class="zoom-img" alt="Magic : The Gathering"> </a> </div>
-        <div class = "Text">Magic : The Gathering</div>
+        <div class="game-card"><a href="/game/37"><img src="/static/images/Game_37.jpg" class="zoom-img" alt="Magic : The Gathering"></a></div>
+        <div class="Text">Magic : The Gathering</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/38"> <img src="/static/images/Game_38.jpg" class="zoom-img" alt="Detroit : Become Human"> </a> </div>
+        <div class="game-card"><a href="/game/38"><img src="/static/images/Game_38.jpg" class="zoom-img" alt="Detroit : Become Human"></a></div>
         <div class = "Text">Detroit : Become Human</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/39"> <img src="/static/images/Game_39.jpg" class="zoom-img" alt="Need For Speed"> </a> </div>
+        <div class="game-card"><a href="/game/39"><img src="/static/images/Game_39.jpg" class="zoom-img" alt="Need For Speed"></a></div>
         <div class = "Text">Need For Speed</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/40"> <img src="/static/images/Game_40.jpg" class="zoom-img" alt="PUBG"> </a> </div>
-        <div class = "Text">PUBG</div>
+        <div class="game-card"><a href="/game/40"><img src="/static/images/Game_40.jpg" class="zoom-img" alt="PUBG"></a></div>
+        <div class="Text">PUBG</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/41"> <img src="/static/images/Game_41.jpg" class="zoom-img" alt="Apex Legends"> </a> </div>
-        <div class = "Text">Apex Legends</div>
+        <div class="game-card"><a href="/game/41"><img src="/static/images/Game_41.jpg" class="zoom-img" alt="Apex Legends"></a></div>
+        <div class="Text">Apex Legends</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/42"> <img src="/static/images/Game_42.jpg" class="zoom-img" alt="Fortnite"> </a> </div>
-        <div class = "Text">Fortnite</div>
+        <div class="game-card"><a href="/game/42"><img src="/static/images/Game_42.jpg" class="zoom-img" alt="Fortnite"></a></div>
+        <div class="Text">Fortnite</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/43"> <img src="/static/images/Game_43.jpg" class="zoom-img" alt="The Binding of Isaac"> </a> </div>
-        <div class = "Text">The Binding of Isaac</div>
+        <div class="game-card"><a href="/game/43"><img src="/static/images/Game_43.jpg" class="zoom-img" alt="The Binding of Isaac"></a></div>
+        <div class="Text">The Binding of Isaac</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/44"> <img src="/static/images/Game_44.jpg" class="zoom-img" alt="Undertale"> </a> </div>
-        <div class = "Text">Undertale</div>
+        <div class="game-card"><a href="/game/44"><img src="/static/images/Game_44.jpg" class="zoom-img" alt="Undertale"></a></div>
+        <div class="Text">Undertale</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/45"> <img src="/static/images/Game_45.jpg" class="zoom-img" alt="Sackboy: A Big Adventure"> </a> </div>
-        <div class = "Text">Sackboy: A Big Adventure</div>
+        <div class="game-card"><a href="/game/45"><img src="/static/images/Game_45.jpg" class="zoom-img" alt="Sackboy: A Big Adventure"></a></div>
+        <div class="Text">Sackboy: A Big Adventure</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/46"> <img src="/static/images/Game_46.jpg" class="zoom-img" alt="Hollow Night"> </a> </div>
-        <div class = "Text">Hollow Night</div>
+        <div class="game-card"><a href="/game/46"><img src="/static/images/Game_46.jpg" class="zoom-img" alt="Hollow Night"></a></div>
+        <div class="Text">Hollow Night</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/47"> <img src="/static/images/Game_47.jpg" class="zoom-img" alt="Five Nights at Freddy's"> </a> </div>
-        <div class = "Text">Five Nights at Freddy's</div>
+        <div class="game-card"><a href="/game/47"><img src="/static/images/Game_47.jpg" class="zoom-img" alt="Five Nights at Freddy's"></a></div>
+        <div class="Text">Five Nights at Freddy's</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/48"> <img src="/static/images/Game_48.jpg" class="zoom-img" alt="Wolfenstein"> </a> </div>
-        <div class = "Text">Wolfenstein</div>
+        <div class="game-card"><a href="/game/48"><img src="/static/images/Game_48.jpg" class="zoom-img" alt="Wolfenstein"></a></div>
+        <div class="Text">Wolfenstein</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/49"> <img src="/static/images/Game_49.jpg" class="zoom-img" alt="Wolfenstein 2"> </a> </div>
-        <div class = "Text">Wolfenstein 2</div>
+        <div class="game-card"><a href="/game/49"><img src="/static/images/Game_49.jpg" class="zoom-img" alt="Wolfenstein 2"></a></div>
+        <div class="Text">Wolfenstein 2</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/50"> <img src="/static/images/Game_50.jpg" class="zoom-img" alt="Silent Hill"> </a> </div>
-        <div class = "Text">Silent Hill</div>
+        <div class="game-card"><a href="/game/50"><img src="/static/images/Game_50.jpg" class="zoom-img" alt="Silent Hill"></a></div>
+        <div class="Text">Silent Hill</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/51"> <img src="/static/images/Game_51.jpg" class="zoom-img" alt="Silent Hill 2"> </a> </div>
-        <div class = "Text">Silent Hill 2</div>
+        <div class="game-card"><a href="/game/51"><img src="/static/images/Game_51.jpg" class="zoom-img" alt="Silent Hill 2"></a></div>
+        <div class="Text">Silent Hill 2</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/52"> <img src="/static/images/Game_52.jpg" class="zoom-img" alt="Middle-earth: Shadow of Mordor"> </a> </div>
-        <div class = "Text">Middle-earth: Shadow of Mordor</div>
+        <div class="game-card"><a href="/game/52"><img src="/static/images/Game_52.jpg" class="zoom-img" alt="Middle-earth: Shadow of Mordor"></a></div>
+        <div class="Text">Middle-earth: Shadow of Mordor</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/53"> <img src="/static/images/Game_53.jpg" class="zoom-img" alt="Middle-earth: Shadow of War"> </a> </div>
-        <div class = "Text">Middle-earth: Shadow of War</div>
+        <div class="game-card"><a href="/game/53"><img src="/static/images/Game_53.jpg" class="zoom-img" alt="Middle-earth: Shadow of War"></a></div>
+        <div class="Text">Middle-earth: Shadow of War</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/54"> <img src="/static/images/Game_54.jpg" class="zoom-img" alt="For Honor"> </a> </div>
-        <div class = "Text">For Honor</div>
+        <div class="game-card"><a href="/game/54"><img src="/static/images/Game_54.jpg" class="zoom-img" alt="For Honor"></a></div>
+        <div class="Text">For Honor</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/55"> <img src="/static/images/Game_55.jpg" class="zoom-img" alt="Ghost of Tsushima"> </a> </div>
-        <div class = "Text">Ghost of Tsushima</div>
+        <div class="game-card"><a href="/game/55"><img src="/static/images/Game_55.jpg" class="zoom-img" alt="Ghost of Tsushima"></a></div>
+        <div class="Text">Ghost of Tsushima</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/56"> <img src="/static/images/Game_56.jpg" class="zoom-img" alt="A Way Out"> </a> </div>
-        <div class = "Text">A Way Out</div>
+        <div class="game-card"><a href="/game/56"><img src="/static/images/Game_56.jpg" class="zoom-img" alt="A Way Out"></a></div>
+        <div class="Text">A Way Out</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/57"> <img src="/static/images/Game_57.jpg" class="zoom-img" alt="Until Dawn"> </a> </div>
-        <div class = "Text">Until Dawn</div>
+        <div class="game-card"><a href="/game/57"><img src="/static/images/Game_57.jpg" class="zoom-img" alt="Until Dawn"></a></div>
+        <div class="Text">Until Dawn</div>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/58"> <img src="/static/images/Game_58.jpg" class="zoom-img" alt="The Quarry"> </a> </div>
-        <div class = "Text">The Quarry</div>
+        <div class="game-card"><a href="/game/58"><img src="/static/images/Game_58.jpg" class="zoom-img" alt="The Quarry"></a></div>
+        <div class="Text">The Quarry</div>
         </div>
 
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/59"> <img src="/static/images/Game_59.jpg" class="zoom-img" alt="Rust"> </a> </div>
-        <div class = "Text">Rust</div>
+        <div class="game-card"><a href="/game/59"><img src="/static/images/Game_59.jpg" class="zoom-img" alt="Rust"></a></div>
+        <div class="Text">Rust</div>
         </div>
   
         <div class="game-item"> 
-        <div class="game-card"> <a href="/game/60"> <img src="/static/images/Game_60.jpg" class="zoom-img" alt="NieR: Automata"> </a> </div>
-        <div class = "Text">NieR: Automata</div>
+        <div class="game-card"><a href="/game/60"><img src="/static/images/Game_60.jpg" class="zoom-img" alt="NieR: Automata"></a></div>
+        <div class="Text">NieR: Automata</div>
         </div>
       </div>
     </div>
@@ -231,35 +221,21 @@
       <footer> 
         <nav aria-label="Pages">
           <ul>
-            <li class="inline-text">
-                <a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="1">1</a>
-            </li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="1">1</a></li>
   
-            <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/second_page" data-hover-name="2">2</a>
-            </li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/second_page" data-hover-name="2">2</a></li>
   
-            <li class="inline-text">
-                <a class="c-btn c-btn--big-line" href="/third_page" data-hover-name="3">3</a>
-            </li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/third_page" data-hover-name="3">3</a></li>
   
-            <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/fourth_page" data-hover-name="4">4</a>
-            </li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/fourth_page" data-hover-name="4">4</a></li>
   
-            <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/fifth_page" data-hover-name="5">5</a>
-            </li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/fifth_page" data-hover-name="5">5</a></li>
   
-            <li class="inline-text">
-              <a class="c-btn c-btn--big-line" href="/sixth_page" data-hover-name="6">6</a>
-            </li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/sixth_page" data-hover-name="6">6</a></li>
           </ul>
         </nav>
   
-        <div class = "Information_Follow">
-          Следите за нами
-        </div>
+        <div class = "Information_Follow">Следите за нами</div>
   
         <nav aria-label="Icons">
           <ul>
@@ -269,12 +245,8 @@
           </ul>
         </nav>
   
-        <div class = "Information_Contact">
-          Почта для связи: matvejnazarov4@gmail.com
-        </div>
-        <div class = "Information_Year">
-          © 2025. Все права защищены
-        </div>
+        <div class = "Information_Contact">Почта для связи: matvejnazarov4@gmail.com</div>
+        <div class = "Information_Year">© 2025. Все права защищены</div>
       </footer>
   </body>
 </html>
