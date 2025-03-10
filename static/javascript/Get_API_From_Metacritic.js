@@ -33,9 +33,10 @@ addCommentBtn.addEventListener('click', () => {
 
 submitCommentBtn.addEventListener('click', () => {
     const text = commentText.value.trim();
+    const gameId = window.location.pathname.split('/').pop();
 
     if (text) {
-        fetch('/stay_comment', {
+        fetch(`/stay_comment/${gameId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,13 +45,27 @@ submitCommentBtn.addEventListener('click', () => {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                const newComment = document.createElement('p');
-                newComment.textContent = text;
-                newComment.style.borderBottom = '1px solid #ccc';
-                newComment.style.padding = '10px 0';
-                commentsList.appendChild(newComment);
-
+            if (data.status === "success") {
+                // Создаем новый элемент комментария
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                newComment.setAttribute('data-comment-id', data.comment_id);
+                newComment.innerHTML = `
+                    <p class="comment-text">${data.comment}</p>
+                    <small>Автор: ${data.author}</small>
+                    <hr>
+                `;
+                
+                // Добавляем комментарий в начало списка
+                const commentsContainer = document.getElementById('comments-list');
+                const firstComment = commentsContainer.querySelector('.comment');
+                if (firstComment) {
+                    commentsContainer.insertBefore(newComment, firstComment);
+                } else {
+                    commentsContainer.appendChild(newComment);
+                }
+                
+                // Очищаем поле ввода и скрываем его
                 commentText.value = '';
                 commentField.style.display = 'none';
             } else {
@@ -64,19 +79,4 @@ submitCommentBtn.addEventListener('click', () => {
     } else {
         alert('Пожалуйста, введите текст комментария!');
     }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const starIcon = document.getElementById("star-icon");
-
-  starIcon.addEventListener("click", () => {
-      fetch('/click_star', { method: 'POST' })
-      .then(response => response.json())
-      .then(data => {
-          if (data.status === "success") {
-              starIcon.src = data.is_clicked ? "/static/icons/Full_Star.jpg" : "/static/icons/Star.jpg";
-          }
-      })
-      .catch(error => console.error("Ошибка:", error));
-  });
 });

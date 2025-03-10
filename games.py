@@ -724,8 +724,3 @@ async def the_last_of_us(request: Request):
 @router.get("/it_takes_two")
 async def the_last_of_us(request: Request):
     return templates.TemplateResponse("it_takes_two.html", {"request": request})
-
-
-
-
-

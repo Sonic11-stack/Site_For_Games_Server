@@ -26,7 +26,7 @@
 
             <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">Игры</a></li>
 
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engine" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">Игровые движки</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engines" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">Игровые движки</a></li>
           </ul>
         </nav>
 
@@ -96,13 +96,18 @@
             <h2>Избранные игры</h2>
             <div class="favorite-games">
                 {% if save_games %}
-                {% for i in range(save_games|length) %}
-                <a href="/game/{{save_games[i]}}">
-                    <img src="{{image_urls[i]}}" class="zoom-img">
-                    <p>{{name_game}}</p>
-                </a>
-                {% endfor %}
-                {% else %}<p class="no-games">Список избранных игр пуст</p>{% endif %}
+                <div class="games-grid">
+                    {% for i in range(save_games|length) %}
+                    <div class="game-item">
+                        <a href="/game/{{save_games[i]}}">
+                            <img src="{{image_urls[i]}}" class="zoom-img">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <p class="no-games">Список избранных игр пуст</p>
+                {% endif %}
             </div>
         </div>
       </div>

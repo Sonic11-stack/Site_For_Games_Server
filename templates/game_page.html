@@ -16,7 +16,7 @@
   <link type="Image/x-icon" href="../Logo/Group 2.ico" rel="icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body> 
 
     <section class="Background"></section> 
 
@@ -86,13 +86,18 @@
 
     {% if is_authenticated %}
     <section class="Score">
-    <div class="container grid-container">
-        <div class="grid-item text-center">
-            <img id="star-icon" src="/static/icons/{% if is_clicked %}Full_Star.jpg{% else %}Star.jpg{% endif %}" alt="Meta Icon" class="meta-icon" style="cursor: pointer;">
-            <div class="Text_1">{% if is_clicked %}Сохранено{% else %}Сохранить в профиль{% endif %}</div>
-        </div>
-    </div>
-    </section>
+      <div class="container grid-container">
+          <div class="grid-item text-center">
+              <img id="star-icon" 
+                   src="/static/icons/{% if is_clicked %}Full_Star.jpg{% else %}Star.jpg{% endif %}" 
+                   alt="Meta Icon" 
+                   class="meta-icon" 
+                   style="cursor: pointer;"
+                   data-game-id="{{ game_id }}">
+              <div class="Text_1">{% if is_clicked %}Сохранено{% else %}Сохранить в профиль{% endif %}</div>
+          </div>
+      </div>
+  </section>
     {% endif %}
 
     <section class="Score">
@@ -107,7 +112,7 @@
     <section class="Buy_Game">
       <div class="container grid-container">
         <div class="grid-item text-center">
-          <img src="/static/icons/Steam.png" alt="Steam" class="meta-steam">
+          <img src="{{logo}}" alt="Steam" class="meta-steam">
           <div class="Text_3" data-url="{{sources_to_game}}" onclick="redirectToGame(this)">
             <button class="btn-hover color-3">Купить игру</button>
           </div>
@@ -128,7 +133,16 @@
           <textarea id="comment-text" placeholder="Введите ваш комментарий..." style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>       
           <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>       
         </div>
-        <div id="comments-list" style="float: left; margin-left: 5px; margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';"><h3>Комментарии:</h3></div>
+        <div id="comments-list" style="float: left; margin-left: 5px; margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">
+          <h3>Комментарии:</h3>
+          {% for comment in comments %}
+          <div class="comment" data-comment-id="{{ comment.comment_id }}">
+              <p>Автор: {{comment.name}}</p>
+              <p class="comment-text">{{comment.comment}}</p>
+              <hr>
+          </div>
+          {% endfor %}
+      </div>
       </div>
     </div>
   </section>
