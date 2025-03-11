@@ -6,4 +6,5 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/game_engines")
 async def game_engine(request: Request):
-    return templates.TemplateResponse("Game_Engines.html", {"request": request})
+    is_authenticated = request.cookies.get("auth") == "true"
+    return templates.TemplateResponse("Game_Engines.html", {"request": request, "is_authenticated": is_authenticated})

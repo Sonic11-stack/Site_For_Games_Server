@@ -8,9 +8,7 @@
     z-index: 1;
   }
   
-  .Main_Picture {
-    position: absolute;
-  }
+  .Main_Picture {position: absolute;}
 
   .Description_Of_The_Game {
     float: left;
@@ -39,7 +37,6 @@
     text-align: center;
     justify-content: center;
   }
-  
   
   nav[aria-label="Menu_1"] {
     height: 50px;
@@ -78,12 +75,9 @@
     gap: 10px;
     margin-left: 90%;
     margin-top: -128px;
-    
   }
 
-  .auth-links-1.hidden {
-    display: none;
-  }
+  .auth-links-1.hidden {display: none;}
 
   .inline-text {
     display: inline-block;   
@@ -202,9 +196,7 @@
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
-    background-color: #3E4486;
-  }
+  button:hover {background-color: #3E4486;}
   
   .zoom-img {
     border-radius: 40px;
@@ -257,9 +249,7 @@
     top:  15px;
   }
 
-  .auth-link-1:hover {
-    text-decoration: none; 
-  }
+  .auth-link-1:hover {text-decoration: none; }
   
   .Background {
     position: fixed; 
@@ -344,9 +334,7 @@
     background-color: #333333; 
   }
   
-  .tags {
-    margin-top: 15px;
-  }
+  .tags {margin-top: 15px;}
   
   .tag {
     display: inline-block;
@@ -358,9 +346,7 @@
     font-size: 16px;
   }
 
-  .Description_Of_The_Game {
-    text-align: left;
-  }
+  .Description_Of_The_Game {text-align: left;}
 
   .meta-icon {
     width: 50px;
@@ -417,6 +403,7 @@
     display: inline-block;
     height: 100%;
   }
+
   .c-btn:after {
     content: '';
     display: block;
@@ -432,6 +419,7 @@
     opacity: 0;
     transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:before {
     content: '';
     display: block;
@@ -444,11 +432,13 @@
     background-color: #333333;
     transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:hover:after {
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     transition-delay: .3s;
   }
+
   .c-btn--big-line:hover:before {
     transform: scaleX(1);
     transform-origin: left;
@@ -477,13 +467,9 @@
     color: inherit; 
   }
 
-  .game-info h2, p {
-    font-family: 'Bebas Neue Bold';
-  }
+  .game-info h2, p {font-family: 'Bebas Neue Bold';}
 
-  .tag {
-    font-family: 'Bebas Neue Bold';
-  }
+  .tag {font-family: 'Bebas Neue Bold';}
 
   .btn-hover {
     width: 200px;
@@ -510,9 +496,7 @@
     transition: all .4s ease-in-out;
   }
 
-  .btn-hover:focus {
-    outline: none;
-  }
+  .btn-hover:focus {outline: none;}
 
   .btn-hover.color-3 {
     background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
@@ -552,7 +536,7 @@
 
   .change-avatar-btn {
     padding: 8px 15px;
-    background-color: #007bff;
+    background-color: #707BF7;
     color: white;
     border: none;
     border-radius: 5px;
@@ -578,9 +562,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   }
 
-  .profile-form .form-group {
-    margin-bottom: 15px;
-  }
+  .profile-form .form-group {margin-bottom: 15px;}
 
   .profile-form label {
     display: block;
@@ -603,20 +585,39 @@
 
   .save-btn {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #707BF7;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
 
-  .save-btn:hover {
-    background-color: #218838;
+  .save-btn:hover {background-color: #3f458b;}
+
+  .click-btn {
+    padding: 10px 20px;
+    background-color: #707BF7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .click-btn:hover {
+    background-color: #3f458b;
   }
 
-  .favorite-games {
-    min-height: 100px;
+  .progile-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
   }
+
+  .profile-content {display: none; }
+
+  .favorite-games {min-height: 100px;}
 
   .no-games {
     text-align: center;
@@ -627,30 +628,29 @@
   .favorite-games {
     width: 100%;
     padding: 20px;
-}
+  }
 
-.games-grid {
+  .games-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-}
+  }
 
-.game-item {
-    text-align: center;
-}
+  .game-item {text-align: center;}
 
-.game-item img.zoom-img {
+  .game-item img.zoom-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-}
+    transition: transform 0.3s;
+  }
 
-.game-item p {
+  .game-item img.zoom-img:hover {transform: scale(1.05); }
+
+  .game-item p {
     margin-top: 10px;
     color: white;
-}
+  }
 
-.profile-section h2 {
-  text-align: center;
-}
+  .profile-section h2 {text-align: center;}

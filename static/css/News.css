@@ -65,11 +65,7 @@
     object-fit: cover;
   }
   
-  
-  .Main_Picture {
-    position: absolute;
-  }
-
+  .Main_Picture {position: absolute;}
 
   nav {
     background-color: #707BF7;
@@ -109,9 +105,7 @@
     font-weight: bold;
   }
   
-  .Icons {
-    margin-left: -100px;
-  }
+  .Icons {margin-left: -100px;}
 
   nav[aria-label="Icons"] {
     display: grid;
@@ -159,9 +153,7 @@
     font-weight: bold;
   }
 
-  .auth-link:hover {
-    text-decoration: underline; 
-  }
+  .auth-link:hover {text-decoration: underline; }
 
   .auth-links-1 {
     position: flex;
@@ -172,24 +164,19 @@
     gap: 10px;
     margin-left: 90%;
     margin-top: -128px;
-    
   }
 
-  .auth-links-1.hidden {
-    display: none;
-}
+  .auth-links-1.hidden {display: none;}
 
-.auth-link-1 {
-  font-size: 18px;
-  text-decoration: none;
-  color: #000 !important; 
-  font-weight: bold;
-  top:  15px;
-}
+  .auth-link-1 {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000 !important; 
+    font-weight: bold;
+    top: 15px;
+  }
 
-.auth-link-1:hover {
-  text-decoration: none; 
-}
+  .auth-link-1:hover {text-decoration: none; }
 
   .Line {
     display: grid; 
@@ -211,9 +198,7 @@
     margin-bottom: 5%;
   }
 
-  footer {
-    margin-top : 5%;
-  }
+  footer {margin-top : 5%;}
 
   .Menu {
     display: inline-block;
@@ -270,6 +255,7 @@
     display: inline-block;
     height: 100%;
   }
+
   .c-btn:after {
     content: '';
     display: block;
@@ -285,6 +271,7 @@
     opacity: 0;
     transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:before {
     content: '';
     display: block;
@@ -297,11 +284,13 @@
     background-color: #333333;
     transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:hover:after {
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     transition-delay: .3s;
   }
+
   .c-btn--big-line:hover:before {
     transform: scaleX(1);
     transform-origin: left;
@@ -330,11 +319,6 @@
     color: inherit; 
   }
 
-  .game-info h2, p {
-    font-family: 'Bebas Neue Bold';
-  }
+  .game-info h2, p {font-family: 'Bebas Neue Bold';}
 
-  .tag {
-    font-family: 'Bebas Neue Bold';
-  }
-
+  .tag {font-family: 'Bebas Neue Bold';}

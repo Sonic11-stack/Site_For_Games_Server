@@ -1,4 +1,4 @@
-.container {
+  .container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -144,7 +144,7 @@
   }
 
   footer {
-    margin-top : 15%;
+    margin-top : 16%;
     background-color: #707BF7;
     font-family: 'Bebas Neue Bold';
   }
@@ -223,21 +223,17 @@
     
   }
 
-  .auth-links-1.hidden {
-    display: none;
-}
+  .auth-links-1.hidden {display: none;}
 
-.auth-link-1 {
-  font-size: 18px;
-  text-decoration: none;
-  color: #000 !important; 
-  font-weight: bold;
-  top:  15px;
-}
+  .auth-link-1 {
+    font-size: 18px;
+    text-decoration: none;
+    color: #000 !important; 
+    font-weight: bold;
+    top:  15px;
+  }
 
-.auth-link-1:hover {
-  text-decoration: none; 
-}
+  .auth-link-1:hover {text-decoration: none; }
   
   .c-btn {
     color: #FFF;
@@ -246,6 +242,7 @@
     display: inline-block;
     height: 100%;
   }
+
   .c-btn:after {
     content: '';
     display: block;
@@ -261,6 +258,7 @@
     opacity: 0;
     transition: all 0.2s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:before {
     content: '';
     display: block;
@@ -273,11 +271,13 @@
     background-color: #333333;
     transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
   }
+
   .c-btn--big-line:hover:after {
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
     transition-delay: .3s;
   }
+  
   .c-btn--big-line:hover:before {
     transform: scaleX(1);
     transform-origin: left;
@@ -306,12 +306,8 @@
     color: inherit; 
   }
 
-  .game-info h2, p {
-    font-family: 'Bebas Neue Bold';
-  }
+  .game-info h2, p {font-family: 'Bebas Neue Bold';}
 
-  .tag {
-    font-family: 'Bebas Neue Bold';
-  }
+  .tag {font-family: 'Bebas Neue Bold';}
 
   

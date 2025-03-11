@@ -1,4 +1,4 @@
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,9 +39,7 @@
     transition: color 0.3s;
   }
   
-  .tab.active {
-    color: #6f3ef5;
-  }
+  .tab.active {color: #6f3ef5;}
   
   .form-group {
     margin-bottom: 15px;
@@ -76,9 +74,7 @@
     transition: background-color 0.3s;
   }
   
-  .submit-button:hover {
-    background-color: #5a2ccc;
-  }
+  .submit-button:hover {background-color: #5a2ccc;}
   
   .divider {
     width: 100%;
@@ -101,9 +97,7 @@
     transition: box-shadow 0.3s;
   }
   
-  .google-button:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
+  .google-button:hover {box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);}
   
   .google-icon {
     width: 20px;

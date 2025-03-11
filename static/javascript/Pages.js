@@ -25,3 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textElements = document.querySelectorAll('.Text');
+    textElements.forEach(element => {
+        if (element.textContent.startsWith('/get_text_news/')) {
+            const id = element.textContent.split('/').pop();
+            fetch(`/get_text_news/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    element.textContent = data.text;
+                });
+        }
+    });
+});

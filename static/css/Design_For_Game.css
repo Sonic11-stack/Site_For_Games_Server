@@ -6,11 +6,9 @@
     margin: 0 auto;
     border-radius: 40px;
     z-index: 1;
-  }
+  } 
   
-  .Main_Picture {
-    position: absolute;
-  }
+  .Main_Picture {position: absolute;}
 
   .Description_Of_The_Game {
     float: left;
@@ -79,9 +77,7 @@
     margin-top: -128px;
   }
 
-  .auth-links-1.hidden {
-    display: none;
-  }
+  .auth-links-1.hidden {display: none;}
 
   .inline-text {
     display: inline-block;   
@@ -141,9 +137,7 @@
     margin-right: 100px;
   }
 
-  .grid-item {
-    text-align: center;
-  }
+  .grid-item {text-align: center;}
   
   .Text {
     font-size: 18px;
@@ -200,9 +194,7 @@
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
-    background-color: #3E4486;
-  }
+  button:hover {background-color: #3E4486;}
   
   .zoom-img {
     border-radius: 40px;
@@ -262,9 +254,7 @@
     top:  15px;
   }
 
-  .auth-link-1:hover {
-    text-decoration: none; 
-  }
+  .auth-link-1:hover {text-decoration: none; }
   
   .Background {
     position: fixed; 
@@ -349,9 +339,7 @@
     background-color: #333333; 
   }
   
-  .tags {
-    margin-top: 15px;
-  }
+  .tags {margin-top: 15px;}
   
   .tag {
     display: inline-block;
@@ -363,9 +351,7 @@
     font-size: 16px;
   }
 
-  .Description_Of_The_Game {
-    text-align: left;
-  }
+  .Description_Of_The_Game {text-align: left;}
 
   .meta-icon {
     width: 50px;
@@ -486,13 +472,9 @@
     color: inherit; 
   }
 
-  .game-info h2, p {
-    font-family: 'Bebas Neue Bold';
-  }
+  .game-info h2, p {font-family: 'Bebas Neue Bold';}
 
-  .tag {
-    font-family: 'Bebas Neue Bold';
-  }
+  .tag {font-family: 'Bebas Neue Bold';}
 
   .btn-hover {
     width: 200px;
@@ -519,9 +501,7 @@
     transition: all .4s ease-in-out;
   }
 
-  .btn-hover:focus {
-    outline: none;
-  }
+  .btn-hover:focus {outline: none;}
 
   .btn-hover.color-3 {
     background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
