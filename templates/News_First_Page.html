@@ -11,8 +11,8 @@
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Log_And_Logout.js" defer></script>
   <script src="/static/javascript/Pages.js" defer></script>
-  <link type="image/x-icon" href="../Logo/Group 2.ico" rel="shortcut icon">
-  <link type="Image/x-icon" href="../Logo/Group 2.ico" rel="icon">
+  <link type="image/x-icon" href="/static/icons/Logo.ico" rel="shortcut icon">
+  <link type="Image/x-icon" href="/static/icons/Logo.ico" rel="icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -44,7 +44,7 @@
       {% endif %}
 
           <div class="logo-container">
-            <a href="/news_first_page"><img src="/static/icons/Meta.png" alt="Логотип" class="logo"></a>
+            <a href="/news_first_page"><img src="/static/icons/Logo.jpg" alt="Логотип" class="logo"></a>
             <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
           </div>
       
@@ -53,76 +53,17 @@
 
   <section class="Games">
     <div class="container">
+      {% for news in news_list %}
       <div class="grid-container">
-          <div class="game-card"><a href="/news/1"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></a></div>
-            <div class="game-card-text"> 
-              <div class="Text">/get_text_news/1</div>
-            </div>
+          <div class="game-card">
+              <a href="/news/{{news.id}}"><img src="/static/news/News_{{news.id}}.jpg" class="zoom-img" data-new-id="{{news.id}}" alt="Image of news"></a>
+          </div>
+          <div class="game-card-text"> 
+              <div class="Text">/get_text_news/{{news.id}}</div>
+          </div>
       </div>
-
-      <div class="grid-container">
-        <div class="game-card"><a href="/news/1"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></a></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-      </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-       
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-        </div>
-
-      <div class="grid-container">
-        <div class="game-card"><img src="/static/news/Games.jpg" class="zoom-img" alt="Image of news"></div>
-        <div class="game-card-text"> 
-          <div class="Text">/get_text_news/1</div>
-        </div>
-      </div>
-    </div>
+      {% endfor %}
+  </div>
   </section>
   
 <footer> 

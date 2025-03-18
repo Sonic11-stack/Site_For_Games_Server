@@ -6,24 +6,44 @@
     margin: 0 auto;
     border-radius: 40px;
     z-index: 1;
-  }
+  } 
   
   .Main_Picture {position: absolute;}
 
   .Description_Of_The_Game {
-    float: left;
-    margin-left: 50px;
-    width: 40%;
+    float: none;  
+    width: 80%;   
+    margin: 0 auto;  
+    padding: 20px;
   }
 
   .Score {
-    display: inline-block;
-    float: right;
-    margin-right: 100px;
+    align-items: center;
+    text-align: center;
+    float: none; 
+    width: 80%;
+    margin: 20px auto;  
+    text-align: center;
+  }
+  
+
+  .Score_1 {
+    float: none; 
+    width: 80%;
+    margin: 20px auto;  
+    text-align: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .Score_1 .meta-icon {
+    float: none;
+    margin: 0 auto;
+    display: block;
   }
 
   .Text {
-    text-align: left; 
+    text-align: center;
     max-width: 800px;
     margin: 0 auto; 
     font-size: 16px; 
@@ -108,6 +128,21 @@
     font-weight: bold;
   }
 
+  .inline-text_1_1 {
+    display: inline-block;   
+    margin: 0 0px;  
+    margin-right: 15px;
+    background-color: green;     
+    border-radius: 10%;   
+  }
+  
+  .inline-text_1_1 a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
   .container {
     display: flex;
     grid-template-columns: 1fr;
@@ -137,9 +172,7 @@
     margin-right: 100px;
   }
 
-  .grid-item {
-    text-align: center;
-  }
+  .grid-item {text-align: center;}
   
   .Text {
     font-size: 18px;
@@ -154,6 +187,17 @@
     white-space: nowrap;
     margin-top: 8px;
     margin-left: 60px;
+    font-family: 'Bebas Neue Bold';
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .Text_1_1 {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    white-space: nowrap;
+    margin-top: 8px;
     font-family: 'Bebas Neue Bold';
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -202,6 +246,13 @@
     border-radius: 40px;
     width: 100%;
     max-width: 600px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .zoom-img-1 {
+    width: 100%;
+    max-width: 100px;
     height: auto;
     object-fit: cover;
   }
@@ -311,21 +362,30 @@
     font-weight: bold;
   }
 
+  .content {
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 600px;  
+    text-align: center;  
+  }
+
   .game-info {
-    color: #ffffff; 
-    background-color: #333333; 
+    width: 100%;
+    max-width: 600px;  
+    text-align: center;  
+    color: #ffffff;
+    background-color: #333333;
     padding: 40px;
     border-radius: 10px;
-  }
-  
-  .game-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .game-info p {
-    font-size: 18px;
-    margin: 5px 0;
+    margin: 0 auto;
   }
 
   .Wall {
@@ -349,6 +409,7 @@
   .Description_Of_The_Game {text-align: left;}
 
   .meta-icon {
+    align-items: center;
     width: 50px;
     height: auto;
     display: block;
@@ -363,13 +424,6 @@
     float: left;
     max-width: 50px;    
     margin-left: -40px;
-  }
-
-  .Buy_Game {
-    float: right;
-    margin-top: 100px;
-    margin-right: -230px;
-    width: 190px;
   }
 
   .logo-container {
@@ -504,176 +558,3 @@
     margin-top: -10px;
     margin-left: 10px;
   }
-
-  .profile-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #333333;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .profile-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-
-  .profile-avatar {
-    text-align: center;
-    margin-right: 30px;
-  }
-
-  .profile-avatar img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-    color: white;
-  }
-
-  .change-avatar-btn {
-    padding: 8px 15px;
-    background-color: #707BF7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .profile-info h1 {
-    margin: 0;
-    color: white;
-    font-size: 2em;
-  }
-
-  .profile-info p {
-    margin: 5px 0;
-    color: white;
-  }
-
-  .profile-section {
-    background-color: grey;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
-
-  .profile-form .form-group {margin-bottom: 15px;}
-
-  .profile-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-
-  .profile-form input,
-  .profile-form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-
-  .profile-form textarea {
-    height: 100px;
-    resize: vertical;
-  }
-
-  .save-btn {
-    padding: 10px 20px;
-    background-color: #707BF7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .save-btn:hover {background-color: #3f458b;}
-
-  .click-btn {
-    padding: 10px 20px;
-    background-color: #707BF7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-  }
-  
-  .click-btn:hover {
-    background-color: #3f458b;
-  }
-
-  .click-btn-1 {
-    padding: 10px 20px;
-    background-color: #707BF7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-  }
-  
-  .click-btn-1:hover {
-    background-color: #3f458b;
-  }
-
-  .progile-con {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-
-  .progile-con-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-
-  .profile-content {display: none; }
-
-  .profile-content-1 {display: none; }
-
-  .favorite-games {min-height: 100px;}
-
-  .no-games {
-    text-align: center;
-    color: #666;
-    font-style: italic;
-  }
-
-  .favorite-games {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .games-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .game-item {text-align: center;}
-
-  .game-item img.zoom-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
-  }
-
-  .game-item img.zoom-img:hover {transform: scale(1.05); }
-
-  .game-item p {
-    margin-top: 10px;
-    color: white;
-  }
-
-  .profile-section h2 {text-align: center;}

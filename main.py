@@ -3,7 +3,7 @@ import os
 import uvicorn
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.base import BaseHTTPMiddleware
-import pages, news, engines, formsRegAndLogin, games, operations_with_db, functions, google_function
+import pages, news, engines, formsRegAndLogin
 from operations_with_db import router as operations_router
 from functions import router as functions_router
 from formsRegAndLogin import router as forms_router 
@@ -24,7 +24,6 @@ app.add_middleware(AuthMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(formsRegAndLogin.router)
-app.include_router(games.router)
 app.include_router(pages.router)
 app.include_router(news.router)
 app.include_router(engines.router)

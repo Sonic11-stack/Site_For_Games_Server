@@ -10,8 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     saveButton.addEventListener('click', function(e) {
-        // Не препятствуем отправке формы
         profileContent.style.display = 'none';
         profileCon.style.display = 'flex';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const createNewsButton = document.querySelector('.click-btn-1');
+    const profileContent1 = document.querySelector('.profile-content-1');
+    const profileCon1 = document.querySelector('.progile-con-1');
+    const saveButton1 = document.querySelector('.save-btn');
+
+    createNewsButton.addEventListener('click', function() {
+        profileContent1.style.display = 'block'; 
+        profileCon1.style.display = 'none';
+    });
+
+    saveButton1.addEventListener('click', function() {
+        profileContent1.style.display = 'none'; 
+        profileCon1.style.display = 'flex';
     });
 });

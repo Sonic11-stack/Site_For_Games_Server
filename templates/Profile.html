@@ -11,8 +11,8 @@
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Log_And_Logout.js" defer></script>
   <script src="/static/javascript/Profile.js" defer></script>
-  <link type="image/x-icon" href="../Logo/Group 2.ico" rel="shortcut icon">
-  <link type="Image/x-icon" href="../Logo/Group 2.ico" rel="icon">
+  <link type="image/x-icon" href="/static/icons/Logo.ico" rel="shortcut icon">
+  <link type="Image/x-icon" href="/static/icons/Logo.ico" rel="icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -44,7 +44,7 @@
         {% endif %}
 
     <div class="logo-container">
-        <a href="/news_first_page"><img src="/static/icons/Meta.png" alt="Логотип" class="logo"></a>
+        <a href="/news_first_page"><img src="/static/icons/Logo.jpg" alt="Логотип" class="logo"></a>
         <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
     </div>
         
@@ -75,6 +75,10 @@
       </div>
 
       <div class="progile-con"><button type="submit" class="click-btn" style="font-family: 'Bebas Neue Bold';">Редактировать профиль</button></div>
+
+      {% if is_author %}
+      <div class="progile-con-1"><button type="submit" class="click-btn-1" style="font-family: 'Bebas Neue Bold';">Создать блок новостей</button></div>
+      {% endif %}
       
       <div class="profile-content">
           <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
@@ -97,6 +101,27 @@
           </div> 
           </div>
 
+          <div class="profile-content-1">
+            <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
+                <h2>Добавление новости</h2>
+                <form class="profile-form" action="/create_news" method="post" enctype="application/x-www-form-urlencoded">
+                  <div class="form-group">
+                      <label for="text_news">Описание новости на переднем плане:</label>
+                      <input type="text" id="text_news" name="text_news">
+                  </div>
+                  <div class="form-group">
+                      <label for="name">Название новости:</label>
+                      <textarea id="name" name="name"></textarea>
+                  </div>
+                  <div class="form-group">
+                      <label for="main_text">Описание новости внутри страницы:</label>
+                      <input type="text" id="main_text" name="main_text">
+                  </div>
+                  <button type="submit" class="save-btn">Создать новость</button>
+              </form>
+            </div> 
+          </div>
+
           <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
             <h2>Избранные игры</h2>
             <div class="favorite-games">
@@ -113,6 +138,23 @@
                 {% endif %}
             </div>
         </div>
+
+        <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
+          <h2>Избранные новости</h2>
+          <div class="favorite-games">
+              {% if save_news %}
+              <div class="games-grid">
+                  {% for i in range(save_news|length) %}
+                  <div class="game-item">
+                      <a href="/news/{{save_news[i]}}"><img src="{{image_urls_news[i]}}" class="zoom-img"></a>
+                  </div>
+                  {% endfor %}
+              </div>
+              {% else %}
+                  <p class="no-games">Список избранных новостей пуст</p>
+              {% endif %}
+          </div>
+      </div>
   </section>
 
 <footer> 

@@ -1,5 +1,4 @@
-from dependencies import FastAPI, Request, Depends, templates, os, get_db_connection, BaseHTTPMiddleware, StaticFiles, JSONResponse, Form, Body, RedirectResponse, APIRouter
-import formsRegAndLogin
+from dependencies import Request, Depends, templates, get_db_connection, JSONResponse, Form, Body, RedirectResponse, APIRouter
 
 def get_db():
     conn = get_db_connection()
@@ -80,14 +79,31 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
         "image_url": image_url, "is_authenticated": is_authenticated}
     )
 
-@router.get("/news/{news_id}")
-async def get_game_page(request: Request, news_id: int, db=Depends(get_db)):
+@router.get("/news/{new_id}")
+async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     cur = db.cursor()
-    cur.execute('SELECT text_news, name, main_text FROM "News" WHERE id = %s', (news_id,))
+    cur.execute('SELECT text_news, name, main_text FROM "News" WHERE id = %s', (new_id,))
     engine = cur.fetchone()
+    user_email = request.cookies.get("email")
+    user = None
+    
+    is_clicked = False
+    
+    if user_email:
+        cur.execute('SELECT name FROM "Users" WHERE email = %s', (user_email,))
+        user = cur.fetchone()
+        cur.execute('SELECT save_new FROM "Users" WHERE email = %s', (user_email,))
+        user_data = cur.fetchone()
+        if user_data and user_data['save_new']:
+            saved_games = user_data['save_new'].split(',')
+            is_clicked = str(new_id) in saved_games
+
     cur.close()
 
-    image_url = f"/static/images/Game_Engine_{news_id}.jpg"
+    image_url = f"/static/news/News_{new_id}.jpg"
+    
+    description = engine["main_text"]
+    author = user["name"]
     print("DEBUG:", engine)
 
     if not engine:
@@ -97,8 +113,8 @@ async def get_game_page(request: Request, news_id: int, db=Depends(get_db)):
 
     return templates.TemplateResponse(
         "New_Page.html",
-        {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], 
-        "image_url": image_url, "is_authenticated": is_authenticated}
+        {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], "description": description, "author": author, "new_id": new_id, 
+        "image_url": image_url, "is_authenticated": is_authenticated, "is_clicked": is_clicked}
     )
 
 @router.get("/get_text_news/{id}")
@@ -162,7 +178,7 @@ async def get_game_page(request: Request, email: str = Form(...), password: str 
 async def profile(request: Request, db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
-    cur.execute('SELECT name, email, save_game, about_yourself, location FROM "Users" WHERE email = %s', (email,))
+    cur.execute('SELECT name, email, save_game, about_yourself, location, save_new, role FROM "Users" WHERE email = %s', (email,))
     user = cur.fetchone()
     cur.close()
 
@@ -170,13 +186,19 @@ async def profile(request: Request, db=Depends(get_db)):
         return RedirectResponse(url="/first_page", status_code=303)
 
     name_game = user["name"]
+    author = user["role"]
     bio = user["about_yourself"]
     location = user["location"]
     save_game_str = user["save_game"] if user["save_game"] else ""
+    save_new_str = user["save_new"] if user["save_new"] else ""
     save_games = [int(game_id) for game_id in save_game_str.split(",") if game_id.isdigit()]
+    save_news = [int(new_id) for new_id in save_new_str.split(",") if new_id.isdigit()]
     is_authenticated = request.cookies.get("auth") == "true"
     image_urls = [f"/static/images/Game_{game_id}.jpg" for game_id in save_games]
-    return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "name_game": name_game, "bio": bio, "location": location, "is_authenticated": is_authenticated, "save_games": save_games, "image_urls": image_urls})
+    image_urls_news = [f"/static/news/News_{new_id}.jpg" for new_id in save_news]
+
+    return templates.TemplateResponse("Profile.html", {"request": request, "user": user, "name_game": name_game, "bio": bio, "location": location, "is_author": author, 
+    "is_authenticated": is_authenticated, "save_games": save_games, "save_news": save_news, "image_urls": image_urls, "image_urls_news": image_urls_news})
 
 @router.post("/save_profile")
 async def profile(request: Request, name: str = Form(...), bio: str = Form(...), location: str = Form(...), db=Depends(get_db)):
@@ -187,6 +209,104 @@ async def profile(request: Request, name: str = Form(...), bio: str = Form(...),
     user = cur.fetchone()
     cur.close()
     return RedirectResponse(url="/profile", status_code=303)
+
+@router.post("/create_news")
+async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), db=Depends(get_db)):
+    cur = db.cursor()
+    
+    cur.execute('SELECT MAX(id) FROM "News"')
+    max_id = list(cur.fetchone().values())[0]
+    new_id = 1 if max_id is None else max_id + 1
+    
+    cur.execute('INSERT INTO "News" (id, text_news, name, main_text) VALUES (%s, %s, %s, %s) RETURNING id', 
+                (new_id, text_news, name, main_text))
+    db.commit()
+    cur.close()
+    return RedirectResponse(url="/profile", status_code=303)
+
+@router.get("/news_first_page")
+async def news_first_page(request: Request, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6')
+    news_list = cur.fetchall()
+    cur.close()
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "News_First_Page.html",
+        {"request": request, "news_list": news_list, "is_authenticated": is_authenticated}
+)
+
+@router.get("/news_second_page")
+async def news_first_page(request: Request, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 6')
+    news_list = cur.fetchall()
+    cur.close()
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "News_Second_Page.html",
+        {"request": request, "news_list": news_list, "is_authenticated": is_authenticated}
+)
+
+@router.get("/news_third_page")
+async def news_first_page(request: Request, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 12')
+    news_list = cur.fetchall()
+    cur.close()
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "News_Third_Page.html",
+        {"request": request, "news_list": news_list, "is_authenticated": is_authenticated}
+)
+
+@router.get("/news_fourth_page")
+async def news_first_page(request: Request, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 18')
+    news_list = cur.fetchall()
+    cur.close()
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "News_Fourth_Page.html",
+        {"request": request, "news_list": news_list, "is_authenticated": is_authenticated}
+)
+
+@router.get("/news_fifth_page")
+async def news_first_page(request: Request, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 24')
+    news_list = cur.fetchall()
+    cur.close()
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "News_Fifth_Page.html",
+        {"request": request, "news_list": news_list, "is_authenticated": is_authenticated}
+)
+
+@router.get("/news_sixth_page")
+async def news_first_page(request: Request, db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 30')
+    news_list = cur.fetchall()
+    cur.close()
+    
+    is_authenticated = request.cookies.get("auth") == "true"
+
+    return templates.TemplateResponse(
+        "News_Sixth_Page.html",
+        {"request": request, "news_list": news_list, "is_authenticated": is_authenticated}
+)
 
 @router.post("/click_star")
 async def profile(request: Request, save_game: dict = Body(...), db=Depends(get_db)):
@@ -213,6 +333,36 @@ async def profile(request: Request, save_game: dict = Body(...), db=Depends(get_
         is_clicked = True
     
     cur.execute('UPDATE "Users" SET save_game = %s WHERE email = %s', (new_saves, email))
+    db.commit()
+    cur.close()
+    
+    return JSONResponse(content={"status": "success", "is_clicked": is_clicked})
+
+@router.post("/click_star_new")
+async def profile(request: Request, save_new: dict = Body(...), db=Depends(get_db)):
+    email = request.cookies.get("email")
+    cur = db.cursor()
+
+    cur.execute('SELECT save_new FROM "Users" WHERE email = %s', (email,))
+    user_data = cur.fetchone()
+    
+    current_saves = user_data['save_new'] if user_data['save_new'] else ""
+    new_id = str(save_new['save_new'])
+    
+    if current_saves:
+        saved_games = current_saves.split(",")
+        if new_id in saved_games:
+            saved_games.remove(new_id)
+            new_saves = ",".join(saved_games)
+            is_clicked = False
+        else:
+            new_saves = f"{current_saves},{new_id}"
+            is_clicked = True
+    else:
+        new_saves = new_id
+        is_clicked = True
+    
+    cur.execute('UPDATE "Users" SET save_new = %s WHERE email = %s', (new_saves, email))
     db.commit()
     cur.close()
     

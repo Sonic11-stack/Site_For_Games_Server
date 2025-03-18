@@ -1,5 +1,5 @@
 /*const API_KEY = '41fdca3dce1b4153af488de676486592'; 
-const GAME_NAME = 'The Last of Us'; 
+const GAME_NAME = document.querySelector('[data-game-name]').dataset.gameName;
 
 async function fetchMetacriticScore(gameName) {
   try {
@@ -46,7 +46,6 @@ submitCommentBtn.addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                // Создаем новый элемент комментария
                 const newComment = document.createElement('div');
                 newComment.className = 'comment';
                 newComment.setAttribute('data-comment-id', data.comment_id);
@@ -56,7 +55,6 @@ submitCommentBtn.addEventListener('click', () => {
                     <hr>
                 `;
                 
-                // Добавляем комментарий в начало списка
                 const commentsContainer = document.getElementById('comments-list');
                 const firstComment = commentsContainer.querySelector('.comment');
                 if (firstComment) {
@@ -65,7 +63,6 @@ submitCommentBtn.addEventListener('click', () => {
                     commentsContainer.appendChild(newComment);
                 }
                 
-                // Очищаем поле ввода и скрываем его
                 commentText.value = '';
                 commentField.style.display = 'none';
             } else {
