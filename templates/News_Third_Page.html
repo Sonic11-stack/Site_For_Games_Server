@@ -53,47 +53,51 @@
 
   <section class="Games">
     <div class="container">
+    {% if news_list %}
       {% for news in news_list %}
       <div class="grid-container">
-          <div class="game-card">
-              <a href="/news/{{news.id}}"><img src="/static/news/News_{{news.id}}.jpg" class="zoom-img" data-new-id="{{news.id}}" alt="Image of news"></a>
-          </div>
-          <div class="game-card-text"> 
-              <div class="Text">/get_text_news/{{news.id}}</div>
-          </div>
+        <div class="game-card">
+            <a href="/news/{{news.id}}"><img src="/static/news/News_{{news.id}}.jpg" class="zoom-img" data-new-id="{{news.id}}" alt="Image of news"></a>
+        </div>
+        <div class="game-card-text"> 
+            <div class="Text">/get_text_news/{{news.id}}</div>
+        </div>
       </div>
       {% endfor %}
+
+      {% else %}
+        <div class="no-news-message">
+            <p class = "Text_News">Новостей пока нет</p>
+        </div>
+      {% endif %}
     </div>
   </section>
   
-      <footer> 
+  <div class="wrapper">
+    <footer class="footer"> 
         <nav aria-label="Pages">
-          <ul>
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="1">1</a></li>
-  
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_second_page" data-hover-name="2">2</a></li>
-  
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_third_page" data-hover-name="3">3</a></li>
-  
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_fourth_page" data-hover-name="4">4</a></li>
-  
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_fifth_page" data-hover-name="5">5</a></li>
-  
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_sixth_page" data-hover-name="6">6</a></li>
-          </ul>
+            <ul>
+                <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="1">1</a></li>
+                <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_second_page" data-hover-name="2">2</a></li>
+                <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_third_page" data-hover-name="3">3</a></li>
+                <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_fourth_page" data-hover-name="4">4</a></li>
+                <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_fifth_page" data-hover-name="5">5</a></li>
+                <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_sixth_page" data-hover-name="6">6</a></li>
+            </ul>
         </nav>
 
-      <div class="Information_Follow">Следите за нами</div>
+        <div class="Information_Follow">Следите за нами</div>
 
-      <nav aria-label="Icons">
-        <ul>
-          <li class="inline-image"> <a href="https://t.me/Fetyper"> <img src="/static/icons/Telegram.png" alt="Image description"></a></li>
-          <li class="inline-image"> <a href="https://vk.com/coolstudent1"> <img src="/static/icons/VK.png" alt="Image description"></a></li>
-          <li class="inline-image"> <a href="https://github.com/Sonic11-stack?tab=overview&from=2024-12-01&to=2024-12-08"> <img src="/static/icons/GitHub.png" alt="Image description"></a></li>
-        </ul>
-      </nav>
-      <div class="Information_Contact">Почта для связи: matvejnazarov4@gmail.com</div>
-      <div class="Information_Year">© 2025. Все права защищены</div>
-      </footer>
+        <nav aria-label="Icons">
+            <ul>
+                <li class="inline-image"> <a href="https://t.me/Fetyper"> <img src="/static/icons/Telegram.png" alt="Image description"></a></li>
+                <li class="inline-image"> <a href="https://vk.com/coolstudent1"> <img src="/static/icons/VK.png" alt="Image description"></a></li>
+                <li class="inline-image"> <a href="https://github.com/Sonic11-stack?tab=overview&from=2024-12-01&to=2024-12-08"> <img src="/static/icons/GitHub.png" alt="Image description"></a></li>
+            </ul>
+        </nav>
+        <div class="Information_Contact">Почта для связи: matvejnazarov4@gmail.com</div>
+        <div class="Information_Year">© 2025. Все права защищены</div>
+    </footer>
+</div>
   </body>
 </html>

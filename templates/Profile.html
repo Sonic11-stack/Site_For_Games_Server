@@ -104,23 +104,27 @@
           <div class="profile-content-1">
             <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
                 <h2>Добавление новости</h2>
-                <form class="profile-form" action="/create_news" method="post" enctype="application/x-www-form-urlencoded">
-                  <div class="form-group">
-                      <label for="text_news">Описание новости на переднем плане:</label>
-                      <input type="text" id="text_news" name="text_news">
-                  </div>
-                  <div class="form-group">
-                      <label for="name">Название новости:</label>
-                      <textarea id="name" name="name"></textarea>
-                  </div>
-                  <div class="form-group">
-                      <label for="main_text">Описание новости внутри страницы:</label>
-                      <input type="text" id="main_text" name="main_text">
-                  </div>
-                  <button type="submit" class="save-btn">Создать новость</button>
-              </form>
+                <form class="profile-form" action="/create_news" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="text_news">Описание новости на переднем плане:</label>
+                        <input type="text" id="text_news" name="text_news">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Название новости:</label>
+                        <textarea id="name" name="name"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="main_text">Описание новости внутри страницы:</label>
+                        <input type="text" id="main_text" name="main_text">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Загрузить изображение:</label>
+                        <input type="file" id="image" name="image" accept="image/*">
+                    </div>
+                    <button type="submit" class="save-btn">Создать новость</button>
+                </form>
             </div> 
-          </div>
+        </div>
 
           <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
             <h2>Избранные игры</h2>

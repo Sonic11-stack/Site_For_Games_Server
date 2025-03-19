@@ -1,4 +1,9 @@
+import shutil
 from dependencies import Request, Depends, templates, get_db_connection, JSONResponse, Form, Body, RedirectResponse, APIRouter
+import bcrypt
+import psycopg2
+from pydantic import BaseModel
+from fastapi import File, HTTPException, UploadFile
 
 def get_db():
     conn = get_db_connection()
@@ -8,6 +13,21 @@ def get_db():
         conn.close()
 
 router = APIRouter()
+
+class LoginData(BaseModel):
+    email: str
+    password: str
+
+def hash_password(plain_password: str) -> str:
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(plain_password.encode(), salt)
+    return hashed.decode()  
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    try:
+        return bcrypt.checkpw(plain_password.encode(), hashed_password.encode())
+    except ValueError:
+        return False    
 
 @router.get("/game/{game_id}")
 async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
@@ -98,6 +118,8 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
             saved_games = user_data['save_new'].split(',')
             is_clicked = str(new_id) in saved_games
 
+    cur.execute('SELECT c.comment_id, c.comment, u.name FROM "Comments_News" c JOIN "Users" u ON c.email = u.email WHERE c.id = %s ORDER BY c.comment_id DESC', (new_id,))
+    comments = cur.fetchall()
     cur.close()
 
     image_url = f"/static/news/News_{new_id}.jpg"
@@ -114,7 +136,7 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     return templates.TemplateResponse(
         "New_Page.html",
         {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], "description": description, "author": author, "new_id": new_id, 
-        "image_url": image_url, "is_authenticated": is_authenticated, "is_clicked": is_clicked}
+        "image_url": image_url, "is_authenticated": is_authenticated, "is_clicked": is_clicked, "comments": comments}
     )
 
 @router.get("/get_text_news/{id}")
@@ -149,22 +171,29 @@ async def get_game_page(request: Request, id: int, db=Depends(get_db)):
 
 @router.post("/click_button")
 async def get_game_page(request: Request, name: str = Form(...), surname: str = Form(...), email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
-    cur = db.cursor()
-    cur.execute('INSERT INTO "Users" (id, name, surname, email, password) VALUES (DEFAULT, %s, %s, %s, %s)', (name, surname, email, password))
-    db.commit()
-    cur.close()
-    return templates.TemplateResponse("First_Page.html", {"request": request, "name": name, "surname": surname, "email": email, "password": password})
+    hashed_password = hash_password(password)
+    role = 'member'
+    try:
+        with db.cursor() as cur:
+            cur.execute('INSERT INTO "Users" (id, name, surname, email, password, role) VALUES (DEFAULT, %s, %s, %s, %s, %s)', (name, surname, email, hashed_password, role))
+        db.commit()
+    except psycopg2.IntegrityError:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Email уже зарегистрирован")
+
+    return {"message": "Пользователь зарегистрирован"}
+    
 
 @router.post("/click_button_1")
 async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
     cur = db.cursor()
-    cur.execute('SELECT email, password FROM "Users" WHERE email = %s AND password = %s', (email, password))
+    cur.execute('SELECT email, password FROM "Users" WHERE email = %s', (email,))
     user = cur.fetchone()
 
-    if not user:
+    if not user or not verify_password(password, user['password']):  
         cur.close()
         db.close()
-        return {"error": "Пользователь не найден"}
+        return {"error": "Пользователь не найден или неверный пароль"}  
 
     db.commit()
     cur.close()
@@ -211,8 +240,14 @@ async def profile(request: Request, name: str = Form(...), bio: str = Form(...),
     return RedirectResponse(url="/profile", status_code=303)
 
 @router.post("/create_news")
-async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), db=Depends(get_db)):
+async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), image: UploadFile = File(...), db=Depends(get_db)):
     cur = db.cursor()
+
+    image_filename = f"News_{name.replace(' ', '_')}.jpg"  
+    image_path = f"static/news/{image_filename}"
+
+    with open(image_path, "wb") as buffer:
+        shutil.copyfileobj(image.file, buffer)
     
     cur.execute('SELECT MAX(id) FROM "News"')
     max_id = list(cur.fetchone().values())[0]
@@ -376,6 +411,26 @@ async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=
     user = cur.fetchone()
     
     cur.execute('INSERT INTO "Comments" (email, comment, id) VALUES (%s, %s, %s) RETURNING comment_id', 
+                (email, comment["comment"], id))
+    new_comment_id = cur.fetchone()['comment_id']
+    db.commit()
+    cur.close()
+    
+    return JSONResponse(content={
+        "status": "success", 
+        "comment": comment["comment"],
+        "comment_id": new_comment_id,
+        "author": user['name']
+    })
+
+@router.post("/stay_comment_new/{id}")
+async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=Depends(get_db)):
+    email = request.cookies.get("email")
+    cur = db.cursor()
+    cur.execute('SELECT name FROM "Users" WHERE email = %s', (email,))
+    user = cur.fetchone()
+    
+    cur.execute('INSERT INTO "Comments_News" (email, comment, id) VALUES (%s, %s, %s) RETURNING comment_id', 
                 (email, comment["comment"], id))
     new_comment_id = cur.fetchone()['comment_id']
     db.commit()

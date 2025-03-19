@@ -113,6 +113,7 @@
   }
 
   footer {
+    margin-top: auto;
     background-color: #707BF7;
     font-family: 'Bebas Neue Bold';
   }
@@ -123,6 +124,8 @@
     margin: 0 auto;
     border-radius: 40px;
     z-index: 1;
+    margin-bottom: 0;
+    min-height: 410px;
   }
 
   .Background {
@@ -199,6 +202,14 @@
   }
 
   footer {margin-top : 5%;}
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto; 
+    flex-grow: 1;
+    
+}
 
   .Menu {
     display: inline-block;
@@ -322,3 +333,14 @@
   .game-info h2, p {font-family: 'Bebas Neue Bold';}
 
   .tag {font-family: 'Bebas Neue Bold';}
+
+  .no-news-message {
+    text-align: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    min-height: 350px; 
+  }
+
+  .Text_News {font-size: 25px;}
