@@ -79,6 +79,8 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT name, date, description, developer, development, platforms, sources_to_game_engine, logo FROM "GameEngines" WHERE id = %s', (engine_id,))
     engine = cur.fetchone()
+    cur.execute('SELECT c.comment_id, c.comment, u.name FROM "Comments_News" c JOIN "Users" u ON c.email = u.email WHERE c.id = %s ORDER BY c.comment_id DESC', (engine_id,))
+    comments = cur.fetchall()
     cur.close()
 
     image_url = f"/static/images/Game_Engine_{engine_id}.jpg"
@@ -96,7 +98,7 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
         {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], 
          "date": engine["date"], "description": engine["description"], "developer": engine["developer"], "logo": logo_1,
         "development": engine["development"], "platforms": engine["platforms"], "sources_to_game_engine": engine["sources_to_game_engine"],
-        "image_url": image_url, "is_authenticated": is_authenticated}
+        "image_url": image_url, "is_authenticated": is_authenticated, "comments": comments}
     )
 
 @router.get("/news/{new_id}")
@@ -185,6 +187,25 @@ async def get_game_page(request: Request, name: str = Form(...), surname: str = 
     
 
 @router.post("/click_button_1")
+async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
+    cur = db.cursor()
+    cur.execute('SELECT email, password FROM "Users" WHERE email = %s', (email,))
+    user = cur.fetchone()
+
+    if not user or not verify_password(password, user['password']):  
+        cur.close()
+        db.close()
+        return {"error": "Пользователь не найден или неверный пароль"}  
+
+    db.commit()
+    cur.close()
+    
+    response = RedirectResponse(url="/first_page", status_code=303)
+    response.set_cookie(key="auth", value="true", httponly=True, path="/")
+    response.set_cookie(key="email", value=email, httponly=True, path="/")
+    return response
+
+@router.post("/check_code")
 async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT email, password FROM "Users" WHERE email = %s', (email,))
@@ -442,3 +463,25 @@ async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=
         "comment_id": new_comment_id,
         "author": user['name']
     })
+    
+@router.post("/stay_comment_engine/{id}")
+async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=Depends(get_db)):
+    email = request.cookies.get("email")
+    cur = db.cursor()
+    cur.execute('SELECT name FROM "Users" WHERE email = %s', (email,))
+    user = cur.fetchone()
+    
+    cur.execute('INSERT INTO "Comments_Engines" (email, comment, id) VALUES (%s, %s, %s) RETURNING comment_id', 
+                (email, comment["comment"], id))
+    new_comment_id = cur.fetchone()['comment_id']
+    db.commit()
+    cur.close()
+    
+    return JSONResponse(content={
+        "status": "success", 
+        "comment": comment["comment"],
+        "comment_id": new_comment_id,
+        "author": user['name']
+    })
+    
+    
