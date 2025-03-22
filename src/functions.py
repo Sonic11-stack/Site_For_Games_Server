@@ -10,11 +10,6 @@ import os
 
 router = APIRouter()
 
-@router.get("/open_explorer")
-async def open_explorer(request: Request):
-    os.startfile("C:\\Users")
-    return RedirectResponse(url=request.url_for('profile'))
-
 @router.get("/{path:path}")
 async def universal_page(request: Request, path: str):
     if "." in path:  

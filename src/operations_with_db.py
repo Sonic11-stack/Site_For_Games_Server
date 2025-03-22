@@ -18,6 +18,12 @@ class LoginData(BaseModel):
     email: str
     password: str
 
+from fastapi import FastAPI
+from fastapi.templating import Jinja2Templates
+
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
+
 def hash_password(plain_password: str) -> str:
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(plain_password.encode(), salt)
@@ -79,7 +85,7 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT name, date, description, developer, development, platforms, sources_to_game_engine, logo FROM "GameEngines" WHERE id = %s', (engine_id,))
     engine = cur.fetchone()
-    cur.execute('SELECT c.comment_id, c.comment, u.name FROM "Comments_News" c JOIN "Users" u ON c.email = u.email WHERE c.id = %s ORDER BY c.comment_id DESC', (engine_id,))
+    cur.execute('SELECT c.comment_id, c.comment, u.name FROM "Comments_Engines" c JOIN "Users" u ON c.email = u.email WHERE c.id = %s ORDER BY c.comment_id DESC', (engine_id,))
     comments = cur.fetchall()
     cur.close()
 
@@ -200,29 +206,15 @@ async def get_game_page(request: Request, email: str = Form(...), password: str 
     db.commit()
     cur.close()
     
-    response = RedirectResponse(url="/first_page", status_code=303)
+    response = RedirectResponse(url="/profile", status_code=303)
     response.set_cookie(key="auth", value="true", httponly=True, path="/")
     response.set_cookie(key="email", value=email, httponly=True, path="/")
     return response
 
 @router.post("/check_code")
-async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
-    cur = db.cursor()
-    cur.execute('SELECT email, password FROM "Users" WHERE email = %s', (email,))
-    user = cur.fetchone()
+async def get_game_page(request: Request):
+    return templates.TemplateResponse("Check_Code.html", {"request": request})
 
-    if not user or not verify_password(password, user['password']):  
-        cur.close()
-        db.close()
-        return {"error": "Пользователь не найден или неверный пароль"}  
-
-    db.commit()
-    cur.close()
-    
-    response = RedirectResponse(url="/first_page", status_code=303)
-    response.set_cookie(key="auth", value="true", httponly=True, path="/")
-    response.set_cookie(key="email", value=email, httponly=True, path="/")
-    return response
 
 @router.get("/profile")
 async def profile(request: Request, db=Depends(get_db)):
@@ -263,19 +255,18 @@ async def profile(request: Request, name: str = Form(...), bio: str = Form(...),
 @router.post("/create_news")
 async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), image: UploadFile = File(...), db=Depends(get_db)):
     cur = db.cursor()
-
-    image_filename = f"News_{name.replace(' ', '_')}.jpg"  
-    image_path = f"static/news/{image_filename}"
-
-    with open(image_path, "wb") as buffer:
-        shutil.copyfileobj(image.file, buffer)
     
     cur.execute('SELECT MAX(id) FROM "News"')
     max_id = list(cur.fetchone().values())[0]
     new_id = 1 if max_id is None else max_id + 1
     
-    cur.execute('INSERT INTO "News" (id, text_news, name, main_text) VALUES (%s, %s, %s, %s) RETURNING id', 
-                (new_id, text_news, name, main_text))
+    image_filename = f"News_{new_id}.jpg"
+    image_path = f"static/news/{image_filename}"
+    
+    with open(image_path, "wb") as buffer:
+        shutil.copyfileobj(image.file, buffer)
+    
+    cur.execute('INSERT INTO "News" (id, text_news, name, main_text) VALUES (%s, %s, %s, %s) RETURNING id', (new_id, text_news, name, main_text))
     db.commit()
     cur.close()
     return RedirectResponse(url="/profile", status_code=303)

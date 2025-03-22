@@ -1,7 +1,4 @@
-from fastapi import APIRouter, Request
-from fastapi.templating import Jinja2Templates
-from fastapi.responses import JSONResponse
-from fastapi import Request, Response
+from dependencies import APIRouter, Request, Jinja2Templates, JSONResponse, Request, Response
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")

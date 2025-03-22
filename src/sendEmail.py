@@ -33,7 +33,7 @@ def generate_verification_code():
 
 def send_verification_email(email: str, code: str):
     def test_email_sending():
-        test_email = ""
+        test_email = "matvejnazarov4@gmail.com"
         test_code = generate_verification_code()
         
         msg = MIMEMultipart()

@@ -12,24 +12,17 @@
 
   <div class="form-container">
     <div class="form-header">
-      <a href="/login"><button class="tab active">ВХОД</button></a>
-      <a href="/reg"><button class="tab">РЕГИСТРАЦИЯ</button></a>
+      <button class="tab active">Ввод проверочного кода</button></a>
     </div>
     <form class="form" action="/click_button_1" method="post" enctype="application/x-www-form-urlencoded">
       <div class="form-group">
         <label for="email">Введите номер проверочного кода</label>
         <div class="input-wrapper">
-          <input type="email" id="email" name="email" placeholder="example@mail.com">
+          <input type="email" id="email" name="email" placeholder="123456">
           <span class="icon">👤</span>
         </div>
       </div>
-      <button type="submit" class="submit-button">ВОЙТИ</button>
-      <a href="#" class="forgot-password">Забыли пароль?</a>
-      <div class="divider"></div>
-      <button type="button" class="google-button" onclick="window.location.href='http://127.0.0.1:8000/auth/google'">
-        <img src="/static/icons/Google.png" alt="Google" class="google-icon">
-        Продолжить с Google
-      </button>
+      <button type="submit" class="submit-button">Подтвердить</button>
     </form>
   </div>
 </body>
