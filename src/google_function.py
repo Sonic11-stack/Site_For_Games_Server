@@ -1,7 +1,4 @@
-from fastapi import APIRouter, Request
-from fastapi.responses import RedirectResponse
-from google_auth_oauthlib.flow import Flow
-from googleapiclient.discovery import build
+from dependencies import APIRouter, Request, RedirectResponse, Flow, build
 
 router = APIRouter()
 

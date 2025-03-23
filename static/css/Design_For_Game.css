@@ -4,7 +4,7 @@
     background-color: grey;
     width: 60%;
     margin: 0 auto;
-    border-radius: 40px;
+    border-radius: 20px;
     z-index: 1;
   } 
   
@@ -197,7 +197,7 @@
   button:hover {background-color: #3E4486;}
   
   .zoom-img {
-    border-radius: 40px;
+    border-radius: 20px;
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -334,8 +334,8 @@
   }
 
   .Wall {
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     background-color: #333333; 
   }
   
@@ -486,7 +486,7 @@
     text-align:center;
     border: none;
     background-size: 300% 100%;
-    border-radius: 50px;
+    border-radius: 20px;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;

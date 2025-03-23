@@ -1,9 +1,5 @@
-import shutil
-from dependencies import Request, Depends, templates, get_db_connection, JSONResponse, Form, Body, RedirectResponse, APIRouter
-import bcrypt
-import psycopg2
-from pydantic import BaseModel
-from fastapi import File, HTTPException, UploadFile
+from dependencies import shutil, bcrypt, psycopg2, BaseModel, JSONResponse, RedirectResponse, APIRouter, File, UploadFile, Request, Depends, HTTPException, Form, Body
+from db_utils import get_db_connection
 
 def get_db():
     conn = get_db_connection()

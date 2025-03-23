@@ -1,12 +1,4 @@
-from dependencies import Request, templates, os, JSONResponse, RedirectResponse, APIRouter
-from fastapi import APIRouter, Request
-from fastapi.responses import JSONResponse, RedirectResponse
-import os
-import formsRegAndLogin
-
-from fastapi import Request
-from fastapi.responses import JSONResponse, RedirectResponse
-import os
+from dependencies import Request, templates, JSONResponse, APIRouter
 
 router = APIRouter()
 

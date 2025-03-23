@@ -4,7 +4,7 @@
     background-color: grey;
     width: 60%;
     margin: 0 auto;
-    border-radius: 40px;
+    border-radius: 20px;
     z-index: 1;
   } 
   
@@ -18,27 +18,66 @@
   }
 
   .Score {
-    align-items: center;
-    text-align: center;
-    float: none; 
+    float: none;
     width: 80%;
-    margin: 20px auto;  
+    margin: 20px auto;
     text-align: center;
+  }
+  
+  .Score .grid-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .Score .meta-icon {
+    float: none;
+    margin: 0;
+    order: 1;
+  }
+  
+  .Text_1 {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 8px;
+    font-family: 'Bebas Neue Bold';
+    text-align: center;
+    order: 1;
   }
 
   .Score_1 {
-    float: none; 
+    float: none;
     width: 80%;
-    margin: 20px auto;  
+    margin: 20px auto;
     text-align: center;
+  }
+
+  .Score_1 .grid-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    gap: 10px;
   }
 
   .Score_1 .meta-icon {
     float: none;
-    margin: 0 auto;
-    display: block;
+    order: 1;
+    margin: 0;
+  }
+
+  .Text_1_1 {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    font-family: 'Bebas Neue Bold';
+    order: 2;
+    margin: 0;
   }
 
   .Text {
@@ -165,41 +204,12 @@
     text-align: center;
   }
 
-  .Score .grid-item {
-    width: 150px;
-    text-align: center;
-    margin-right: 100px;
-  }
-
   .grid-item {text-align: center;}
   
   .Text {
     font-size: 18px;
     line-height: 1.6;
     color: #333;
-  }
-
-  .Text_1 {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-    white-space: nowrap;
-    margin-top: 8px;
-    margin-left: 60px;
-    font-family: 'Bebas Neue Bold';
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .Text_1_1 {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-    white-space: nowrap;
-    margin-top: 8px;
-    font-family: 'Bebas Neue Bold';
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 
   .Text_2 {
@@ -242,7 +252,7 @@
   button:hover {background-color: #3E4486;}
   
   .zoom-img {
-    border-radius: 40px;
+    border-radius: 20px;
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -388,8 +398,8 @@
   }
 
   .Wall {
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     background-color: #333333; 
   }
   

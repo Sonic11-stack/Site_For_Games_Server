@@ -1,8 +1,4 @@
-from fastapi import APIRouter, Request, Depends
-from fastapi.templating import Jinja2Templates
-import psycopg2
-from psycopg2.extras import RealDictCursor
-from fastapi import Query
+from dependencies import APIRouter, Request, Jinja2Templates
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")

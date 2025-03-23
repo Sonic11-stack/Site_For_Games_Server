@@ -1,13 +1,4 @@
-from fastapi import FastAPI, Request
-import os
-import uvicorn
-from fastapi.staticfiles import StaticFiles
-from starlette.middleware.base import BaseHTTPMiddleware
-import pages, news, engines, formsRegAndLogin
-from operations_with_db import router as operations_router
-from functions import router as functions_router
-from formsRegAndLogin import router as forms_router 
-from google_function import router as google_router
+from dependencies import FastAPI, Request, os, uvicorn, StaticFiles, pages, engines, formsRegAndLogin, operations_router, functions_router, forms_router, google_router, BaseHTTPMiddleware
 
 app = FastAPI()
 
@@ -25,7 +16,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(formsRegAndLogin.router)
 app.include_router(pages.router)
-app.include_router(news.router)
 app.include_router(engines.router)
 app.include_router(operations_router)
 app.include_router(functions_router)
