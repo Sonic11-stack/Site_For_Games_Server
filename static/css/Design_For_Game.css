@@ -318,7 +318,7 @@
 
   .game-info {
     color: #ffffff; 
-    background-color: #333333; 
+      
     padding: 40px;
     border-radius: 10px;
   }
@@ -336,7 +336,7 @@
   .Wall {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: #333333; 
+    background-color: rgba(112, 123, 247, 0.6);
   }
   
   .tags {margin-top: 15px;}
