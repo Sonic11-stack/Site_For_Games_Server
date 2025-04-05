@@ -471,4 +471,7 @@ async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=
         "author": user['name']
     })
     
+@router.get("/")
+async def root(request: Request):
+    return templates.TemplateResponse("First_Page.html", {"request": request})
     
