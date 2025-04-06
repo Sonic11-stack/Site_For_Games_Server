@@ -126,9 +126,7 @@
                 {% if save_games %}
                 <div class="games-grid">
                     {% for i in range(save_games|length) %}
-                    <div class="game-item">
-                        <a href="/game/{{save_games[i]}}"><img src="{{image_urls[i]}}" class="zoom-img"></a>
-                    </div>
+                    <div class="game-item"><a href="/game/{{save_games[i]}}"><img src="{{image_urls[i]}}" class="zoom-img"></a></div>
                     {% endfor %}
                 </div>
                 {% else %}
@@ -143,9 +141,7 @@
               {% if save_news %}
               <div class="games-grid">
                   {% for i in range(save_news|length) %}
-                  <div class="game-item">
-                      <a href="/news/{{save_news[i]}}"><img src="{{image_urls_news[i]}}" class="zoom-img"></a>
-                  </div>
+                  <div class="game-item"><a href="/news/{{save_news[i]}}"><img src="{{image_urls_news[i]}}" class="zoom-img"></a></div>
                   {% endfor %}
               </div>
               {% else %}

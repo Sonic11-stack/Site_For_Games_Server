@@ -125,6 +125,9 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     cur.execute('SELECT c.comment_id, c.comment, u.name FROM "Comments_News" c JOIN "Users" u ON c.email = u.email WHERE c.id = %s ORDER BY c.comment_id DESC', (new_id,))
     comments = cur.fetchall()
     cur.close()
+    
+    if not user:
+        return RedirectResponse(url="/first_page", status_code=303)
 
     image_url = f"/static/news/News_{new_id}.jpg"
     
@@ -133,7 +136,7 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     print("DEBUG:", engine)
 
     if not engine:
-        return JSONResponse({"error": "Игровой движок не найдена"}, status_code=404)
+        return JSONResponse({"error": "Текст не найден"}, status_code=404)
     
     is_authenticated = request.cookies.get("auth") == "true"
 
