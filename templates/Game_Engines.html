@@ -56,20 +56,24 @@
   <section class="Games">
     <div class="container">
       <div class="grid-container">
-        <div class="game-item"> 
-        <div class="game-card"><a href="/game_engine/1"><img src="/static/icons/Unity.jpg" class="zoom-img" alt="icon of game engine"></a></div>
-        <div class="Text" data-url="/get_text_engine/1" style="font-family: 'Bebas Neue Bold';">Загрузка</div>
-        </div> 
-
-        <div class="game-item"> 
-        <div class="game-card"><a href="/game_engine/2"><img src="/static/icons/Unreal Engine.jpg" class="zoom-img" alt="icon of game engine"></a></div>
-        <div class="Text" data-url="/get_text_engine/2" style="font-family: 'Bebas Neue Bold';">Загрузка</div>
-        </div>
+        {% set engines = [
+          {"id": 1, "name": "Unity", "image": "Unity.jpg"},
+          {"id": 2, "name": "Unreal Engine", "image": "Unreal Engine.jpg"},
+          {"id": 3, "name": "Godot", "image": "Godot.jpg"}
+        ] %}
   
-        <div class="game-item"> 
-        <div class="game-card"><a href="/game_engine/3"><img src="/static/icons/Godot.jpg" class="zoom-img" alt="icon of game engine"></a></div>
-        <div class="Text" data-url="/get_text_engine/3" style="font-family: 'Bebas Neue Bold';">Загрузка</div>
+        {% for engine in engines %}
+        <div class="game-item">
+          <div class="game-card">
+            <a href="/game_engine/{{ engine.id }}">
+              <img src="/static/icons/{{ engine.image }}" class="zoom-img" alt="icon of {{ engine.name }}">
+            </a>
+          </div>
+          <div class="Text" data-url="/get_text_engine/{{ engine.id }}" style="font-family: 'Bebas Neue Bold';">
+            Загрузка
+          </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </section>

@@ -71,7 +71,7 @@
 
   .auth-links {
     margin-left: auto;
-    margin-top: -130px;
+    margin-top: -136px;
     margin-right: 30px;
   }
 
@@ -368,6 +368,8 @@
 
   @media (min-width: 480px) and (max-width: 768px) {
 
+    .Games {width: 80%;}
+
     .grid-container {grid-template-columns: repeat(2, 1fr);}
 
     .Text {font-size: 0.7rem;}
@@ -386,29 +388,80 @@
 
     .inline-image img {max-height: 30px;}
 
+    .inline-text {margin: 0 20px;}
+
+    .logo-container {
+      margin: -220px auto 0 auto; 
+      width: fit-content;
+    }
+
+    nav[aria-label="Menu"] {
+      margin-top: 70px;
+      margin-bottom: 10px;
+      height: 50px;
+    }
+
+    .auth-links {
+      margin: 0 auto;
+      margin-top: -130px;
+    }
+
+    .auth-links-1 {
+      margin: 0 auto;
+      margin-top: -130px;
+    }
+
     footer {font-size: 0.7rem;}
   }
 
   @media (max-width: 480px) {
 
+    .Games {width: 90%;}
+
     .grid-container {grid-template-columns: repeat(2, 1fr);}
 
-    .Text {font-size: 0.8rem;}
+    .Text {font-size: 0.7rem;}
   
-    .inline-text a {font-size: 0.8rem;}
+    .inline-text a {font-size: 0.7rem;}
 
-    .auth-link {font-size: 0.8rem;}
+    .auth-link {font-size: 0.7rem;}
 
-    .auth-link-1 {font-size: 0.8rem;}
+    .auth-link-1 {font-size: 0.7rem;}
 
-    .logo-text {font-size: 0.8rem;}
+    .logo-text {font-size: 0.7rem;}
 
-    .logo {max-height: 35px;}
+    .logo {max-height: 30px;}
 
-    .Information_Follow {font-size: 0.8rem;}
+    .Information_Follow {
+      font-size: 0.7rem;
+      margin-top: -7%;
+    }
 
-    .inline-image img {max-height: 35px;}
+    .inline-image img {max-height: 30px;}
 
-    footer {font-size: 0.8rem;}
+    .inline-text {margin: 0 10px;}
+
+    .logo-container {
+      margin: -220px auto 0 auto; 
+      width: fit-content;
+    }
+
+    nav[aria-label="Menu"] {
+      margin-top: 70px;
+      margin-bottom: 10px;
+      height: 50px;
+    }
+
+    .auth-links {
+      margin: 0 auto;
+      margin-top: -130px;
+    }
+
+    .auth-links-1 {
+      margin: 0 auto;
+      margin-top: -130px;
+    }
+
+    footer {font-size: 0.7rem;}
   }
 
