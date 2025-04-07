@@ -2,7 +2,7 @@ from dependencies import FastAPI, Request, os, uvicorn, StaticFiles, pages, engi
 
 app = FastAPI()
 
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 class AuthMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
@@ -23,4 +23,4 @@ app.include_router(forms_router)
 app.include_router(google_router)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
