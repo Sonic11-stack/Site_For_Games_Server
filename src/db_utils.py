@@ -15,3 +15,12 @@ def get_db_connection():
         cursor_factory=RealDictCursor
     )
 
+def get_db_connection_1():
+    return psycopg2.connect(
+        dbname=os.getenv("DB_NAME_1"),
+        user=os.getenv("DB_USER_1"),
+        password=os.getenv("DB_PASSWORD_1"),
+        host=os.getenv("DB_HOST_1"),
+        port=os.getenv("DB_PORT_1"),
+        cursor_factory=RealDictCursor
+    )
