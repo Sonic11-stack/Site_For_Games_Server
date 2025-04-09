@@ -31,7 +31,7 @@
   .tab {
     border: none;
     background: none;
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #000;
     cursor: pointer;
@@ -144,4 +144,129 @@
     background-size: cover; 
     background-position: center; 
     z-index: -1; 
+  }
+
+  @media (min-width: 1280px) and (max-width: 1600px) {
+    .form-container {width: 350px;}
+
+    .tab {font-size: 1.0rem;}
+
+    .submit-button {font-size: 0.9rem;}
+
+    .google-button {font-size: 0.9rem;}
+
+    .form-group label {font-size: 0.9rem;}
+
+    input::placeholder {font-size: 0.9rem; }
+
+    .checkbox-group {font-size: 0.9rem;}
+
+    .icon {font-size: 15px;}
+
+    .google-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .forgot-password {font-size: 0.9rem;}
+  }
+
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .form-container {width: 330px;}
+
+    .tab {font-size: 0.9rem;}
+
+    .submit-button {font-size: 0.8rem;}
+
+    .google-button {font-size: 0.8rem;}
+
+    .form-group label {font-size: 0.8rem;}
+
+    input::placeholder {font-size: 0.8rem;}
+
+    .checkbox-group {font-size: 0.8rem;}
+
+    .icon {font-size: 13px;}
+
+    .google-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .forgot-password {font-size: 0.8rem;}
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .form-container {width: 300px;}
+
+    .tab {font-size: 0.8rem;}
+
+    .submit-button {font-size: 0.7rem;}
+
+    .google-button {font-size: 0.7rem;}
+
+    .form-group label {font-size: 0.7rem;}
+
+    input::placeholder {font-size: 0.7rem;}
+
+    .checkbox-group {font-size: 0.7rem;}
+
+    .icon {font-size: 12px;}
+
+    .google-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .forgot-password {font-size: 0.7rem;}
+  }
+
+  @media (min-width: 480px) and (max-width: 768px) {
+    .form-container {width: 270px;}
+
+    .tab {font-size: 0.7rem;}
+
+    .submit-button {font-size: 0.6rem;}
+
+    .google-button {font-size: 0.6rem;}
+
+    .form-group label {font-size: 0.6rem;}
+
+    input::placeholder {font-size: 0.6rem;}
+
+    .checkbox-group {font-size: 0.6rem;}
+
+    .icon {font-size: 10px;}
+
+    .google-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .forgot-password {font-size: 0.6rem;}
+  }
+
+  @media (max-width: 480px) {
+    .form-container {width: 240px;}
+
+    .tab {font-size: 0.6rem;}
+
+    .submit-button {font-size: 0.5rem;}
+
+    .google-button {font-size: 0.5rem;}
+
+    .form-group label {font-size: 0.5rem;}
+
+    input::placeholder {font-size: 0.5rem;}
+
+    .checkbox-group {font-size: 0.5rem;}
+
+    .icon {font-size: 8px;}
+
+    .google-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    .forgot-password {font-size: 0.5rem;}
   }

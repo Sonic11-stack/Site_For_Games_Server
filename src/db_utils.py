@@ -14,3 +14,4 @@ def get_db_connection():
         port=os.getenv("DB_PORT"),
         cursor_factory=RealDictCursor
     )
+
