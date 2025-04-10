@@ -163,7 +163,6 @@ async def get_game_page(request: Request, id: int, db=Depends(get_db)):
     text = cur.fetchone()
     text_1 = text['name'] if text else None
     cur.close()
-    db.close()
     return JSONResponse(content={"text": text_1})
 
 @router.get("/get_text_engine/{id}")
