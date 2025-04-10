@@ -159,7 +159,7 @@ async def get_game_page(request: Request, id: int, db=Depends(get_db)):
 @router.get("/get_text/{id}")
 async def get_game_page(request: Request, id: int, db=Depends(get_db)):
     cur = db.cursor()
-    cur.execute('SELECT name FROM "InfoPage" WHERE id = %s', (id,))
+    cur.execute('SELECT name FROM public."InfoPage" WHERE id = %s', (id,))
     text = cur.fetchone()
     text_1 = text['name'] if text else None
     cur.close()
