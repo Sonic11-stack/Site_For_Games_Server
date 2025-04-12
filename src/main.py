@@ -2,10 +2,6 @@ from dependencies import FastAPI, Request, os, uvicorn, StaticFiles, pages, engi
 
 app = FastAPI()
 
-from dotenv import load_dotenv
-
-load_dotenv() 
-
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 class AuthMiddleware(BaseHTTPMiddleware):
@@ -27,5 +23,4 @@ app.include_router(forms_router)
 app.include_router(google_router)
 
 if __name__ == "__main__":
-    print("DB_NAME_1:", os.getenv("DB_NAME_1"))
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
