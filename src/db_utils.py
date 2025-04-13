@@ -1,9 +1,9 @@
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv(override=False)
+#load_dotenv(override=False)
 
 def get_db_connection():
     return psycopg2.connect(
