@@ -609,6 +609,10 @@
     }
 
     footer {font-size: 1.0rem;}
+
+    #comment-field {
+      margin-top: 50px;
+    }
   }
 
   @media (min-width: 1024px) and (max-width: 1280px) {
@@ -693,7 +697,9 @@
 
     #comments-list h3 {font-size: 1.3rem;}
 
-    
+    #comment-field {
+      margin-top: 160px;
+    }
 
   }
 
@@ -816,6 +822,10 @@
 
     #comments-list {margin-left: 3%;
       margin-top: 180px;
+    }
+
+    #comment-field {
+      margin-top: 160px;
     }
 
     #comments-list h3 {font-size: 1.3rem;}
@@ -975,6 +985,10 @@
     }
 
     #comments-list h3 {font-size: 1.3rem;}
+
+    #comment-field {
+      margin-top: 160px;
+    }
     
     .content {
       display: flex;
@@ -989,7 +1003,15 @@
 
     .grid-container {grid-template-columns: repeat(2, 1fr);}
 
-    .Text {font-size: 0.7rem;}
+    .Text {
+      font-size: 0.7rem;
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .Text_1 {font-size: 0.9rem;}
+
+    .Text_2 {font-size: 0.9rem;}
   
     .inline-text a {font-size: 0.7rem;}
 
@@ -1031,5 +1053,117 @@
       margin-top: -130px;
     }
 
-    footer {font-size: 0.7rem;}
+    footer {
+      font-size: 0.7rem; 
+      margin-top : 15%;
+    }
+    
+    .btn-hover {
+      font-size: 0.9rem;
+      height: 50px;
+    }
+
+    .meta-icon {max-width: 40px;}
+
+    .meta-steam {
+      max-width: 40px;
+      margin-left: -18px;
+    }
+
+    .Description_Of_The_Game {
+      display: flex;
+      justify-content: center; 
+      align-items: center;     
+      width: 100%;             
+      padding: 20px 0;  
+      margin: 0 auto;
+    }
+    
+    .container {
+      display: flex;            
+      justify-content: center;  
+      width: 100%;              
+    }
+    
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;  
+      gap: 20px;                   
+    }
+
+    #add-comment-btn {
+      font-family: 'Bebas Neue Bold';
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      margin-top: 130px;
+      width: fit-content;
+    }
+
+    .Score {margin-right: 50px;}
+
+    .game-info h2 {font-size: 1.2rem; text-align: center;}
+    
+    .game-info p {font-size: 0.9rem; text-align: center;}
+
+    .image-container {
+      text-align: center; 
+    }
+  
+    .zoom-img {
+      width: 80%;
+      max-width: 600px;
+      display: block; 
+      margin: 0 auto; 
+      border-radius: 20px;
+    }
+
+    .MultiPart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      flex-wrap: wrap; 
+    }
+
+    .Score {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 20px;
+    }
+
+    .Buy_Game {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 160px;
+    }
+
+    .add-comment-wrapper {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+    }
+
+    #comments-list {margin-left: 0%;
+      margin-top: 180px;
+    }
+
+    #comments-list h3 {font-size: 1.3rem;}
+
+    #comment-field {
+      margin-top: 160px;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;  
+      gap: 20px;
+    }
   }

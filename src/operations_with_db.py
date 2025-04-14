@@ -1,8 +1,8 @@
 from dependencies import shutil, bcrypt, psycopg2, BaseModel, JSONResponse, RedirectResponse, APIRouter, File, UploadFile, Request, Depends, HTTPException, Form, Body
-from db_utils import get_db_connection
+from db_utils import get_db_connection_1
 
 def get_db():
-    conn = get_db_connection()
+    conn = get_db_connection_1()
     try:
         yield conn  
     finally:
