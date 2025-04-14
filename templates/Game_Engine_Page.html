@@ -74,38 +74,34 @@
         </div>
     </section>
 
+    <section class="MultiPart">
     <section class="Score">
-      <div class="container grid-container">
-        <div class="grid-item text-center">
           <img src="/static/icons/Meta.png" alt="Meta Icon" class="meta-icon">
           <div class="Text_1">Оценка метакритики: <span id="score-placeholder">Загрузка...</span></div>
-        </div>
-      </div>
     </section>
     
     <section class="Buy_Game">
-      <div class="container grid-container">
-        <div class="grid-item text-center">
           <img src="{{logo}}" alt="logo" class="meta-steam">
           <div class="Text_3" data-url="{{sources_to_game_engine}}" onclick="redirectToGameEngines(this)">
             <button class="btn-hover color-3">Изучить движок</button>
-          </div>
-        </div>
       </div>
-    </section>
+    </section> 
+  </section>
   
     <section class="Create_Comment">
       <div class="container grid-container">
         <div class="grid-item text-center">
           {% if is_authenticated %}
-          <div class="Text_2" id="add-comment-btn" style="cursor: pointer; font-family: 'Bebas Neue Bold';">Оставить комментарий</div>
+          <div class="add-comment-wrapper">
+          <div class="Text_2" id="add-comment-btn">Оставить комментарий</div>
+        </div>
           {% endif %}
           
           <div id="comment-field" style="display: none; margin-top: 10px;">
             <textarea id="comment-text" placeholder="Введите ваш комментарий..." style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>       
             <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>       
           </div>
-          <div id="comments-list" style="float: left; margin-left: 5px; margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">
+          <div id="comments-list">
             <h3>Комментарии:</h3>
             {% for comment in comments %}
             <div class="comment" data-comment-id="{{ comment.comment_id }}">
