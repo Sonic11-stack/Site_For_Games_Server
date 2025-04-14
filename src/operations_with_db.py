@@ -106,7 +106,7 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
 @router.get("/news/{new_id}")
 async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     cur = db.cursor()
-    cur.execute('SELECT text_news, name, main_text FROM "News" WHERE id = %s', (new_id,))
+    cur.execute('SELECT text_news, name, main_text, name_author FROM "News" WHERE id = %s', (new_id,))
     engine = cur.fetchone()
     user_email = request.cookies.get("email")
     user = None
@@ -126,13 +126,13 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     comments = cur.fetchall()
     cur.close()
     
-    if not user:
-        return RedirectResponse(url="/first_page", status_code=303)
+    #if not user:
+        #return RedirectResponse(url="/first_page", status_code=303)
 
     image_url = f"/static/news/News_{new_id}.jpg"
     
     description = engine["main_text"]
-    author = user["name"]
+    #author = user["name"]
     print("DEBUG:", engine)
 
     if not engine:
@@ -142,7 +142,7 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
 
     return templates.TemplateResponse(
         "New_Page.html",
-        {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], "description": description, "author": author, "new_id": new_id, 
+        {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], "description": description, "new_id": new_id, "author": engine['name_author'], 
         "image_url": image_url, "is_authenticated": is_authenticated, "is_clicked": is_clicked, "comments": comments}
     )
 
@@ -252,6 +252,7 @@ async def profile(request: Request, name: str = Form(...), bio: str = Form(...),
 
 @router.post("/create_news")
 async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), image: UploadFile = File(...), db=Depends(get_db)):
+    email = request.cookies.get("email")
     cur = db.cursor()
     
     cur.execute('SELECT MAX(id) FROM "News"')
@@ -263,8 +264,11 @@ async def create_news(request: Request, text_news: str = Form(...), name: str = 
     
     with open(image_path, "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
+
+    cur.execute('SELECT name FROM "Users" WHERE email = %s', (email,))
+    user_name = cur.fetchone()[0]
     
-    cur.execute('INSERT INTO "News" (id, text_news, name, main_text) VALUES (%s, %s, %s, %s) RETURNING id', (new_id, text_news, name, main_text))
+    cur.execute('INSERT INTO "News" (id, text_news, name, main_text, name_author) VALUES (%s, %s, %s, %s, %s) RETURNING id', (new_id, text_news, name, main_text, user_name))
     db.commit()
     cur.close()
     return RedirectResponse(url="/profile", status_code=303)

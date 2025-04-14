@@ -98,7 +98,7 @@
   .auth-link:hover {text-decoration: underline; }
 
   .auth-link-1 {
-    font-size: 18px;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;

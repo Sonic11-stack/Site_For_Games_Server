@@ -57,7 +57,7 @@
 
   .auth-links {
     margin-left: auto;
-    margin-top: -130px;
+    margin-top: -136px;
     margin-right: 30px;
   }
 
@@ -225,14 +225,14 @@
   }
   
   .auth-link {
-    font-size: 18px;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
   }
 
   .auth-link-1 {
-    font-size: 18px;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
