@@ -311,7 +311,6 @@ footer {
 
 .game-info {
   color: #ffffff; 
-    
   padding: 40px;
   border-radius: 10px;
 }
@@ -886,7 +885,6 @@ nav a:hover {
 
   footer {font-size: 0.7rem;}
 
-  
   .btn-hover {
     font-size: 0.9rem;
     height: 50px;
@@ -931,6 +929,10 @@ nav a:hover {
   }
 
   .Score {margin-right: 50px;}
+
+  .game-info {
+    padding: 10px;
+  }
 
   .game-info h2 {font-size: 1.2rem; text-align: center;}
   
@@ -1004,12 +1006,12 @@ nav a:hover {
   .grid-container {grid-template-columns: repeat(2, 1fr);}
 
   .Text {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     text-align: center;
     min-width: 300px;
   }
 
-  .Text_1 {font-size: 0.9rem;}
+  .Text_1 {font-size: 0.8rem;}
 
   .Text_2 {font-size: 0.9rem;}
 
@@ -1059,8 +1061,9 @@ nav a:hover {
   }
   
   .btn-hover {
-    font-size: 0.9rem;
-    height: 50px;
+    font-size: 0.8rem;
+    height: 40px;
+    width: 150px;
   }
 
   .meta-icon {max-width: 40px;}
@@ -1102,6 +1105,10 @@ nav a:hover {
   }
 
   .Score {margin-right: 50px;}
+
+  .game-info {
+    padding: 10px;
+  }
 
   .game-info h2 {font-size: 1.2rem; text-align: center;}
   
@@ -1155,10 +1162,14 @@ nav a:hover {
     margin-top: 180px;
   }
 
-  #comments-list h3 {font-size: 1.3rem;}
+  #comments-list h3 {font-size: 1.1rem;}
 
   #comment-field {
     margin-top: 160px;
+  }
+
+  .comment p {
+    font-size: 0.9rem;
   }
   
   .content {
