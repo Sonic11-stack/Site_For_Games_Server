@@ -76,47 +76,58 @@
 
     <section class="MultiPart">
     <section class="Score">
+      <div class="container grid-container">
+        <div class="grid-item text-center">
           <img src="/static/icons/Meta.png" alt="Meta Icon" class="meta-icon">
           <div class="Text_1">Оценка метакритики: <span id="score-placeholder">Загрузка...</span></div>
+        </div>
+      </div>
     </section>
     
     <section class="Buy_Game">
+      <div class="container grid-container">
+        <div class="grid-item text-center">
           <img src="{{logo}}" alt="logo" class="meta-steam">
           <div class="Text_3" data-url="{{sources_to_game_engine}}" onclick="redirectToGameEngines(this)">
             <button class="btn-hover color-3">Изучить движок</button>
+          </div>
+        </div>
       </div>
     </section> 
   </section>
   
-    <section class="Create_Comment">
-      <div class="container grid-container">
-        <div class="grid-item text-center">
-          {% if is_authenticated %}
-          <div class="add-comment-wrapper">
-          <div class="Text_2" id="add-comment-btn">Оставить комментарий</div>
+  <section class="Create_Comment">
+
+    {% if is_authenticated %}
+    <div class="center-wrapper">
+      <div id="add-comment-btn" class="Text_2">Оставить комментарий</div>
+    </div>
+    {% endif %}
+  
+    <div class="container grid-container">
+      <div class="grid-item text-center">
+        
+        <div id="comment-field" style="display: none; margin-top: 10px;">
+          <textarea id="comment-text" placeholder="Введите ваш комментарий..."
+            style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>
+          <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>
         </div>
-          {% endif %}
-          
-          <div id="comment-field" style="display: none;">
-            <textarea id="comment-text" placeholder="Введите ваш комментарий..." style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>       
-            <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>       
+  
+        <div id="comments-list" style="margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">
+          <h3>Комментарии:</h3>
+          {% for comment in comments %}
+          <div class="comment" data-comment-id="{{ comment.comment_id }}">
+            <p>Автор: {{comment.name}}</p>
+            <p class="comment-text">{{comment.comment}}</p>
+            <hr>
           </div>
-          <div id="comments-list">
-            <h3>Комментарии:</h3>
-            {% for comment in comments %}
-            <div class="comment" data-comment-id="{{ comment.comment_id }}">
-                <p>Автор: {{comment.name}}</p>
-                <p class="comment-text">{{comment.comment}}</p>
-                <hr>
-            </div>
-            {% endfor %}
-        </div>
+          {% endfor %}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
     </section>
   
-
 <footer> 
   <div class="Information_Follow" style="font-family: 'Bebas Neue Bold';">Следите за нами</div>
 

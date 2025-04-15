@@ -82,23 +82,24 @@
       </div>
     </section>
 
-    {% if is_authenticated %}
-    <section class="Score">
-      <div class="container grid-container">
-          <div class="grid-item text-center">
-              <img id="star-icon" 
-                   src="/static/icons/{% if is_clicked %}Full_Star.jpg{% else %}Star.jpg{% endif %}" 
-                   alt="Meta Icon" 
-                   class="meta-icon" 
-                   style="cursor: pointer;"
-                   data-game-id="{{game_id}}">
-              <div class="Text_1">{% if is_clicked %}Сохранено{% else %}Сохранить в профиль{% endif %}</div>
-          </div>
-      </div>
-  </section>
-    {% endif %}
-
     <section class="MultiPart">
+
+      {% if is_authenticated %}
+      <section class="Score-1">
+        <div class="container grid-container">
+            <div class="grid-item text-center">
+                <img id="star-icon" 
+                     src="/static/icons/{% if is_clicked %}Full_Star.jpg{% else %}Star.jpg{% endif %}" 
+                     alt="Meta Icon" 
+                     class="meta-icon" 
+                     style="cursor: pointer;"
+                     data-game-id="{{game_id}}">
+                <div class="Text_1">{% if is_clicked %}Сохранено{% else %}Сохранить в профиль{% endif %}</div>
+            </div>
+        </div>
+    </section>
+      {% endif %}
+      
     <section class="Score">
       <div class="container grid-container">
         <div class="grid-item text-center">
@@ -114,36 +115,42 @@
           <img src="{{logo}}" alt="Steam" class="meta-steam">
           <div class="Text_3" data-url="{{sources_to_game}}" onclick="redirectToGame(this)">
             <button class="btn-hover color-3">Купить игру</button>
-          </div>
+      </div>
         </div>
       </div>
     </section>
     </section>
   
-  <section class="Create_Comment">
-    <div class="container grid-container">
-      <div class="grid-item text-center">
-        {% if is_authenticated %}
-        <div class="Text_2" id="add-comment-btn" style="cursor: pointer; font-family: 'Bebas Neue Bold';">Оставить комментарий</div>
-        {% endif %}
-        
-        <div id="comment-field" style="display: none; margin-top: 10px;">
-          <textarea id="comment-text" placeholder="Введите ваш комментарий..." style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>       
-          <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>       
-        </div>
-        <div id="comments-list" style="float: left; margin-left: 5px; margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">
-          <h3>Комментарии:</h3>
-          {% for comment in comments %}
-          <div class="comment" data-comment-id="{{ comment.comment_id }}">
+    <section class="Create_Comment">
+
+      {% if is_authenticated %}
+      <div class="center-wrapper">
+        <div id="add-comment-btn" class="Text_2">Оставить комментарий</div>
+      </div>
+      {% endif %}
+    
+      <div class="container grid-container">
+        <div class="grid-item text-center">
+          
+          <div id="comment-field" style="display: none; margin-top: 10px;">
+            <textarea id="comment-text" placeholder="Введите ваш комментарий..."
+              style="width: 100%; height: 100px; padding: 10px; font-size: 16px;"></textarea>
+            <button id="submit-comment-btn" action="/stay_comment" style="margin-top: 10px;">Отправить</button>
+          </div>
+    
+          <div id="comments-list" style="margin-top: 20px; text-align: left; font-family: 'Bebas Neue Bold';">
+            <h3>Комментарии:</h3>
+            {% for comment in comments %}
+            <div class="comment" data-comment-id="{{ comment.comment_id }}">
               <p>Автор: {{comment.name}}</p>
               <p class="comment-text">{{comment.comment}}</p>
               <hr>
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+        </div>
       </div>
-      </div>
-    </div>
-  </section>
+    </section>
   </section>
   
 

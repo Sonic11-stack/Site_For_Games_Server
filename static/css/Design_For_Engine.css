@@ -21,7 +21,7 @@
   display: inline-block;
   float: right;
   margin-right: 100px;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .Text {
@@ -362,7 +362,7 @@ footer {
 
 .Buy_Game {
   float: right;
-  margin-top: 100px;
+  margin-top: 90px;
   margin-right: -230px;
   width: 190px;
 }
@@ -405,6 +405,7 @@ footer {
   text-align: center;
   display: block;
   margin: 0 auto;
+  margin-top: 440px;
   width: fit-content;
 }
 
@@ -582,14 +583,14 @@ nav a:hover {
     display: inline-block;
     position: absolute;
     margin-left: -350px;
-    margin-top: 20px;
+    margin-top: 0px;
   }
 
   .Buy_Game {
     display: inline-block;
     position: absolute;
-    margin-left: -310px;
-    margin-top: 100px;
+    margin-left: -295px;
+    margin-top: 80px;
   }
 
   .add-comment-wrapper {
@@ -611,7 +612,15 @@ nav a:hover {
 
   #comment-field {
     margin-top: 50px;
+    width: 315%;
+    box-sizing: border-box;
+    padding: 0 10px; 
   }
+
+  #add-comment-btn {
+    margin-top: 390px;
+  }
+
 }
 
 @media (min-width: 1024px) and (max-width: 1280px) {
@@ -674,15 +683,15 @@ nav a:hover {
   .Score {
     display: inline-block;
     position: absolute;
-    margin-left: -310px;
-    margin-top: 20px;
+    margin-left: -315px;
+    margin-top: 0px;
   }
 
   .Buy_Game {
     display: inline-block;
     position: absolute;
-    margin-left: -270px;
-    margin-top: 100px;
+    margin-left: -260px;
+    margin-top: 80px;
   }
 
   .add-comment-wrapper {
@@ -697,8 +706,13 @@ nav a:hover {
   #comments-list h3 {font-size: 1.3rem;}
 
   #comment-field {
-    margin-top: 160px;
+    margin-top: 40px;
+    width: 320%;
+    box-sizing: border-box;
+    padding: 0 10px; 
   }
+
+  #add-comment-btn {margin-top: 370px;}
 
 }
 
@@ -842,7 +856,7 @@ nav a:hover {
     min-width: 300px;
   }
 
-  .Text_1 {font-size: 0.9rem;}
+  .Text_1 {font-size: 0.8rem;}
 
   .Text_2 {font-size: 0.9rem;}
 
@@ -886,8 +900,9 @@ nav a:hover {
   footer {font-size: 0.7rem;}
 
   .btn-hover {
-    font-size: 0.9rem;
-    height: 50px;
+    font-size: 0.8rem;
+    height: 45px;
+    width: 180px;
   }
 
   .meta-icon {max-width: 40px;}
@@ -1158,7 +1173,8 @@ nav a:hover {
     display: inline-block;
   }
 
-  #comments-list {margin-left: 0%;
+  #comments-list {
+    margin-left: 0%;
     margin-top: 180px;
   }
 
@@ -1168,9 +1184,7 @@ nav a:hover {
     margin-top: 160px;
   }
 
-  .comment p {
-    font-size: 0.9rem;
-  }
+  .comment p {font-size: 0.9rem;}
   
   .content {
     display: flex;
