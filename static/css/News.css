@@ -338,7 +338,7 @@
 
   .Text_News {font-size: 25px;}
 
-   @media (min-width: 1280px) and (max-width: 1600px) {
+  @media (min-width: 1280px) and (max-width: 1600px) {
 
     .grid-container {grid-template-columns: repeat(3, 1fr);}
 
