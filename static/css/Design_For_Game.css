@@ -596,25 +596,39 @@ nav a:hover {
     margin-left: 11%;
   }
 
-  .Score {
+  .authenticated .Score {
     display: inline-block;
     position: absolute;
     margin-left: -350px;
     margin-top: 60px;
   }
 
-  .Score-1 {
+  .guest .Score {
     display: inline-block;
     position: absolute;
     margin-left: -350px;
     margin-top: 0px;
   }
 
-  .Buy_Game {
+  .authenticated .Score-1 {
+    display: inline-block;
+    position: absolute;
+    margin-left: -350px;
+    margin-top: 0px;
+  }
+
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     margin-left: -295px;
     margin-top: 130px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    margin-left: -295px;
+    margin-top: 80px;
   }
 
   .add-comment-wrapper {
@@ -653,6 +667,11 @@ nav a:hover {
   .Text_1 {font-size: 0.9rem;}
 
   .Text_2 {font-size: 1.0rem;}
+
+  .tags span{
+    font-size: 1.0rem;
+    text-align: center;
+  }
 
   .inline-text a {font-size: 0.9rem;}
 
@@ -700,11 +719,18 @@ nav a:hover {
     margin-left: 11%;
   }
 
-  .Score {
+  .authenticated .Score {
     display: inline-block;
     position: absolute;
     margin-left: -310px;
     margin-top: 60px;
+  }
+
+  .guest .Score {
+    display: inline-block;
+    position: absolute;
+    margin-left: -315px;
+    margin-top: 0px;
   }
 
   .Score-1 {
@@ -714,11 +740,18 @@ nav a:hover {
     margin-top: 0px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     margin-left: -260px;
     margin-top: 130px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    margin-left: -260px;
+    margin-top: 80px;
   }
 
   .add-comment-wrapper {
@@ -756,6 +789,11 @@ nav a:hover {
   .Text_1 {font-size: 0.9rem;}
 
   .Text_2 {font-size: 1.0rem;}
+
+  .tags span{
+    font-size: 0.9rem;
+    text-align: center;
+  }
 
   .inline-text a {font-size: 0.8rem;}
 
@@ -821,7 +859,7 @@ nav a:hover {
     margin-left: 11%;
   }
 
-  .MultiPart {
+  .authenticated .MultiPart {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -830,12 +868,30 @@ nav a:hover {
     flex-wrap: wrap; 
   }
 
-  .Score {
+  .guest .MultiPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap; 
+    margin-bottom: 30px;
+  }
+
+  .authenticated .Score {
     display: inline-block;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 70px;
+  }
+
+  .guest .Score {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -60px;
   }
 
   .Score-1 {
@@ -846,12 +902,20 @@ nav a:hover {
     margin-top: -40px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 200px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
   }
 
   .add-comment-wrapper {
@@ -869,6 +933,11 @@ nav a:hover {
     margin: 0 auto;
     margin-top: 130px;
     width: fit-content;
+  }
+
+  #comments-list {
+    margin-left: 3%;
+    margin-top: 180px;
   }
 
   #comments-list {
@@ -896,6 +965,16 @@ nav a:hover {
   .Text_1 {font-size: 0.8rem;}
 
   .Text_2 {font-size: 0.9rem;}
+
+  .tags span{
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: center; 
+  }
 
   .inline-text a {font-size: 0.7rem;}
 
@@ -1000,7 +1079,7 @@ nav a:hover {
     border-radius: 20px;
   }
 
-  .MultiPart {
+  .authenticated .MultiPart {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1009,12 +1088,30 @@ nav a:hover {
     flex-wrap: wrap; 
   }
 
-  .Score {
+  .guest .MultiPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap; 
+    margin-bottom: 30px;
+  }
+
+  .authenticated .Score {
     display: inline-block;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 60px;
+  }
+
+  .guest .Score {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -60px;
   }
 
   .Score-1 {
@@ -1025,12 +1122,20 @@ nav a:hover {
     margin-top: -50px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 200px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 60px;
   }
 
   .add-comment-wrapper {
@@ -1071,6 +1176,16 @@ nav a:hover {
   .Text_1 {font-size: 0.8rem;}
 
   .Text_2 {font-size: 0.9rem;}
+
+  .tags span{
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: center; 
+  }
 
   .inline-text a {font-size: 0.7rem;}
 
@@ -1181,13 +1296,23 @@ nav a:hover {
     border-radius: 20px;
   }
 
-  .MultiPart {
+  .authenticated .MultiPart {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     padding: 10px;
     flex-wrap: wrap; 
+  }
+
+  .guest .MultiPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap; 
+    margin-bottom: 50px;
   }
 
   .Score-1 {
@@ -1198,7 +1323,7 @@ nav a:hover {
     margin-top: -50px;
   }
 
-  .Score {
+  .authenticated .Score {
     display: inline-block;
     position: absolute;
     left: 50%;
@@ -1206,12 +1331,28 @@ nav a:hover {
     margin-top: 50px;
   }
 
-  .Buy_Game {
+  .guest .Score {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -30px;
+  }
+
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 160px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 80px;
   }
 
   .add-comment-wrapper {

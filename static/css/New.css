@@ -538,6 +538,11 @@ nav a:hover {
   .Text_2 {font-size: 1.2rem;}
 
   .Text_3 {
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+
+  .Text_3 {
     font-size: 18px;
     margin-right: 30px;
   }
@@ -594,11 +599,18 @@ nav a:hover {
     margin-top: 0px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     margin-left: -310px;
     margin-top: 70px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    margin-left: -310px;
+    margin-top: 00px;
   }
 
   .add-comment-wrapper {
@@ -644,6 +656,11 @@ nav a:hover {
   .Text_1 {font-size: 0.9rem;}
 
   .Text_2 {font-size: 1.0rem;}
+
+  .Text_3 {
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
 
   .inline-text a {font-size: 0.9rem;}
 
@@ -696,11 +713,18 @@ nav a:hover {
     margin-top: 0px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     margin-left: -255px;
     margin-top: 70px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    margin-left: -255px;
+    margin-top: 0px;
   }
 
   .add-comment-wrapper {
@@ -738,6 +762,11 @@ nav a:hover {
   .Text_1 {font-size: 0.9rem;}
 
   .Text_2 {font-size: 1.0rem;}
+
+  .Text_3 {
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
 
   .inline-text a {font-size: 0.8rem;}
 
@@ -800,7 +829,16 @@ nav a:hover {
     margin-left: 11%;
   }
 
-  .MultiPart {
+  .authenticated .MultiPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap; 
+  }
+
+  .guest .MultiPart {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -817,12 +855,20 @@ nav a:hover {
     margin-top: 20px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     left: 53%;
     transform: translateX(-50%);
     margin-top: 160px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    left: 53%;
+    transform: translateX(-50%);
+    margin-top: -20px;
   }
 
   .add-comment-wrapper {
@@ -867,6 +913,11 @@ nav a:hover {
   .Text_1 {font-size: 0.8rem;}
 
   .Text_2 {font-size: 0.9rem;}
+
+  .Text_3 {
+    font-size: 1.0rem;
+    margin-top: 5px;
+  }
 
   .inline-text a {font-size: 0.7rem;}
 
@@ -986,12 +1037,20 @@ nav a:hover {
     margin-top: 20px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     left: 53%;
     transform: translateX(-50%);
     margin-top: 160px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    left: 53%;
+    transform: translateX(-50%);
+    margin-top: -20px;
   }
 
   .add-comment-wrapper {
@@ -1033,6 +1092,11 @@ nav a:hover {
   .Text_1 {font-size: 0.8rem;}
 
   .Text_2 {font-size: 0.9rem;}
+
+  .Text_3 {
+    font-size: 1.0rem;
+    margin-top: 5px;
+  }
 
   .inline-text a {font-size: 0.7rem;}
 
@@ -1158,12 +1222,20 @@ nav a:hover {
     margin-top: 20px;
   }
 
-  .Buy_Game {
+  .authenticated .Buy_Game {
     display: inline-block;
     position: absolute;
     left: 53%;
     transform: translateX(-50%);
     margin-top: 160px;
+  }
+
+  .guest .Buy_Game {
+    display: inline-block;
+    position: absolute;
+    left: 53%;
+    transform: translateX(-50%);
+    margin-top: -20px;
   }
 
   .add-comment-wrapper {
