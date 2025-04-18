@@ -528,7 +528,6 @@ nav a:hover {
 
   .grid-container {grid-template-columns: repeat(3, 1fr);}
   
-
   .Text {
     font-size: 1.0rem;
     min-width: 350px;
@@ -609,13 +608,9 @@ nav a:hover {
     display: inline-block;
   }
 
-  #comments-list {
-    margin-left: 18%;
-  }
+  #comments-list {margin-left: 18%;}
 
-  #comments-list h3 {
-    font-size: 1.5rem;
-  }
+  #comments-list h3 {font-size: 1.5rem;}
 
   footer {font-size: 1.0rem;}
 
@@ -632,7 +627,6 @@ nav a:hover {
     text-align: center;
     display: block;
     margin: 0 auto;
-    
     width: fit-content;
   }
 
@@ -727,9 +721,7 @@ nav a:hover {
     padding: 0 10px; 
   }
 
-  #add-comment-btn {
-    margin-top: 100px;
-  }
+  #add-comment-btn {margin-top: 100px;}
 
 }
 
@@ -850,13 +842,12 @@ nav a:hover {
     width: fit-content;
   }
 
-  #comments-list {margin-left: 3%;
+  #comments-list {
+    margin-left: 3%;
     margin-top: 180px;
   }
 
-  #comment-field {
-    margin-top: 160px;
-  }
+  #comment-field {margin-top: 160px;}
 
   #comments-list h3 {font-size: 1.3rem;}
 }
@@ -962,17 +953,13 @@ nav a:hover {
 
   .Score {margin-right: 50px;}
 
-  .game-info {
-    padding: 10px;
-  }
+  .game-info {padding: 10px;}
 
   .game-info h2 {font-size: 1.2rem; text-align: center;}
   
   .game-info p {font-size: 0.9rem; text-align: center;}
 
-  .image-container {
-    text-align: center; 
-  }
+  .image-container {text-align: center; }
 
   .zoom-img {
     width: 80%;
@@ -1014,21 +1001,21 @@ nav a:hover {
     display: inline-block;
   }
 
-  #comments-list {margin-left: 0%;
+  #comments-list {
+    margin-left: 0%;
     margin-top: 180px;
   }
 
   #comments-list h3 {font-size: 1.3rem;}
 
-  #comment-field {
-    margin-top: 160px;
-  }
+  #comment-field {margin-top: 160px;}
   
   .content {
     display: flex;
     flex-direction: column;  
     gap: 20px;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -1138,17 +1125,13 @@ nav a:hover {
 
   .Score {margin-right: 50px;}
 
-  .game-info {
-    padding: 10px;
-  }
+  .game-info {padding: 10px;}
 
   .game-info h2 {font-size: 1.2rem; text-align: center;}
   
   .game-info p {font-size: 0.9rem; text-align: center;}
 
-  .image-container {
-    text-align: center; 
-  }
+  .image-container {text-align: center; }
 
   .zoom-img {
     width: 80%;
@@ -1197,9 +1180,7 @@ nav a:hover {
 
   #comments-list h3 {font-size: 1.1rem;}
 
-  #comment-field {
-    margin-top: 160px;
-  }
+  #comment-field {margin-top: 160px;}
 
   .comment p {font-size: 0.9rem;}
   
