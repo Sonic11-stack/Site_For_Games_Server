@@ -91,7 +91,7 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
     print("DEBUG:", engine)
 
     if not engine:
-        return JSONResponse({"error": "Игровой движок не найдена"}, status_code=404)
+        return RedirectResponse(url="/first_page", status_code=303)
     
     is_authenticated = request.cookies.get("auth") == "true"
 
@@ -107,7 +107,7 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
 async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT text_news, name, main_text, name_author FROM "News" WHERE id = %s', (new_id,))
-    engine = cur.fetchone()
+    news = cur.fetchone()
     user_email = request.cookies.get("email")
     user = None
     
@@ -131,18 +131,18 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
 
     image_url = f"/static/news/News_{new_id}.jpg"
     
-    description = engine["main_text"]
+    description = news["main_text"]
     #author = user["name"]
-    print("DEBUG:", engine)
+    print("DEBUG:", news)
 
-    if not engine:
+    if not news:
         return JSONResponse({"error": "Текст не найден"}, status_code=404)
     
     is_authenticated = request.cookies.get("auth") == "true"
 
     return templates.TemplateResponse(
         "New_Page.html",
-        {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], "description": description, "new_id": new_id, "author": engine['name_author'], 
+        {"request": request, "name": news["name"] if isinstance(news, dict) else news[0], "description": description, "new_id": new_id, "author": news['name_author'], 
         "image_url": image_url, "is_authenticated": is_authenticated, "is_clicked": is_clicked, "comments": comments}
     )
 
@@ -212,7 +212,6 @@ async def get_game_page(request: Request, email: str = Form(...), password: str 
 @router.post("/check_code")
 async def get_game_page(request: Request):
     return templates.TemplateResponse("Check_Code.html", {"request": request})
-
 
 @router.get("/profile")
 async def profile(request: Request, db=Depends(get_db)):

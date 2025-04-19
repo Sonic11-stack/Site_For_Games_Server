@@ -498,7 +498,7 @@
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #333333;
+    background-color: rgba(112, 123, 247, 1);
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -544,7 +544,7 @@
   }
 
   .profile-section {
-    background-color: grey;
+    background-color: #2a2a3c;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
@@ -556,7 +556,7 @@
   .profile-form label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #e0e0e0;
   }
 
   .profile-form input,
@@ -585,7 +585,7 @@
 
   .click-btn {
     padding: 10px 20px;
-    background-color: #707BF7;
+    background-color: #2a2a3c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -599,7 +599,7 @@
 
   .click-btn-1 {
     padding: 10px 20px;
-    background-color: #707BF7;
+    background-color: #2a2a3c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -663,7 +663,10 @@
     color: white;
   }
 
-  .profile-section h2 {text-align: center;}
+  .profile-section h2 {
+    text-align: center;
+    color: #e0e0e0;
+  }
 
   @media (min-width: 1280px) and (max-width: 1600px) {
 

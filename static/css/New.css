@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:900';
   
 .Games  {
-  background-color: grey;
+  background-color: #2a2a3c;
   width: 60%;
   margin: 0 auto;
   border-radius: 20px;
@@ -136,13 +136,13 @@ ul {
 .Text {
   font-size: 18px;
   line-height: 1.6;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .Text_1 {
   font-size: 18px;
   line-height: 1.6;
-  color: #333;
+  color: #e0e0e0;
   white-space: nowrap;
   margin-top: 8px;
   margin-left: 60px;
@@ -154,13 +154,13 @@ ul {
 .Text_2 {
   font-size: 18px;
   line-height: 1.6;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .Text_3 {
   font-size: 18px;
   line-height: 1.6;
-  color: #333;
+  color: #e0e0e0;
   margin-top: 8px;
   font-family: 'Bebas Neue Bold';
   white-space: nowrap;
@@ -335,7 +335,7 @@ footer {
 
 .tag {
   display: inline-block;
-  background-color: #555555; 
+  background-color: #2a2a3c; 
   color: #ffffff; 
   padding: 5px 10px;
   margin: 5px;
@@ -522,6 +522,53 @@ nav a:hover {
   box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
   margin-top: -10px;
   margin-left: 10px;
+}
+
+.comment {
+  width: 100%;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+#comments-list {
+  margin-top: 40px;
+  padding: 0; 
+  background-color: transparent; 
+  font-family: 'Bebas Neue Bold', sans-serif;
+}
+
+#comments-list h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.comment:hover {
+  transform: translateY(-3px);
+}
+
+.comment p {
+  margin: 6px 0;
+}
+
+.comment p:first-child {
+  font-weight: bold;
+  color: #707BF7;
+}
+
+.comment-text {
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.comment hr {
+  border: none;
+  border-top: 1px solid #444;
+  margin-top: 12px;
 }
 
 @media (min-width: 1280px) and (max-width: 1600px) {
