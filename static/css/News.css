@@ -42,7 +42,7 @@
     height: 100%;
     margin: 0 auto;
     padding-left: 10px;
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
   }
 
   .separator {
@@ -97,6 +97,7 @@
     text-decoration: none;
     color: #000;
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
   }
   
@@ -110,7 +111,7 @@
   footer {
     margin-top: auto;
     background-color: #707BF7;
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
   }
 
   .Games {
@@ -149,6 +150,7 @@
 
   .auth-link {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
@@ -158,6 +160,7 @@
 
   .auth-link-1 {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
@@ -188,7 +191,7 @@
   footer {
     margin-top : 5%;
     background-color: #707BF7;
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
   }
 
   .Menu {
@@ -201,17 +204,20 @@
 
   .Information_Year {
     text-align: center;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
   }
 
   .Information_Contact {
     margin-bottom: 1%;
+    font-family: "Manrope", sans-serif;
     text-align: center;
     font-weight: bold;
   }
 
   .Information_Follow {
     text-align: center;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
   }
 
@@ -233,6 +239,7 @@
 
   .logo-text {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     white-space: nowrap; 
     margin-left: 10px;
     font-weight: bold;
@@ -310,9 +317,7 @@
     color: inherit; 
   }
 
-  .game-info h2, p {font-family: 'Bebas Neue Bold';}
-
-  .tag {font-family: 'Bebas Neue Bold';}
+  .tag {font-family: "Manrope", sans-serif;}
 
   .no-news-message {
     text-align: center; 

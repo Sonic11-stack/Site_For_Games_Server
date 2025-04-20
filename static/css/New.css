@@ -29,9 +29,12 @@
   max-width: 800px;
   margin: 0 auto; 
   font-size: 16px; 
+  font-family: "Manrope", sans-serif;
   line-height: 1.6; 
   color: #333; 
 }
+
+.Text p {font-family: "Manrope", sans-serif;}
 
 nav {
   height: 100px;
@@ -81,6 +84,7 @@ ul {
   text-decoration: none;
   color: #000;
   font-size: 1.2rem;
+  font-family: "Manrope", sans-serif;
   font-weight: bold;
   text-decoration: none;
 }
@@ -97,6 +101,7 @@ ul {
   text-decoration: none;
   color: #000;
   font-size: 1.2rem;
+  font-family: "Manrope", sans-serif;
   font-weight: bold;
 }
 
@@ -136,6 +141,7 @@ ul {
 .Text {
   font-size: 18px;
   line-height: 1.6;
+  font-family: "Manrope", sans-serif;
   color: #e0e0e0;
 }
 
@@ -146,7 +152,7 @@ ul {
   white-space: nowrap;
   margin-top: 8px;
   margin-left: 60px;
-  font-family: 'Bebas Neue Bold';
+  font-family: "Manrope", sans-serif;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -155,6 +161,7 @@ ul {
   font-size: 18px;
   line-height: 1.6;
   color: #e0e0e0;
+  font-family: "Manrope", sans-serif;
 }
 
 .Text_3 {
@@ -162,7 +169,7 @@ ul {
   line-height: 1.6;
   color: #e0e0e0;
   margin-top: 8px;
-  font-family: 'Bebas Neue Bold';
+  font-family: "Manrope", sans-serif;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-right: 30px;
@@ -235,6 +242,7 @@ button:hover {background-color: #3E4486;}
 
 .auth-link {
   font-size: 1.2rem;
+  font-family: "Manrope", sans-serif;
   text-decoration: none;
   color: #000 !important; 
   font-weight: bold;
@@ -242,6 +250,7 @@ button:hover {background-color: #3E4486;}
 
 .auth-link-1 {
   font-size: 1.2rem;
+  font-family: "Manrope", sans-serif;
   text-decoration: none;
   color: #000 !important; 
   font-weight: bold;
@@ -294,17 +303,20 @@ footer {
 
 .Information_Year {
   text-align: center;
+  font-family: "Manrope", sans-serif;
   font-weight: bold;
 }
 
 .Information_Contact {
   margin-bottom: 1%;
+  font-family: "Manrope", sans-serif;
   text-align: center;
   font-weight: bold;
 }
 
 .Information_Follow {
   margin: 0 40px;  
+  font-family: "Manrope", sans-serif;
   text-align: center;
   font-weight: bold;
 }
@@ -317,11 +329,13 @@ footer {
 
 .game-info h2 {
   font-size: 24px;
+  font-family: "Manrope", sans-serif;
   margin-bottom: 10px;
 }
 
 .game-info p {
   font-size: 18px;
+  font-family: "Manrope", sans-serif;
   margin: 5px 0;
 }
 
@@ -385,6 +399,7 @@ footer {
 
 .logo-text {
   font-size: 1.2rem;
+  font-family: "Manrope", sans-serif;
   white-space: nowrap; 
   margin-left: 10px;
   font-weight: bold;
@@ -396,11 +411,11 @@ footer {
   margin-left: 5px;
   margin-top: 60px;
   text-align: left;
-  font-family: 'Bebas Neue Bold';
+  font-family: "Manrope", sans-serif;
 }
 
 #add-comment-btn {
-  font-family: 'Bebas Neue Bold';
+  font-family: "Manrope", sans-serif;
   cursor: pointer;
   text-align: center;
   display: block;
@@ -486,9 +501,7 @@ nav a:hover {
   color: inherit; 
 }
 
-.game-info h2, p {font-family: 'Bebas Neue Bold';}
-
-.tag {font-family: 'Bebas Neue Bold';}
+.tag {font-family: "Manrope", sans-serif;}
 
 .btn-hover {
   width: 200px;
@@ -538,11 +551,12 @@ nav a:hover {
   margin-top: 40px;
   padding: 0; 
   background-color: transparent; 
-  font-family: 'Bebas Neue Bold', sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 #comments-list h3 {
   font-size: 1.8rem;
+  font-family: "Manrope", sans-serif;
   margin-bottom: 20px;
   color: #fff;
 }
@@ -587,11 +601,7 @@ nav a:hover {
   .Text_3 {
     font-size: 1.2rem;
     margin-top: 5px;
-  }
-
-  .Text_3 {
-    font-size: 18px;
-    margin-right: 30px;
+    margin-right: -10px;
   }
 
   .btn-hover {
@@ -681,7 +691,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;
@@ -707,6 +717,7 @@ nav a:hover {
   .Text_3 {
     font-size: 1.1rem;
     margin-top: 5px;
+    margin-right: 10px;
   }
 
   .inline-text a {font-size: 0.9rem;}
@@ -813,6 +824,7 @@ nav a:hover {
   .Text_3 {
     font-size: 1.1rem;
     margin-top: 5px;
+    margin-right: 10px;
   }
 
   .inline-text a {font-size: 0.8rem;}
@@ -926,7 +938,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;
@@ -964,6 +976,7 @@ nav a:hover {
   .Text_3 {
     font-size: 1.0rem;
     margin-top: 5px;
+    margin-right: 10px;
   }
 
   .inline-text a {font-size: 0.7rem;}
@@ -1040,7 +1053,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;
@@ -1143,6 +1156,7 @@ nav a:hover {
   .Text_3 {
     font-size: 1.0rem;
     margin-top: 5px;
+    margin-right: 10px;
   }
 
   .inline-text a {font-size: 0.7rem;}
@@ -1225,7 +1239,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;

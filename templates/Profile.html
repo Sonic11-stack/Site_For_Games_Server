@@ -7,12 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Новости игровой индустрии, игры"/>
   <link rel="stylesheet" type="text/css" href="/static/css/Profile.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/bebas_neue_bold.css">
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Log_And_Logout.js" defer></script>
   <script src="/static/javascript/Profile.js" defer></script>
   <link type="image/x-icon" href="/static/icons/Logo.ico" rel="shortcut icon">
   <link type="Image/x-icon" href="/static/icons/Logo.ico" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -23,29 +25,29 @@
       <section class="Line">
         <nav aria-label="Menu">
           <ul>
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости" style="font-family: 'Bebas Neue Bold';">Новости</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости">Новости</a></li>
 
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">Игры</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры">Игры</a></li>
 
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engines" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">Игровые движки</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engines" data-hover-name="Игровые движки">Игровые движки</a></li>
           </ul>
         </nav>
         
         {% if not is_authenticated %}
             <div class="auth-links">
-              <a href="/login" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
-              <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
+              <a href="/login" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
+              <a href="/reg" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
             </div>
         {% else %}
             <div class="auth-links-1">
               <a href="/profile"><img src="/static/icons/Test Account.png" alt="Логотип" class="logo"></a>
-              <a href="/logout" id="logoutBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
+              <a href="/logout" id="logoutBtn" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
             </div>
         {% endif %}
 
     <div class="logo-container">
         <a href="/news_first_page"><img src="/static/icons/Logo.jpg" alt="Логотип" class="logo"></a>
-        <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
+        <span class="logo-text">Code&Play</span>
     </div>
         
       </section>
@@ -53,8 +55,8 @@
     
 
     <section class="profile-container">
-      <div class="profile-header" style="font-family: 'Bebas Neue Bold';">
-          <div class="profile-info" style="font-family: 'Bebas Neue Bold';"> 
+      <div class="profile-header">
+          <div class="profile-info"> 
               {% if not user %}
               <h1 class="username">Имя пользователя</h1>
               <p class="email">email@example.com</p>
@@ -68,14 +70,14 @@
           </div>
       </div>
 
-      <div class="progile-con"><button type="submit" class="click-btn" style="font-family: 'Bebas Neue Bold';">Редактировать профиль</button></div>
+      <div class="progile-con"><button type="submit" class="click-btn">Редактировать профиль</button></div>
 
       {% if is_author %}
-      <div class="progile-con-1"><button type="submit" class="click-btn-1" style="font-family: 'Bebas Neue Bold';">Создать блок новостей</button></div>
+      <div class="progile-con-1"><button type="submit" class="click-btn-1">Создать блок новостей</button></div>
       {% endif %}
       
       <div class="profile-content">
-          <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
+          <div class="profile-section">
               <h2>Личная информация</h2>
               <form class="profile-form" action="/save_profile" method="post" enctype="application/x-www-form-urlencoded">
                   <div class="form-group">
@@ -96,7 +98,7 @@
           </div>
 
           <div class="profile-content-1">
-            <div class="profile-section" style="font-family: 'Bebas Neue Bold'; color: #e0e0e0;">
+            <div class="profile-section" style="color: #e0e0e0;">
                 <h2>Добавление новости</h2>
                 <form class="profile-form" action="/create_news" method="post" enctype="multipart/form-data">
                     <div class="form-group">
@@ -120,7 +122,7 @@
             </div> 
         </div>
 
-          <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
+          <div class="profile-section">
             <h2>Избранные игры</h2>
             <div class="favorite-games">
                 {% if save_games %}
@@ -135,7 +137,7 @@
             </div>
         </div>
 
-        <div class="profile-section" style="font-family: 'Bebas Neue Bold';">
+        <div class="profile-section">
           <h2>Избранные новости</h2>
           <div class="favorite-games">
               {% if save_news %}
@@ -152,7 +154,7 @@
   </section>
 
 <footer> 
-  <div class="Information_Follow" style="font-family: 'Bebas Neue Bold';">Следите за нами</div>
+  <div class="Information_Follow">Следите за нами</div>
 
   <nav aria-label="Icons">
     <ul>
@@ -162,8 +164,8 @@
     </ul>
   </nav>
 
-  <div class="Information_Contact" style="font-family: 'Bebas Neue Bold';">Почта для связи: matvejnazarov4@gmail.com</div>
-  <div class="Information_Year" style="font-family: 'Bebas Neue Bold';">© 2025. Все права защищены</div>
+  <div class="Information_Contact">Почта для связи: matvejnazarov4@gmail.com</div>
+  <div class="Information_Year">© 2025. Все права защищены</div>
 </footer>
   </body>
 </html>

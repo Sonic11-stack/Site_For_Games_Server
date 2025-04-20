@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.json())
             .then(data => {
                 if (data.is_clicked) {
-                    this.src = "/static/icons/Full_Star.jpg";
+                    this.src = "/static/icons/Full_Star_1.jpg";
                     this.nextElementSibling.textContent = "Сохранено";
                 } else {
-                    this.src = "/static/icons/Star.jpg";
+                    this.src = "/static/icons/Star_1.jpg";
                     this.nextElementSibling.textContent = "Сохранить в профиль";
                 }
             })

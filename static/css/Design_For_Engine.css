@@ -31,7 +31,10 @@
   font-size: 16px; 
   line-height: 1.6; 
   color: #333; 
+  font-family: "Manrope", sans-serif;
 }
+
+.Text p {font-family: "Manrope", sans-serif;}
 
 nav {
   height: 100px;
@@ -83,6 +86,7 @@ ul {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
+  font-family: "Manrope", sans-serif;
 }
 
 .inline-text_1 {
@@ -140,13 +144,13 @@ ul {
 }
 
 .Text_1 {
-  font-size: 18px;
+  font-size: 1.0rem;
   line-height: 1.6;
   color: #e0e0e0;
   white-space: nowrap;
   margin-top: 8px;
   margin-left: 60px;
-  font-family: 'Bebas Neue Bold';
+  font-family: "Manrope", sans-serif;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -155,6 +159,7 @@ ul {
   font-size: 18px;
   line-height: 1.6;
   color: #e0e0e0;
+  font-family: "Manrope", sans-serif;
 }
 
 .Text_3 {
@@ -162,7 +167,7 @@ ul {
   line-height: 1.6;
   color: #e0e0e0;
   margin-top: 8px;
-  font-family: 'Bebas Neue Bold';
+  font-family: "Manrope", sans-serif;
   white-space: nowrap;
   text-overflow: ellipsis;
   cursor: pointer;
@@ -238,6 +243,7 @@ button:hover {background-color: #3E4486;}
   text-decoration: none;
   color: #000 !important; 
   font-weight: bold;
+  font-family: "Manrope", sans-serif;
 }
 
 .auth-link-1 {
@@ -245,6 +251,7 @@ button:hover {background-color: #3E4486;}
   text-decoration: none;
   color: #000 !important; 
   font-weight: bold;
+  font-family: "Manrope", sans-serif;
 }
 
 .auth-link-1:hover {text-decoration: none; }
@@ -295,18 +302,21 @@ footer {
 .Information_Year {
   text-align: center;
   font-weight: bold;
+  font-family: "Manrope", sans-serif;
 }
 
 .Information_Contact {
   margin-bottom: 1%;
   text-align: center;
   font-weight: bold;
+  font-family: "Manrope", sans-serif;
 }
 
 .Information_Follow {
   margin: 0 40px;  
   text-align: center;
   font-weight: bold;
+  font-family: "Manrope", sans-serif;
 }
 
 .game-info {
@@ -318,11 +328,13 @@ footer {
 .game-info h2 {
   font-size: 24px;
   margin-bottom: 10px;
+  font-family: "Manrope", sans-serif;
 }
 
 .game-info p {
   font-size: 18px;
   margin: 5px 0;
+  font-family: "Manrope", sans-serif;
 }
 
 .Wall {
@@ -388,6 +400,7 @@ footer {
   white-space: nowrap; 
   margin-left: 10px;
   font-weight: bold;
+  font-family: "Manrope", sans-serif;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -400,7 +413,6 @@ footer {
 }
 
 #add-comment-btn {
-  font-family: 'Bebas Neue Bold';
   cursor: pointer;
   text-align: center;
   display: block;
@@ -486,7 +498,7 @@ nav a:hover {
   color: inherit; 
 }
 
-.game-info h2, p {font-family: 'Bebas Neue Bold';}
+
 
 .tag {font-family: 'Bebas Neue Bold';}
 
@@ -538,13 +550,13 @@ nav a:hover {
   margin-top: 40px;
   padding: 0; 
   background-color: transparent; 
-  font-family: 'Bebas Neue Bold', sans-serif;
 }
 
 #comments-list h3 {
   font-size: 1.8rem;
   margin-bottom: 20px;
   color: #fff;
+  font-family: "Manrope", sans-serif;
 }
 
 .comment:hover {
@@ -558,11 +570,13 @@ nav a:hover {
 .comment p:first-child {
   font-weight: bold;
   color: #707BF7;
+  font-family: "Manrope", sans-serif;
 }
 
 .comment-text {
   line-height: 1.5;
   color: #e0e0e0;
+  font-family: "Manrope", sans-serif;
 }
 
 .comment hr {
@@ -580,7 +594,7 @@ nav a:hover {
     min-width: 350px;
   }
 
-  .Text_1 {font-size: 1.0rem;}
+  .Text_1 {font-size: 0.88rem;}
 
   .Text_2 {font-size: 1.2rem;}
 
@@ -673,7 +687,10 @@ nav a:hover {
     min-width: 300px;
   }
 
-  .Text_1 {font-size: 0.9rem;}
+  .Text_1 {
+    font-size: 0.8rem;
+    margin-left: 50px;
+  }
 
   .Text_2 {font-size: 1.0rem;}
 
@@ -891,7 +908,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;
@@ -1000,7 +1017,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;
@@ -1198,7 +1215,7 @@ nav a:hover {
   }
 
   #add-comment-btn {
-    font-family: 'Bebas Neue Bold';
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     text-align: center;
     display: block;

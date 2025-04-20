@@ -79,6 +79,7 @@
     text-decoration: none;
     color: #000;
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
     text-decoration: none;
   }
@@ -95,6 +96,7 @@
     text-decoration: none;
     color: #000;
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
   }
 
@@ -144,7 +146,6 @@
     white-space: nowrap;
     margin-top: 8px;
     margin-left: 60px;
-    font-family: 'Bebas Neue Bold';
     white-space: nowrap;
     text-overflow: ellipsis;
   }
@@ -160,7 +161,6 @@
     line-height: 1.6;
     color: #333;
     margin-top: 8px;
-    font-family: 'Bebas Neue Bold';
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
@@ -226,6 +226,7 @@
   
   .auth-link {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
@@ -233,6 +234,7 @@
 
   .auth-link-1 {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
@@ -285,17 +287,20 @@
 
   .Information_Year {
     text-align: center;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
   }
 
   .Information_Contact {
     margin-bottom: 1%;
+    font-family: "Manrope", sans-serif;
     text-align: center;
     font-weight: bold;
   }
 
   .Information_Follow {
     margin: 0 40px;  
+    font-family: "Manrope", sans-serif;
     text-align: center;
     font-weight: bold;
   }
@@ -379,6 +384,7 @@
 
   .logo-text {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     white-space: nowrap; 
     margin-left: 10px;
     font-weight: bold;
@@ -456,10 +462,6 @@
     color: inherit; 
   }
 
-  .game-info h2, p {font-family: 'Bebas Neue Bold';}
-
-  .tag {font-family: 'Bebas Neue Bold';}
-
   .btn-hover {
     width: 200px;
     font-size: 16px;
@@ -505,6 +507,7 @@
 
   .profile-header {
     display: flex;
+    font-family: "Manrope", sans-serif;
     align-items: center;
     margin-bottom: 30px;
   }
@@ -536,15 +539,18 @@
     margin: 0;
     color: white;
     font-size: 2em;
+    font-family: "Manrope", sans-serif;
   }
 
   .profile-info p {
     margin: 5px 0;
     color: white;
+    font-family: "Manrope", sans-serif;
   }
 
   .profile-section {
     background-color: #2a2a3c;
+    font-family: "Manrope", sans-serif;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
@@ -611,6 +617,7 @@
 
   .progile-con {
     display: flex;
+    font-family: "Manrope", sans-serif;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
@@ -618,6 +625,7 @@
 
   .progile-con-1 {
     display: flex;
+    font-family: "Manrope", sans-serif;
     justify-content: center;
     align-items: center;
     margin: 20px 0;

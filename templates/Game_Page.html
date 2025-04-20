@@ -7,13 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Новости игровой индустрии, игры"/>
   <link rel="stylesheet" type="text/css" href="/static/css/Design_For_Game.css">
-  <link rel="stylesheet" type="text/css" href="/static/css/bebas_neue_bold.css">
   <script src="/static/javascript/List_Of_Commands.js" defer></script>
   <script src="/static/javascript/Get_API_From_Metacritic.js" defer></script>
   <script src="/static/javascript/Log_And_Logout.js" defer></script>
   <script src="/static/javascript/Game.js" defer></script>
   <link type="image/x-icon" href="/static/icons/Logo.ico" rel="shortcut icon">
   <link type="Image/x-icon" href="/static/icons/Logo.ico" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="{% if is_authenticated %}authenticated{% else %}guest{% endif %}">
@@ -24,29 +26,29 @@
       <section class="Line">
         <nav aria-label="Menu">
           <ul>
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости" style="font-family: 'Bebas Neue Bold';">Новости</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/news_first_page" data-hover-name="Новости">Новости</a></li>
 
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры" style="font-family: 'Bebas Neue Bold';">Игры</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/first_page" data-hover-name="Игры">Игры</a></li>
 
-            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engines" data-hover-name="Игровые движки" style="font-family: 'Bebas Neue Bold';">Игровые движки</a></li>
+            <li class="inline-text"><a class="c-btn c-btn--big-line" href="/game_engines" data-hover-name="Игровые движки">Игровые движки</a></li>
           </ul>
         </nav>
 
         {% if not is_authenticated %}
             <div class="auth-links">
-              <a href="/login" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
-              <a href="/reg" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
+              <a href="/login" class="c-btn c-btn--big-line auth-link" data-hover-name="Вход">Вход</a> /
+              <a href="/reg" class="c-btn c-btn--big-line auth-link" data-hover-name="Регистрация">Регистрация</a>
             </div>
         {% else %}
             <div class="auth-links-1">
               <a href="/profile"><img src="/static/icons/Test Account.png" alt="Логотип" class="logo"></a>
-              <a href="/logout" id="logoutBtn" style="font-family: 'Bebas Neue Bold';" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
+              <a href="/logout" id="logoutBtn" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
             </div>
         {% endif %}
 
     <div class="logo-container">
         <a href="/news_first_page"><img src="/static/icons/Logo.jpg" alt="Логотип" class="logo"></a>
-        <span class="logo-text" style="font-family: 'Bebas Neue Bold';">Code&Play</span>
+        <span class="logo-text">Code&Play</span>
     </div>
         
       </section>
@@ -89,7 +91,7 @@
         <div class="container grid-container">
             <div class="grid-item text-center">
                 <img id="star-icon" 
-                     src="/static/icons/{% if is_clicked %}Full_Star.jpg{% else %}Star.jpg{% endif %}" 
+                     src="/static/icons/{% if is_clicked %}Full_Star_1.jpg{% else %}Star_1.jpg{% endif %}" 
                      alt="Meta Icon" 
                      class="meta-icon" 
                      style="cursor: pointer;"
@@ -103,7 +105,7 @@
     <section class="Score">
       <div class="container grid-container">
         <div class="grid-item text-center">
-          <img src="/static/icons/Meta.png" alt="Meta Icon" class="meta-icon">
+          <img src="/static/icons/Meta_1.png" alt="Meta Icon" class="meta-icon">
           <div class="Text_1" data-game-name="{{name}}">Оценка метакритики: <span id="score-placeholder">Загрузка...</span></div>
         </div>
       </div>
@@ -155,7 +157,7 @@
   
 
 <footer> 
-  <div class="Information_Follow" style="font-family: 'Bebas Neue Bold';">Следите за нами</div>
+  <div class="Information_Follow">Следите за нами</div>
 
   <nav aria-label="Icons">
     <ul>
@@ -165,8 +167,8 @@
     </ul>
   </nav>
 
-  <div class="Information_Contact" style="font-family: 'Bebas Neue Bold';">Почта для связи: matvejnazarov4@gmail.com</div>
-  <div class="Information_Year" style="font-family: 'Bebas Neue Bold';">© 2025. Все права защищены</div>
+  <div class="Information_Contact">Почта для связи: matvejnazarov4@gmail.com</div>
+  <div class="Information_Year">© 2025. Все права защищены</div>
 </footer>
 
   </body>

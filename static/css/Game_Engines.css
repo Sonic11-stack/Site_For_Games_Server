@@ -52,6 +52,7 @@
     margin-top: 10px;
     font-size: 1.2rem;
     font-weight: bold;
+    font-family: "Manrope", sans-serif;
   }
   
   .Main_Picture {position: absolute;}
@@ -91,6 +92,7 @@
 
   .auth-link {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     text-decoration: none;
     color: #000 !important;
     font-weight: bold;
@@ -112,6 +114,7 @@
 
   .inline-text a {
     text-decoration: none;
+    font-family: "Manrope", sans-serif;
     color: #000;
     font-size: 1.2rem;
     font-weight: bold;
@@ -167,17 +170,20 @@
   .Information_Year {
     text-align: center;
     font-weight: bold;
+    font-family: "Manrope", sans-serif;
   }
 
   .Information_Contact {
     margin-bottom: 1%;
     text-align: center;
     font-weight: bold;
+    font-family: "Manrope", sans-serif;
   }
 
   .Information_Follow {
     text-align: center;
     font-weight: bold;
+    font-family: "Manrope", sans-serif;
   }
 
   nav[aria-label="Icons"] {
@@ -203,6 +209,7 @@
 
   .logo-text {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     white-space: nowrap; 
     margin-left: 10px;
     font-weight: bold;
@@ -211,6 +218,7 @@
 
   .auth-link-1 {
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     text-decoration: none;
     color: #000 !important; 
     font-weight: bold;
