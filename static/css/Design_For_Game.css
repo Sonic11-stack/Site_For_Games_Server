@@ -17,11 +17,18 @@
   width: 40%;
 }
 
-.Score {
+.authenticated .Score {
   display: inline-block;
   float: right;
   margin-right: -230px;
   margin-top: 80px;
+}
+
+.guest .Score {
+  display: inline-block;
+  float: right;
+  margin-right: 130px;
+  margin-top: 0px;
 }
 
 .Score-1 {
@@ -159,7 +166,7 @@ ul {
 .Text p {font-family: "Manrope", sans-serif;}
 
 .Text_1 {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #e0e0e0;
   white-space: nowrap;
@@ -386,9 +393,16 @@ footer {
   margin-left: -40px;
 }
 
-.Buy_Game {
+.authenticated .Buy_Game {
   float: right;
   margin-top: 170px;
+  margin-right: -230px;
+  width: 190px;
+}
+
+.guest .Buy_Game {
+  float: right;
+  margin-top: 80px;
   margin-right: -230px;
   width: 190px;
 }
@@ -432,7 +446,7 @@ footer {
   text-align: center;
   display: block;
   margin: 0 auto;
-  margin-top: 440px;
+  margin-top: 600px;
   width: fit-content;
 }
 
