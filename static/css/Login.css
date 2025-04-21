@@ -32,6 +32,7 @@
     border: none;
     background: none;
     font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
     color: #000;
     cursor: pointer;
@@ -39,7 +40,10 @@
     transition: color 0.3s;
   }
   
-  .tab.active {color: #6f3ef5;}
+  .tab.active {
+    color: #6f3ef5; 
+    font-family: "Manrope", sans-serif;
+  } 
   
   .form-group {
     margin-bottom: 15px;
@@ -49,6 +53,7 @@
   .form-group label {
     display: block;
     font-size: 14px;
+    font-family: "Manrope", sans-serif;
     color: #6f3ef5;
     margin-bottom: 5px;
   }
@@ -90,6 +95,7 @@
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    font-family: "Manrope", sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -100,6 +106,7 @@
   .forgot-password {
     display: block;
     font-size: 14px;
+    font-family: "Manrope", sans-serif;
     color: #6f3ef5;
     margin-top: 10px;
     text-decoration: none;
@@ -124,6 +131,7 @@
     border-radius: 8px;
     background-color: #fff;
     font-size: 14px;
+    font-family: "Manrope", sans-serif;
     cursor: pointer;
     transition: box-shadow 0.3s;
   }
