@@ -12,7 +12,7 @@
         function redirectToGameEngines(element) {
             let url = element.getAttribute("data-url");
             if (url) {
-                window.location.href = url;
+                window.open(url, '_blank');
             } else {
                 alert("Ссылка не найдена!");
             }

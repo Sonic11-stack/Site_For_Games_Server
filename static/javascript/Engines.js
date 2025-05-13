@@ -4,9 +4,7 @@ const submitCommentBtn = document.getElementById('submit-comment-btn');
 const commentsList = document.getElementById('comments-list');
 const commentText = document.getElementById('comment-text');
 
-addCommentBtn.addEventListener('click', () => {
-    commentField.style.display = 'block';
-});
+addCommentBtn.addEventListener('click', () => {commentField.style.display = 'block';});
 
 submitCommentBtn.addEventListener('click', () => {
     const text = commentText.value.trim();

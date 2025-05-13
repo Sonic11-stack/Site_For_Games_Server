@@ -77,7 +77,7 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
         "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated, "text": text, "comments": comments})
 
 @router.get("/game_engine/{engine_id}")
-async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
+async def get_game_engine_page(request: Request, engine_id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT name, date, description, developer, development, platforms, sources_to_game_engine, logo FROM "GameEngines" WHERE id = %s', (engine_id,))
     engine = cur.fetchone()
@@ -104,7 +104,7 @@ async def get_game_page(request: Request, engine_id: int, db=Depends(get_db)):
     )
 
 @router.get("/news/{new_id}")
-async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
+async def get_new_page(request: Request, new_id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT text_news, name, main_text, name_author FROM "News" WHERE id = %s', (new_id,))
     news = cur.fetchone()
@@ -125,14 +125,10 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     cur.execute('SELECT c.comment_id, c.comment, u.name FROM "Comments_News" c JOIN "Users" u ON c.email = u.email WHERE c.id = %s ORDER BY c.comment_id DESC', (new_id,))
     comments = cur.fetchall()
     cur.close()
-    
-    #if not user:
-        #return RedirectResponse(url="/first_page", status_code=303)
 
     image_url = f"/static/news/News_{new_id}.jpg"
     
     description = news["main_text"]
-    #author = user["name"]
     print("DEBUG:", news)
 
     if not news:
@@ -147,7 +143,7 @@ async def get_game_page(request: Request, new_id: int, db=Depends(get_db)):
     )
 
 @router.get("/get_text_news/{id}")
-async def get_game_page(request: Request, id: int, db=Depends(get_db)):
+async def get_text_news(request: Request, id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT text_news FROM "News" WHERE id = %s', (id,))
     text = cur.fetchone()
@@ -157,7 +153,7 @@ async def get_game_page(request: Request, id: int, db=Depends(get_db)):
     return JSONResponse(content={"text": text_1})
 
 @router.get("/get_text/{id}")
-async def get_game_page(request: Request, id: int, db=Depends(get_db)):
+async def get_text_game(request: Request, id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT name FROM "InfoPage" WHERE id = %s', (id,))
     text = cur.fetchone()
@@ -166,7 +162,7 @@ async def get_game_page(request: Request, id: int, db=Depends(get_db)):
     return JSONResponse(content={"text": text_1})
 
 @router.get("/get_text_engine/{id}")
-async def get_game_page(request: Request, id: int, db=Depends(get_db)):
+async def get_text_engine(request: Request, id: int, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT name FROM "GameEngines" WHERE id = %s', (id,))
     text = cur.fetchone()
@@ -176,7 +172,7 @@ async def get_game_page(request: Request, id: int, db=Depends(get_db)):
     return JSONResponse(content={"text": text_1})
 
 @router.post("/click_button")
-async def get_game_page(request: Request, name: str = Form(...), surname: str = Form(...), email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
+async def post_button(request: Request, name: str = Form(...), surname: str = Form(...), email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
     hashed_password = hash_password(password)
     role = 'member'
     try:
@@ -191,7 +187,7 @@ async def get_game_page(request: Request, name: str = Form(...), surname: str = 
     
 
 @router.post("/click_button_1")
-async def get_game_page(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
+async def post_button_1(request: Request, email: str = Form(...), password: str = Form(...), db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT email, password FROM "Users" WHERE email = %s', (email,))
     user = cur.fetchone()
@@ -210,7 +206,7 @@ async def get_game_page(request: Request, email: str = Form(...), password: str 
     return response
 
 @router.post("/check_code")
-async def get_game_page(request: Request):
+async def post_check_code(request: Request):
     return templates.TemplateResponse("Check_Code.html", {"request": request})
 
 @router.get("/profile")
@@ -240,7 +236,7 @@ async def profile(request: Request, db=Depends(get_db)):
     "is_authenticated": is_authenticated, "save_games": save_games, "save_news": save_news, "image_urls": image_urls, "image_urls_news": image_urls_news})
 
 @router.post("/save_profile")
-async def profile(request: Request, name: str = Form(...), bio: str = Form(...), location: str = Form(...), db=Depends(get_db)):
+async def save_profile(request: Request, name: str = Form(...), bio: str = Form(...), location: str = Form(...), db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
     cur.execute('UPDATE "Users" SET name = %s, about_yourself = %s, location = %s WHERE email = %s RETURNING *', (name, bio, location, email))
@@ -287,7 +283,7 @@ async def news_first_page(request: Request, db=Depends(get_db)):
 )
 
 @router.get("/news_second_page")
-async def news_first_page(request: Request, db=Depends(get_db)):
+async def news_second_page(request: Request, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 6')
     news_list = cur.fetchall()
@@ -301,7 +297,7 @@ async def news_first_page(request: Request, db=Depends(get_db)):
 )
 
 @router.get("/news_third_page")
-async def news_first_page(request: Request, db=Depends(get_db)):
+async def news_third_page(request: Request, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 12')
     news_list = cur.fetchall()
@@ -315,7 +311,7 @@ async def news_first_page(request: Request, db=Depends(get_db)):
 )
 
 @router.get("/news_fourth_page")
-async def news_first_page(request: Request, db=Depends(get_db)):
+async def news_fourth_page(request: Request, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 18')
     news_list = cur.fetchall()
@@ -329,7 +325,7 @@ async def news_first_page(request: Request, db=Depends(get_db)):
 )
 
 @router.get("/news_fifth_page")
-async def news_first_page(request: Request, db=Depends(get_db)):
+async def news_fifth_page(request: Request, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 24')
     news_list = cur.fetchall()
@@ -343,7 +339,7 @@ async def news_first_page(request: Request, db=Depends(get_db)):
 )
 
 @router.get("/news_sixth_page")
-async def news_first_page(request: Request, db=Depends(get_db)):
+async def news_sixth_page(request: Request, db=Depends(get_db)):
     cur = db.cursor()
     cur.execute('SELECT id, text_news, name, main_text FROM "News" ORDER BY id DESC LIMIT 6 OFFSET 30')
     news_list = cur.fetchall()
@@ -357,7 +353,7 @@ async def news_first_page(request: Request, db=Depends(get_db)):
 )
 
 @router.post("/click_star")
-async def profile(request: Request, save_game: dict = Body(...), db=Depends(get_db)):
+async def click_star(request: Request, save_game: dict = Body(...), db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
 
@@ -387,7 +383,7 @@ async def profile(request: Request, save_game: dict = Body(...), db=Depends(get_
     return JSONResponse(content={"status": "success", "is_clicked": is_clicked})
 
 @router.post("/click_star_new")
-async def profile(request: Request, save_new: dict = Body(...), db=Depends(get_db)):
+async def click_star_new(request: Request, save_new: dict = Body(...), db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
 
@@ -437,7 +433,7 @@ async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=
     })
 
 @router.post("/stay_comment_new/{id}")
-async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=Depends(get_db)):
+async def stay_comment_new(request: Request, id: int, comment: dict = Body(...), db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
     cur.execute('SELECT name FROM "Users" WHERE email = %s', (email,))
@@ -457,7 +453,7 @@ async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=
     })
     
 @router.post("/stay_comment_engine/{id}")
-async def stay_comment(request: Request, id: int, comment: dict = Body(...), db=Depends(get_db)):
+async def stay_comment_engine(request: Request, id: int, comment: dict = Body(...), db=Depends(get_db)):
     email = request.cookies.get("email")
     cur = db.cursor()
     cur.execute('SELECT name FROM "Users" WHERE email = %s', (email,))

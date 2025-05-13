@@ -40,7 +40,7 @@
             </div>
         {% else %}
             <div class="auth-links-1">
-              <a href="/profile"><img src="/static/icons/Test Account.png" alt="Логотип" class="logo"></a>
+              <a href="/profile"><img src="/static/icons/Test Account.png" alt="Профиль" class="logo"></a>
               <a href="/logout" id="logoutBtn" class="c-btn c-btn--big-line auth-link-1" data-hover-name="Выйти">Выйти</a>
             </div>
         {% endif %}
@@ -80,7 +80,7 @@
               <div class="grid-item text-center">
                   <img id="star-icon" 
                        src="/static/icons/{% if is_clicked %}Full_Star_1.jpg{% else %}Star_1.jpg{% endif %}" 
-                       alt="Meta Icon" 
+                       alt="Star" 
                        class="meta-icon" 
                        style="cursor: pointer;"
                        data-new-id="{{ new_id }}">
@@ -95,7 +95,7 @@
         <div class="grid-item text-center">
           <img id="star-icon" 
               src="/static/icons/Account.png" 
-              alt="Meta Icon" 
+              alt="Author" 
               class="meta-steam" 
               data-game-id="{{ game_id }}">
               <div class="Text_3">Автор: {{author}}</div>
