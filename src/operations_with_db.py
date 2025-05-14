@@ -1,8 +1,8 @@
 from dependencies import shutil, bcrypt, psycopg2, BaseModel, JSONResponse, RedirectResponse, APIRouter, File, UploadFile, Request, Depends, HTTPException, Form, Body
-from db_utils import get_db_connection_1
+from db_utils import get_db_connection
 
 def get_db():
-    conn = get_db_connection_1()
+    conn = get_db_connection()
     try:
         yield conn  
     finally:
@@ -183,7 +183,7 @@ async def post_button(request: Request, name: str = Form(...), surname: str = Fo
         db.rollback()
         raise HTTPException(status_code=400, detail="Email уже зарегистрирован")
 
-    return {"message": "Пользователь зарегистрирован"}
+    return RedirectResponse(url="/login",status_code=303)
     
 
 @router.post("/click_button_1")
