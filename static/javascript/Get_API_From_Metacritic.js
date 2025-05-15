@@ -1,4 +1,5 @@
-/*const API_KEY = '41fdca3dce1b4153af488de676486592'; 
+/*const scoreElement = document.getElementById('score-placeholder');
+const API_KEY = scoreElement.dataset.rawgKey;
 const GAME_NAME = document.querySelector('[data-game-name]').dataset.gameName;
 
 async function fetchMetacriticScore(gameName) {

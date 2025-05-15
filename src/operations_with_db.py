@@ -1,8 +1,12 @@
 from dependencies import shutil, bcrypt, psycopg2, BaseModel, JSONResponse, RedirectResponse, APIRouter, File, UploadFile, Request, Depends, HTTPException, Form, Body
-from db_utils import get_db_connection
+from db_utils import get_db_connection_1
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def get_db():
-    conn = get_db_connection()
+    conn = get_db_connection_1()
     try:
         yield conn  
     finally:
@@ -69,10 +73,13 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
         return JSONResponse({"error": "Игра не найдена"}, status_code=404)
     
     is_authenticated = request.cookies.get("auth") == "true"
+    
+    api_key = os.getenv("RAWG_API_KEY")
+    
     return templates.TemplateResponse(
         "Game_Page.html",
         {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], "game_id": game_id, "is_clicked": is_clicked, "logo": logo_1,
-        "date": game["date"], "description": game["description"], "developer": game["developer"],
+        "date": game["date"], "description": game["description"], "developer": game["developer"], "rawg_api_key": api_key,
         "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], 
         "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated, "text": text, "comments": comments})
 
