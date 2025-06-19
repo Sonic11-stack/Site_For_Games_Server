@@ -104,11 +104,12 @@ async def get_game_engine_page(request: Request, engine_id: int, db=Depends(get_
     is_authenticated = request.cookies.get("auth") == "true"
 
     api_key = os.getenv("RAWG_API_KEY")
+    game_name = engine["name"]
 
     return templates.TemplateResponse(
         "Game_Engine_Page.html",
         {"request": request, "name": engine["name"] if isinstance(engine, dict) else engine[0], 
-         "date": engine["date"], "description": engine["description"], "developer": engine["developer"], "logo": logo_1, "rawg_api_key": api_key,
+         "date": engine["date"], "description": engine["description"], "developer": engine["developer"], "logo": logo_1, "game_name": game_name, "rawg_api_key": api_key,
         "development": engine["development"], "platforms": engine["platforms"], "sources_to_game_engine": engine["sources_to_game_engine"],
         "image_url": image_url, "is_authenticated": is_authenticated, "comments": comments}
     )
