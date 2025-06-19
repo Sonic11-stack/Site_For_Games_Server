@@ -1,4 +1,4 @@
-/*const scoreElement = document.getElementById('score-placeholder');
+const scoreElement = document.getElementById('score-placeholder');
 const API_KEY = scoreElement.dataset.rawgKey;
 const GAME_NAME = document.querySelector('[data-game-name]').dataset.gameName;
 
@@ -19,7 +19,7 @@ async function fetchMetacriticScore(gameName) {
   }
 }
 
-fetchMetacriticScore(GAME_NAME); */
+fetchMetacriticScore(GAME_NAME); 
 
 
 const addCommentBtn = document.getElementById('add-comment-btn');
