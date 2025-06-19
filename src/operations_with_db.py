@@ -37,7 +37,6 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 @router.get("/game/{game_id}")
 async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
-    api_key = os.getenv("RAWG_API_KEY")
     cur = db.cursor()
     cur.execute('SELECT name, date, description, developer, publishers, platforms, sources_to_game, tags, logo FROM "InfoPage" WHERE id = %s', (game_id,))
     game = cur.fetchone()
@@ -75,10 +74,13 @@ async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
     
     is_authenticated = request.cookies.get("auth") == "true"
     
+    api_key = os.getenv("RAWG_API_KEY")
+    game_name = game["name"]
+    
     return templates.TemplateResponse(
         "Game_Page.html",
         {"request": request, "name": game["name"] if isinstance(game, dict) else game[0], "game_id": game_id, "is_clicked": is_clicked, "logo": logo_1,
-        "date": game["date"], "description": game["description"], "developer": game["developer"], "rawg_api_key": api_key,
+        "date": game["date"], "description": game["description"], "developer": game["developer"], "game_name": game_name, "rawg_api_key": api_key,
         "publishers": game["publishers"], "platforms": game["platforms"], "sources_to_game": game["sources_to_game"], 
         "tag1": tag1, "tag2": tag2, "tag3": tag3, "image_url": image_url, "is_authenticated": is_authenticated, "text": text, "comments": comments})
 
