@@ -37,6 +37,7 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 @router.get("/game/{game_id}")
 async def get_game_page(request: Request, game_id: int, db=Depends(get_db)):
+    api_key = os.getenv("RAWG_API_KEY")
     cur = db.cursor()
     cur.execute('SELECT name, date, description, developer, publishers, platforms, sources_to_game, tags, logo FROM "InfoPage" WHERE id = %s', (game_id,))
     game = cur.fetchone()
