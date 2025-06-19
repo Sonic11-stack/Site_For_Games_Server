@@ -60,7 +60,7 @@
       {% for news in news_list %}
       <div class="grid-container">
         <div class="game-card">
-            <a href="/news/{{news.id}}"><img src="/static/news/News_{{news.id}}.jpg" class="zoom-img" data-new-id="{{news.id}}" alt="Image of news"></a>
+            <a href="/news/{{news_id}}"><img src="/static/news/News_{{news_id}}.jpg" class="zoom-img" data-new-id="{{news_id}}" alt="Image of news"></a>
         </div>
         <div class="game-card-text"><div class="Text" data-url="/get_text_news/{{news.id}}">Загрузка</div></div>
       </div>
