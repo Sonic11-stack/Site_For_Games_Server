@@ -257,26 +257,38 @@ async def save_profile(request: Request, name: str = Form(...), bio: str = Form(
     return RedirectResponse(url="/profile", status_code=303)
 
 @router.post("/create_news")
-async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), image: UploadFile = File(...), db=Depends(get_db)):
+async def create_news(request: Request, text_news: str = Form(...), name: str = Form(...), main_text: str = Form(...), image: UploadFile = File(...),db=Depends(get_db)):
     email = request.cookies.get("email")
+    if not email:
+        return JSONResponse(status_code=401, content={"detail": "Пользователь не авторизован"})
+
     cur = db.cursor()
-    
+
     cur.execute('SELECT MAX(id) FROM "News"')
-    max_id = list(cur.fetchone().values())[0]
+    max_id_row = cur.fetchone()
+    max_id = list(max_id_row.values())[0] if max_id_row else None
     new_id = 1 if max_id is None else max_id + 1
-    
+
     image_filename = f"News_{new_id}.jpg"
     image_path = f"static/news/{image_filename}"
-    
     with open(image_path, "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
 
     cur.execute('SELECT name FROM "Users" WHERE email = %s', (email,))
-    user_name = cur.fetchone()[0]
-    
-    cur.execute('INSERT INTO "News" (id, text_news, name, main_text, name_author) VALUES (%s, %s, %s, %s, %s) RETURNING id', (new_id, text_news, name, main_text, user_name))
+    user_row = cur.fetchone()
+    if not user_row:
+        cur.close()
+        return JSONResponse(status_code=404, content={"detail": "Пользователь не найден"})
+
+    user_name = list(user_row.values())[0]
+
+    cur.execute(
+        'INSERT INTO "News" (id, text_news, name, main_text, name_author) VALUES (%s, %s, %s, %s, %s) RETURNING id',
+        (new_id, text_news, name, main_text, user_name)
+    )
     db.commit()
     cur.close()
+
     return RedirectResponse(url="/profile", status_code=303)
 
 @router.get("/news_first_page")
