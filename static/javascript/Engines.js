@@ -1,3 +1,26 @@
+const scoreElement = document.getElementById('score-placeholder');
+const API_KEY = scoreElement.dataset.rawgKey;
+const GAME_NAME = document.querySelector('[data-game-name]').dataset.gameName;
+
+async function fetchMetacriticScore(gameName) {
+  try {
+    const response = await fetch(`https://api.rawg.io/api/games?search=${encodeURIComponent(gameName)}&key=${API_KEY}`);
+    const data = await response.json();
+
+    if (data.results && data.results.length > 0) {
+      const game = data.results[0];
+      document.getElementById('score-placeholder').textContent = game.metacritic || 'Нет данных';
+    } else {
+      document.getElementById('score-placeholder').textContent = 'Игра не найдена';
+    }
+  } catch (error) {
+    console.error('Ошибка при получении данных:', error);
+    document.getElementById('score-placeholder').textContent = 'Ошибка загрузки';
+  }
+}
+
+fetchMetacriticScore(GAME_NAME); 
+
 const addCommentBtn = document.getElementById('add-comment-btn');
 const commentField = document.getElementById('comment-field');
 const submitCommentBtn = document.getElementById('submit-comment-btn');
