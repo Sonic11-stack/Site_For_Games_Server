@@ -11,7 +11,7 @@ submitCommentBtn.addEventListener('click', () => {
     const gameId = window.location.pathname.split('/').pop();
 
     if (text) {
-        fetch(`/stay_comment/${gameId}`, {
+        fetch(`/stay_comment_engine/${gameId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
