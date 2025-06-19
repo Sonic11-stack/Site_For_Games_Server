@@ -1,5 +1,3 @@
-
-
 const addCommentBtn = document.getElementById('add-comment-btn');
 const commentField = document.getElementById('comment-field');
 const submitCommentBtn = document.getElementById('submit-comment-btn');
@@ -13,7 +11,7 @@ submitCommentBtn.addEventListener('click', () => {
     const gameId = window.location.pathname.split('/').pop();
 
     if (text) {
-        fetch(`/stay_comment_engine/${gameId}`, {
+        fetch(`/stay_comment/${gameId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
