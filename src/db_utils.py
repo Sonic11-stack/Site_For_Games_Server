@@ -17,7 +17,6 @@ def get_db_connection():
 
 def get_db_connection_1():
     return psycopg2.connect(
-        rawg_api_key=os.getenv("RAWG_API_KEY"),
         dbname=os.getenv("DB_NAME_1"),
         user=os.getenv("DB_USER_1"),
         password=os.getenv("DB_PASSWORD_1"),
