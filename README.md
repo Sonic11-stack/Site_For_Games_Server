@@ -34,7 +34,7 @@ CodeAndPlay — это информационный веб-сайт, посвя�
 
 <br><br>
 
-<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9f17e6a0-7278-4090-adb9-45919f9c289f"/></div>
+<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/f6c6dd0b-084f-4443-95ac-8135041aef47"/></div>
 
 <h3 align="center">Описание движка</h3>
 
