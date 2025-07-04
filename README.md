@@ -28,24 +28,24 @@ CodeAndPlay — это информационный веб-сайт, посвя�
 
 <br><br>
 
-<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9c288826-f772-4ca2-a287-9394aaf0bdd5"/></div>
+<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9f17e6a0-7278-4090-adb9-45919f9c289f"/></div>
 
 <h3 align="center">Описание игры</h3>
 
 <br><br>
 
-<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9c288826-f772-4ca2-a287-9394aaf0bdd5"/></div>
+<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9f17e6a0-7278-4090-adb9-45919f9c289f"/></div>
 
 <h3 align="center">Описание движка</h3>
 
 <br><br>
 
-<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9c288826-f772-4ca2-a287-9394aaf0bdd5"/></div>
+<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/a842f399-9c4a-4d81-afcb-673b5e8e2e70"/></div>
 
 <h3 align="center">Новостная лента</h3>
 
 <br><br>
 
-<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/9c288826-f772-4ca2-a287-9394aaf0bdd5"/></div>
+<div align="center"> <img width="800" alt="Содержание новостей" src="https://github.com/user-attachments/assets/caf35e7f-6331-49c2-96f8-4e22ffd7df7c"/></div>
 
 <h3 align="center">Содержание новостей</h3>
